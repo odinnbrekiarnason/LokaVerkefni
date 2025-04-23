@@ -1,23 +1,6 @@
 import "dart:math";
 
-String selectMonster(){
-  Random random = new Random();
-  int select = random.nextInt(3);
-  String selectedMonster = "";
-  if(select == 1) {
-    print("You are approached by something massive from the shadows!\nIts a Minotaur!");
-    selectedMonster = "Minotaur";
-  }
-  if(select == 2) {
-    print("You see a crawler in the dark!\nIts a Goblin");
-    selectedMonster = "Goblin";
-  }
-    if(select == 3) {
-      print("You see something sprinting full speed at you!\nIts a Wolf");
-      selectedMonster = "Wolf";
-    }
-  return selectedMonster;
-  }
+
 
 abstract class Monster {
   int damage = 0;
@@ -152,8 +135,4 @@ class Wolf implements Monster{
   void die() {
     print("The Wolfs health reaches 0 and he howls his last howl!");
   }
-}
-
-void main(){
-  print(selectMonster());
 }

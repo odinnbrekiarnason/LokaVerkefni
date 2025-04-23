@@ -1,6 +1,7 @@
 import 'monsters.dart';
 import 'character.dart';
 import 'dart:io';
+import 'dart:math';
 
 void attack() {
   print(
@@ -12,17 +13,17 @@ void attack() {
 
   switch(input) {
     case "1":
-      if(selectMonster().contains("Minotaur")){
+      if(selectMonster() == "Minotaur"){
       print("You attack the ${selectMonster()}");
         Minotaur().health = Player().playerDamage - Minotaur().health ;
         print("You did ${Player().playerDamage} damage!");
       }
-      else if(selectMonster().contains("Goblin")){
+      else if(selectMonster() == "Goblin"){
         print("You attack the ${selectMonster()}");
         Goblin().health = Player().playerDamage - Goblin().health;
         print("You did ${Player().playerDamage} damage!");
       }
-      else if(selectMonster().contains("Wolf")){
+      else if(selectMonster() == "Wolf"){
         print("You attack the ${selectMonster()}");
         Wolf().health = Player().playerDamage - Wolf().health ;
         print("You did ${Player().playerDamage} damage!");
@@ -46,4 +47,34 @@ void attack() {
       }
   }
 }
+class selectMonsters{
+  List<String> monster = ["Minotaur","Goblin","Wolf"];
+  Random random = new Random();
+}
+
+
+String selectMonster(){
+  List<String> monster = ["Minotaur","Goblin","Wolf"];
+  Random random = new Random();
+  int select = random.nextInt(2);
+  String selectedMonster = "";
+  selectedMonster = monster[select];
+  print(select);
+  print(selectedMonster + "aaa");
+
+  if(selectedMonster == "Minotaur") {
+    print("You are approached by something massive from the shadows!\nIts a Minotaur!");
+  }
+
+  else if(selectedMonster == "Goblin") {
+    print("You see a crawler in the dark!\nIts a Goblin");
+  }
+
+  else if(selectedMonster == "Wolf") {
+    print("You see something sprinting full speed at you!\nIts a Wolf");
+  }
+
+  return selectedMonster;
+}
+
 
