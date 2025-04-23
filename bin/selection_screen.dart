@@ -3,13 +3,13 @@ import 'items.dart';
 import 'fighting.dart';
 
 void selection(){
-  print("""You have encountered a monster what will you choose to do?
-           Please type 1, 2 or 3 to select option""");
+  print("You have encountered a monster what will you choose to do?"
+           "Please type 1, 2 or 3 to select option");
   print("1. Fight\n2. Backpack\n3. Flee");
 
-  String input = stdin.readLineSync().toString();
+  String selectionInput = stdin.readLineSync().toString();
 
-  switch(input){
+  switch(selectionInput){
     case "1":
       print("You choose to fight!");
       attack();
@@ -21,6 +21,3 @@ void selection(){
   }
 }
 
-void main(){
-  selection();
-}
