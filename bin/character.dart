@@ -1,7 +1,7 @@
 import 'monsters.dart';
 
 class Player{
-  int playerHealth = 150;
+  int playerHealth = 120;
   int playerDamage = 15;
   String playerWeapon = "Dagger";
 

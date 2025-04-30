@@ -1,6 +1,5 @@
 import "dart:math";
-
-
+import "character.dart";
 
 abstract class Monster {
   int damage = 0;
@@ -42,6 +41,7 @@ class Minotaur implements Monster {
   void attackPlayer() {
     Random random = new Random();
     int attackOrSwing = random.nextInt(100);
+    selectAttack();
     if(attackOrSwing <= 20){
       print("""
       Minotaur attacks you with an $weapon!"
@@ -81,6 +81,7 @@ class Goblin implements Monster{
   void attackPlayer() {
     Random random = new Random();
     int attackOrSwing = random.nextInt(100);
+    selectAttack();
     if(attackOrSwing <= 20){
       print("""
       Goblin attacks you with a $weapon!"
@@ -109,7 +110,8 @@ class Wolf implements Monster{
   @override
   List<String> attack = [
     "Wolf runs at you and bites you!",
-    "Wolf swipes you",
+    "Wolf swipes at you", //more attacks?
+    "Wolf howls at you"
   ];
 
   @override
@@ -123,12 +125,29 @@ class Wolf implements Monster{
 
   @override
   void attackPlayer() {
-      print("$setAttack\nHe does $damage damage!");
+      selectAttack();
+      if (setAttack.contains("howl")){
+        return;
+      }else {
+        print("$setAttack\nHe does $damage damage!");
+      }
   }
   void selectAttack(){
     Random random = new Random();
     int selectAttackMove = random.nextInt(attack.length);
     setAttack = attack[selectAttackMove];
+  }
+
+  bool howl(){
+    bool isTrue = false;
+    while(isTrue = true){
+      Player().playerDamage = Player().playerDamage - 3;
+    }
+    if (setAttack.contains("howl")){
+      print("You get effected by his howl\nYour damage is reduced by 3");
+      isTrue = true;
+    }
+    return isTrue;
   }
 
   @override

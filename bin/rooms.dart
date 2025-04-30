@@ -1,6 +1,6 @@
 abstract class Rooms {
   List rooms = [];
-  late int floor;
+  late int floors;
 
 }
 
@@ -18,10 +18,19 @@ class RoomNames implements Rooms {
   ];
 
   @override
-  int floor = 1;
+  int floors = 1;
 
-  String enterRoom(String room) {
-  return "Your have entered $room";
 }
 
+class FloorOne extends RoomNames {
+  List roomsOnFloorOne = [];
+
+  void selectRandomRooms() {
+
+
+
+  }
+  String enterRoom(String room) {
+  return "Your have entered $room";
+  }
 }
