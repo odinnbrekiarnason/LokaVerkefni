@@ -110,7 +110,7 @@ class Wolf implements Monster{
   @override
   List<String> attack = [
     "Wolf runs at you and bites you!",
-    "Wolf swipes at you", //more attacks?
+    "Wolf swipes at you",
     "Wolf howls at you"
   ];
 

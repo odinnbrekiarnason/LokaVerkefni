@@ -1,5 +1,18 @@
-import 'selection_screen.dart';
-import 'fighting.dart';
+import 'Functions.dart';
+
 void main(){
-  selection();
+ List test = ["banana","ananas","jarðaber","hamborger","kjúlli","cave","hamborger"];
+FloorOne().selectRandomRooms(FloorOne().completeList);
+print(""" 
++-----+-----+-----+
+|  A  -  B  -  C  |
++-----+--|--+-----+
++-----+--|--+-----+
+|  A  |  B  -  C  |
++--|--+--|--+-----+
++--|--+--|--+-----+
+|  A  |  B  ?  C  |
++-----+-----+-----+
+
+""");
 }
