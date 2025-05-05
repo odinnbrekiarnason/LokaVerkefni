@@ -4,7 +4,7 @@ import 'character.dart';
 
 class Items{
   List weapons = [
-    "Shortsword",
+    "ShortSword",
     "Longsword",
     "Bow",
     "Axe",
@@ -58,7 +58,7 @@ class Chest extends Items{
       int randomSelect = random.nextInt(secondaryItems.length);
       potionInChest = secondaryItems[randomSelect];
     }
-    if(r2 >= 7){
+    if(r2 >= 8){
       print("You opened a chest!\nWOW it contained $weaponInChest and $potionInChest!!");
       addToBackpack(weaponInChest);
       addToBackpack(potionInChest);

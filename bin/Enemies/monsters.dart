@@ -1,5 +1,5 @@
 import "dart:math";
-import "character.dart";
+import "../Player/character.dart";
 
 abstract class Monster {
   int damage = 0;
@@ -15,6 +15,7 @@ abstract class Monster {
 }
 
 class Minotaur implements Monster {
+
   @override
   List<String> attack = [
     "Minotaur swings his axe at you!",
@@ -38,7 +39,7 @@ class Minotaur implements Monster {
   }
 
   @override
-  void attackPlayer() {
+  String attackPlayer() {
     Random random = new Random();
     int attackOrSwing = random.nextInt(100);
     selectAttack();
@@ -51,6 +52,7 @@ class Minotaur implements Monster {
     } else if (attackOrSwing >= 21){
       print("$setAttack\nHe does $damage damage!");
     }
+    return setAttack;
   }
 
   @override
@@ -152,6 +154,9 @@ class Wolf implements Monster{
 
   @override
   void die() {
-    print("The Wolfs health reaches 0 and he howls his last howl!");
+    if(health == 0) {
+      print("The Wolfs health reaches 0 and he howls his last howl!");
+    }
   }
 }
+

@@ -6,6 +6,7 @@ abstract class Rooms {
 
 }
 
+
 class RoomNames implements Rooms {
   @override
   List rooms = [
@@ -16,10 +17,9 @@ class RoomNames implements Rooms {
     "Library",
     "Throne Room",
     "Treasure Chamber",
-    "Staircase"
+    "Staircase",
+    "Bedroom",
   ];
-
-  //List mappedNames = RoomNames.rooms.map();
 
 
   @override
@@ -32,22 +32,28 @@ class FloorOne extends RoomNames {
 
   void selectRandomRooms(roomsOnFloorOne) {
     Random random = new Random();
-    List roomsOnFloorOne = [];
+    List<String> roomsOnFloorOne = [];
     //wrap function með check fyrir randomRooms annaðhvort.contains
     // eða checka hvort randomInt == randomInt aftur idk
 
     for(int i = 0; i < rooms.length; i++){
       int randomInt = random.nextInt(rooms.length);
       String indexForName = rooms[randomInt];
-      print(indexForName);
-      if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)){
+
+        if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)){
         roomsOnFloorOne.remove(indexForName * 0);
-        Exception(roomsOnFloorOne.contains("Treasure Chamber") || roomsOnFloorOne.contains("Empty Chamber"));
+
+
         //fyrst að checka fyrir duplicate a rooms sem eg vill hafa 2 af kannski
         //siðan checka fyrir duplicates a hinum
-      } else if(roomsOnFloorOne.length < 6){
+      } else if(roomsOnFloorOne.length < 4){
         roomsOnFloorOne.add(indexForName);
        }
+    }
+    //reyna láta altaf vera "staircase" i listanum
+    int addStaircase = roomsOnFloorOne.indexOf("Staircase");
+    if(roomsOnFloorOne.contains("Staircase")){
+      print("banananana");
     }
     print(roomsOnFloorOne);
     completeList = roomsOnFloorOne;

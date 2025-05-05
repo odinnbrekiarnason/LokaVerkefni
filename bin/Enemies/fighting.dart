@@ -1,7 +1,8 @@
-import 'monsters.dart';
-import 'character.dart';
+import '../Functions.dart';
 import 'dart:io';
 import 'dart:math';
+
+
   String selectedMonster = selectMonster();
   String attackInput = stdin.readLineSync().toString();
 
@@ -48,26 +49,7 @@ void attack() {
   }
 }
 
-String selectMonster() {
-  String selectedMonster = "";
-  List<String> monster = ["Minotaur","Goblin","Wolf"];
-  Random random = new Random();
-  int select = random.nextInt(monster.length);
-  selectedMonster = monster[select];
 
-  if(selectedMonster != ""){
-    switch (selectedMonster){
-      case "Minotaur":
-        print("You are approached by something massive from the shadows!\nIts a Minotaur!");
-      case "Goblin":
-        print("You see a crawler in the dark!\nIts a Goblin!");
-      case "Wolf":
-        print("You see something sprinting full speed at you!\nIts a Wolf!");
-      default: "Err";
-    }
-  }
-  return selectedMonster;
-}
 
 
 

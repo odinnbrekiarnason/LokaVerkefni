@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'items.dart';
-import 'fighting.dart';
+import 'Player/items.dart';
+import 'Enemies/fighting.dart';
 
 void selection(){
   print("You have encountered a monster what will you choose to do?"
