@@ -25,9 +25,9 @@ String selectMonster() {
 //búa til class sem eg get gripið í til þess að geta set monsters inni rooms og hafa set monsters i set rooms ofl.
 
 void createMonster(){
-   String selectedMonster = selectMonster();
-   String setAttack = Minotaur().attackPlayer();
-   if(selectedMonster.contains("Minotaur")){
+   final String selectedMonster = selectMonster();
+   if(selectedMonster.contains("Minotaur")) {
      var minotaur = Minotaur();
+
    }
 }

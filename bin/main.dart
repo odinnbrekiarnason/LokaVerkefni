@@ -1,12 +1,11 @@
 import 'Functions.dart';
 
 void main(){
- List test = ["banana","ananas","jarðaber","hamborger","kjúlli","cave","hamborger"];
  var returnRooms = FloorOne().completeList;
 
 FloorOne().selectRandomRooms(returnRooms);
 
- print(""" 
+ /*print("""
  +--------+--------+
  |   R1   >   R2   |
  |        |        |
@@ -14,7 +13,7 @@ FloorOne().selectRandomRooms(returnRooms);
  |   R3   x   R4   |
  |        |        |
  +--------+--------+
- """);
+ """);*/
 
 }
 

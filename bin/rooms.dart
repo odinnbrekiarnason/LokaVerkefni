@@ -1,11 +1,11 @@
 import 'dart:math';
 
+
 abstract class Rooms {
   List rooms = [];
   late int floors;
 
 }
-
 
 class RoomNames implements Rooms {
   @override
@@ -21,10 +21,8 @@ class RoomNames implements Rooms {
     "Bedroom",
   ];
 
-
   @override
   int floors = 1;
-
 }
 
 class FloorOne extends RoomNames {
@@ -33,27 +31,30 @@ class FloorOne extends RoomNames {
   void selectRandomRooms(roomsOnFloorOne) {
     Random random = new Random();
     List<String> roomsOnFloorOne = [];
-    //wrap function með check fyrir randomRooms annaðhvort.contains
+    // wrap function með check fyrir randomRooms annaðhvort.contains
     // eða checka hvort randomInt == randomInt aftur idk
 
-    for(int i = 0; i < rooms.length; i++){
+    for(int i = 0; i < rooms.length; i++) {
       int randomInt = random.nextInt(rooms.length);
       String indexForName = rooms[randomInt];
 
         if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)){
         roomsOnFloorOne.remove(indexForName * 0);
-
-
         //fyrst að checka fyrir duplicate a rooms sem eg vill hafa 2 af kannski
         //siðan checka fyrir duplicates a hinum
-      } else if(roomsOnFloorOne.length < 4){
+
+      } else if(roomsOnFloorOne.length < 4) {
         roomsOnFloorOne.add(indexForName);
        }
     }
-    //reyna láta altaf vera "staircase" i listanum
+    //reyna láta alltaf vera "staircase" i listanum
     int addStaircase = roomsOnFloorOne.indexOf("Staircase");
-    if(roomsOnFloorOne.contains("Staircase")){
-      print("banananana");
+    try {
+      if (roomsOnFloorOne[addStaircase].isEmpty) {
+      }
+    } catch(e){
+      roomsOnFloorOne.add("Staircase");
+      print("Adding staircase...");
     }
     print(roomsOnFloorOne);
     completeList = roomsOnFloorOne;
@@ -63,5 +64,11 @@ class FloorOne extends RoomNames {
   String enterRoom(String room) {
   return "Your have entered $room";
   }
+}
+
+class CurrentRoom{
+  List chest = [];
+  String roomName = "";
+
 }
 

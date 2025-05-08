@@ -127,7 +127,9 @@ class Wolf implements Monster{
 
   @override
   void attackPlayer() {
+
       selectAttack();
+
       if (setAttack.contains("howl")){
         return;
       }else {
@@ -141,9 +143,10 @@ class Wolf implements Monster{
   }
 
   bool howl(){
+    Player player = Player("");
     bool isTrue = false;
     while(isTrue = true){
-      Player().playerDamage = Player().playerDamage - 3;
+      player.playerDamage = player.playerDamage - 3;
     }
     if (setAttack.contains("howl")){
       print("You get effected by his howl\nYour damage is reduced by 3");
