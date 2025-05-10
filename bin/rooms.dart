@@ -2,6 +2,7 @@ import 'dart:math';
 
 abstract class Rooms {
   List rooms = [];
+  List mobRooms = [];
   late int floors;
 
 }
@@ -19,6 +20,12 @@ class RoomNames implements Rooms {
     "Treasure Chamber",
     "Staircase",
     "Bedroom",
+    "Sleeping Quarters",
+  ];
+
+  @override
+  List mobRooms = [
+
   ];
 
 
@@ -64,4 +71,6 @@ class FloorOne extends RoomNames {
   return "Your have entered $room";
   }
 }
+
+
 
