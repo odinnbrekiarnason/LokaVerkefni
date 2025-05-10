@@ -2,7 +2,6 @@ import '../Functions.dart';
 import 'dart:io';
 import 'dart:math';
 
-
   String selectedMonster = selectMonster();
   String attackInput = stdin.readLineSync().toString();
 

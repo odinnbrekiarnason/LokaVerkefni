@@ -1,9 +1,9 @@
 import 'Functions.dart';
 
 void main(){
- var returnRooms = FloorOne().completeList;
+ //var returnRooms = FloorOne().completeList;
+ //FloorOne().selectRandomRooms(returnRooms);
 
-FloorOne().selectRandomRooms(returnRooms);
 
  /*print("""
  +--------+--------+

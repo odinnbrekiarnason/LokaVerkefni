@@ -66,7 +66,7 @@ class FloorOne extends RoomNames {
   }
 }
 
-class CurrentRoom{
+class CurrentRoom {
   List chest = [];
   String roomName = "";
 
