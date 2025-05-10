@@ -2,7 +2,7 @@ import 'dart:io';
 import 'dart:math';
 import 'character.dart';
 
-class Items{
+class Items {
   List weapons = [
     "ShortSword",
     "Longsword",
@@ -21,19 +21,20 @@ class Items{
     "Bandage"
   ];
 
-  void openBackPack(){
+  void openBackPack() {
     print("Your backpack contains:");
     for(String item in backpack){
-      print(item);
+      print("|${item}|");
     }
   }
 }
 
-class Chest extends Items{
+class Chest extends Items {
   bool isTrapped = false;
 
 
-  void openChest(){
+  void openChest() {
+    Player player = Player("");
     Random random = new Random();
     int r1 = random.nextInt(2);
     int r2 = random.nextInt(10);
@@ -41,29 +42,29 @@ class Chest extends Items{
     String weaponInChest = "";
     String potionInChest = "";
 
-    if(trapped <= 50){
+    if(trapped <= 50) {
       isTrapped = true;
     }
-    if(isTrapped == true){
+    if(isTrapped == true) {
       print("It was a trapped chest!!\nYou take 6 damage!");
-      Player().playerHealth = Player().playerHealth - 6;
+      player.playerHealth = player.playerHealth - 6;
       return;
     }
 
-    if(r1 == 1){
+    if(r1 == 1) {
       int randomSelect = random.nextInt(weapons.length);
       weaponInChest = weapons[randomSelect];
     }
-    else if(r1 == 2){
+    else if(r1 == 2) {
       int randomSelect = random.nextInt(secondaryItems.length);
       potionInChest = secondaryItems[randomSelect];
     }
-    if(r2 >= 8){
+    if(r2 >= 8) {
       print("You opened a chest!\nWOW it contained $weaponInChest and $potionInChest!!");
       addToBackpack(weaponInChest);
       addToBackpack(potionInChest);
     }
-    else{
+    else {
     print("You opened a chest!\nIt contained $weaponInChest");
     addToBackpack(weaponInChest);
     }
@@ -71,7 +72,6 @@ class Chest extends Items{
   void addToBackpack(item) {
     backpack.add(item);
   }
-
-
 }
+
 

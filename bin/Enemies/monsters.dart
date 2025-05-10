@@ -7,9 +7,9 @@ abstract class Monster {
   List<String> attack = [];
   String setAttack = "";
 
-  void attackPlayer(){
+  void attackPlayer() {
   }
-  void die(){
+  void die() {
 
   }
 }
@@ -32,7 +32,7 @@ class Minotaur implements Monster {
   @override
   int health = 200;
 
-  void selectAttack(){
+  void selectAttack() {
     Random random = new Random();
     int selectAttackMove = random.nextInt(attack.length);
     setAttack = attack[selectAttackMove];
@@ -43,13 +43,13 @@ class Minotaur implements Monster {
     Random random = new Random();
     int attackOrSwing = random.nextInt(100);
     selectAttack();
-    if(attackOrSwing <= 20){
+    if(attackOrSwing <= 20) {
       print("""
       Minotaur attacks you with an $weapon!"
       \nYou take ${damage + 5} damage
       \nIt has $health health left!"""
       );
-    } else if (attackOrSwing >= 21){
+    } else if (attackOrSwing >= 21) {
       print("$setAttack\nHe does $damage damage!");
     }
     return setAttack;
@@ -57,13 +57,13 @@ class Minotaur implements Monster {
 
   @override
   void die() {
-    if(health <= 0){
+    if(health <= 0) {
       print("The Minotaurs health reaches 0 and he slams to the ground!");
     }
   }
 }
 
-class Goblin implements Monster{
+class Goblin implements Monster {
   @override
   List<String> attack = [
     "Goblin claws at you",
@@ -84,17 +84,17 @@ class Goblin implements Monster{
     Random random = new Random();
     int attackOrSwing = random.nextInt(100);
     selectAttack();
-    if(attackOrSwing <= 20){
+    if(attackOrSwing <= 20) {
       print("""
       Goblin attacks you with a $weapon!"
       \nYou take ${damage + 2} damage
       \nIt has $health health left!"""
       );
-    } else if (attackOrSwing >= 21){
+    } else if (attackOrSwing >= 21) {
       print("$setAttack\nHe does $damage damage!");
     }
   }
-  void selectAttack(){
+  void selectAttack() {
     Random random = new Random();
     int selectAttackMove = random.nextInt(attack.length);
     setAttack = attack[selectAttackMove];
@@ -102,13 +102,13 @@ class Goblin implements Monster{
 
   @override
   void die() {
-    if(health <= 0){
+    if(health <= 0) {
       print("The Goblins health reaches 0 and he falls on the ground!");
     }
   }
 }
 
-class Wolf implements Monster{
+class Wolf implements Monster {
   @override
   List<String> attack = [
     "Wolf runs at you and bites you!",
@@ -128,24 +128,27 @@ class Wolf implements Monster{
   @override
   void attackPlayer() {
       selectAttack();
-      if (setAttack.contains("howl")){
+
+      if (setAttack.contains("howl")) {
+        howl();
         return;
       }else {
         print("$setAttack\nHe does $damage damage!");
       }
   }
-  void selectAttack(){
+  void selectAttack() {
     Random random = new Random();
     int selectAttackMove = random.nextInt(attack.length);
     setAttack = attack[selectAttackMove];
   }
 
-  bool howl(){
+  bool howl() {
+    Player player = Player("");
     bool isTrue = false;
-    while(isTrue = true){
-      Player().playerDamage = Player().playerDamage - 3;
+    while(isTrue = true) {
+      player.playerDamage = player.playerDamage - 3;
     }
-    if (setAttack.contains("howl")){
+    if (setAttack.contains("howl")) {
       print("You get effected by his howl\nYour damage is reduced by 3");
       isTrue = true;
     }
