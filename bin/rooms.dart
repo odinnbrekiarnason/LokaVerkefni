@@ -42,26 +42,33 @@ class FloorOne extends RoomNames {
 
         if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)){
         roomsOnFloorOne.remove(indexForName * 0);
-
-
         //fyrst að checka fyrir duplicate a rooms sem eg vill hafa 2 af kannski
         //siðan checka fyrir duplicates a hinum
       } else if(roomsOnFloorOne.length < 4){
         roomsOnFloorOne.add(indexForName);
        }
     }
-    //reyna láta altaf vera "staircase" i listanum
-    int addStaircase = roomsOnFloorOne.indexOf("Staircase");
-    if(roomsOnFloorOne.contains("Staircase")){
-      print("banananana");
+
+    for(String room in roomsOnFloorOne){
+      if(room != "Staircase"){
+
+      }
     }
+
     print(roomsOnFloorOne);
     completeList = roomsOnFloorOne;
   }
 
 
-  String enterRoom(String room) {
-  return "Your have entered $room";
+  void enterRoom(List room) {
+    selectRandomRooms(rooms);
+    String roomDrawing = "-";
+    for (int i = 0; i < completeList.length; i++) {
+      print("+" + roomDrawing * completeList[i].length + "+");
+      print("|" + completeList[i] + "|");
+      print("+" + roomDrawing * completeList[i].length + "+");
+
+    }
   }
 }
 
