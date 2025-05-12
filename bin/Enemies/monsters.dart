@@ -143,7 +143,7 @@ class Wolf implements Monster {
   }
 
   bool howl() {
-    Player player = Player("");
+    Player player = Player();
     bool isTrue = false;
     while(isTrue = true) {
       player.playerDamage = player.playerDamage - 3;

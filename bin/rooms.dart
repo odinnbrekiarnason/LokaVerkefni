@@ -1,3 +1,4 @@
+import '../bin/Functions.dart';
 import 'dart:math';
 
 abstract class Rooms {
@@ -5,21 +6,50 @@ abstract class Rooms {
   late int floors;
 
 }
+enum RoomContent {
+  armory,
+  diningRoom,
+  emptyChamber,
+  kitchen,
+  library,
+  throneRoom,
+  treasureChamber,
+  staircase,
+  bedroom,
+}
+
+class currentRoom extends Chest {
+  final String name;
+  final String id;
+  final String description;
+  final bool? isThereChest;
+  final List? items;
+
+  currentRoom({
+   required this.name,
+    required this.id,
+    required this.description,
+    this.isThereChest,
+    this.items
+});
+}
+
+
 
 
 class RoomNames implements Rooms {
   @override
-  List rooms = [
-    "Armory",
-    "Dining Room",
-    "Empty Chamber",
-    "Kitchen",
-    "Library",
-    "Throne Room",
-    "Treasure Chamber",
-    "Staircase",
-    "Bedroom",
-  ];
+  Map<> {
+  /*Roomcontent.armory."Armory",
+  "Dining Room",
+  "Empty Chamber",
+  "Kitchen",
+  "Library",
+  "Throne Room",
+  "Treasure Chamber",
+  "Staircase",
+  "Bedroom",*/
+  };
 
 
   @override

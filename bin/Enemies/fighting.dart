@@ -6,7 +6,7 @@ import 'dart:math';
   String attackInput = stdin.readLineSync().toString();
 
 void attack() {
-  Player player = Player("");
+  Player player = Player();
   print(
     "What attack would you like to do?\n"
     "1.Normal attack\n2.Heavy attack\n"
