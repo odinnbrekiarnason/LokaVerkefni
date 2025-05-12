@@ -16,7 +16,7 @@ void attack() {
     case "1":
       if(selectedMonster == "Minotaur"){
       print("You attack the $selectedMonster");
-        Minotaur().health = player.playerDamage - Minotaur().health ;
+      Minotaur().health = player.playerDamage - Minotaur().health ;
         print("You did ${player.playerDamage} damage!");
       }
       else if(selectedMonster == "Goblin"){

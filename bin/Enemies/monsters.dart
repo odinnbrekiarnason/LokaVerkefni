@@ -6,11 +6,12 @@ abstract class Monster {
   int health = 0;
   List<String> attack = [];
   String setAttack = "";
+  bool? isDead;
 
-  void attackPlayer() {
+  void attackPlayer(Player player) {
   }
-  void die() {
-
+  bool checkIfDead() {
+    return isDead!;
   }
 }
 
@@ -22,6 +23,7 @@ class Minotaur implements Monster {
     "Minotaur charges in your direction!",
     "Minotaur hurls a boulder at you!"
   ];
+
   @override
   String setAttack = "";
   String weapon = "Axe";
@@ -39,28 +41,37 @@ class Minotaur implements Monster {
   }
 
   @override
-  String attackPlayer() {
+  String attackPlayer(Player player) {
     Random random = new Random();
     int attackOrSwing = random.nextInt(100);
     selectAttack();
     if(attackOrSwing <= 20) {
       print("""
-      Minotaur attacks you with an $weapon!"
+      Minotaur attacks you with an $weapon!
       \nYou take ${damage + 5} damage
-      \nIt has $health health left!"""
-      );
+      \nIt has $health health left!
+      """);
+      player.currentPlayerHealth = player.currentPlayerHealth - (damage + 5);
     } else if (attackOrSwing >= 21) {
       print("$setAttack\nHe does $damage damage!");
     }
     return setAttack;
   }
 
+
+
   @override
-  void die() {
+  bool checkIfDead() {
+    bool isDead = false;
     if(health <= 0) {
       print("The Minotaurs health reaches 0 and he slams to the ground!");
+      isDead = true;
     }
+    return isDead;
   }
+
+  @override
+  bool? isDead;
 }
 
 class Goblin implements Monster {
@@ -80,7 +91,7 @@ class Goblin implements Monster {
   int health = 50;
 
   @override
-  void attackPlayer() {
+  void attackPlayer(Player player) {
     Random random = new Random();
     int attackOrSwing = random.nextInt(100);
     selectAttack();
@@ -90,6 +101,7 @@ class Goblin implements Monster {
       \nYou take ${damage + 2} damage
       \nIt has $health health left!"""
       );
+      player.currentPlayerHealth = player.currentPlayerHealth - (damage + 2);
     } else if (attackOrSwing >= 21) {
       print("$setAttack\nHe does $damage damage!");
     }
@@ -101,9 +113,12 @@ class Goblin implements Monster {
   }
 
   @override
-  void die() {
+  bool checkIfDead() {
     if(health <= 0) {
       print("The Goblins health reaches 0 and he falls on the ground!");
+      return true;
+    } else {
+      return false;
     }
   }
 }
@@ -126,13 +141,13 @@ class Wolf implements Monster {
   String setAttack = "";
 
   @override
-  void attackPlayer() {
+  void attackPlayer(Player player) {
       selectAttack();
 
       if (setAttack.contains("howl")) {
         howl();
         return;
-      }else {
+      } else {
         print("$setAttack\nHe does $damage damage!");
       }
   }
@@ -156,9 +171,13 @@ class Wolf implements Monster {
   }
 
   @override
-  void die() {
+  bool checkIfDead() {
     if(health == 0) {
       print("The Wolfs health reaches 0 and he howls his last howl!");
+      isDead = true;
+      return isDead!;
+    } else {
+      return isDead!;
     }
   }
 }

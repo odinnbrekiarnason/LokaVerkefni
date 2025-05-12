@@ -10,7 +10,6 @@ class Player extends Items {
   bool? debuffs = false;
   bool? isDead = false;
 
-
   //bookMark
   List getPlayerInfo(playerName) {
     List info = [

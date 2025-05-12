@@ -18,19 +18,19 @@ enum RoomContent {
   bedroom,
 }
 
-class currentRoom extends Chest {
+class CurrentRoom extends Chest {
   final String name;
   final String id;
   final String description;
   final bool? isThereChest;
-  final List? items;
 
-  currentRoom({
-   required this.name,
+  CurrentRoom(
+      super.item, {
+    required this.name,
     required this.id,
     required this.description,
-    this.isThereChest,
-    this.items
+    required this.isThereChest,
+
 });
 }
 
@@ -39,8 +39,8 @@ class currentRoom extends Chest {
 
 class RoomNames implements Rooms {
   @override
-  Map<> {
-  /*Roomcontent.armory."Armory",
+  List rooms = [
+  "Armory",
   "Dining Room",
   "Empty Chamber",
   "Kitchen",
@@ -48,8 +48,8 @@ class RoomNames implements Rooms {
   "Throne Room",
   "Treasure Chamber",
   "Staircase",
-  "Bedroom",*/
-  };
+  "Bedroom",
+  ];
 
 
   @override

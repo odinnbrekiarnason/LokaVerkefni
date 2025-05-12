@@ -27,7 +27,7 @@ String selectMonster() {
 void createMonster(){
    final String selectedMonster = selectMonster();
    if(selectedMonster.contains("Minotaur")) {
-     var minotaur = Minotaur();
+     Minotaur minotaur = Minotaur();
 
    }
 }
