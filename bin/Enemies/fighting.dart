@@ -5,7 +5,7 @@ import 'dart:math';
   String selectedMonster = selectMonster();
   String attackInput = stdin.readLineSync().toString();
 
-void attack() {
+void attackMonster() {
   Player player = Player();
   print(
     "What attack would you like to do?\n"

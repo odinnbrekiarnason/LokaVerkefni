@@ -1,63 +1,32 @@
-import '../bin/Functions.dart';
+import '../Functions.dart';
 import 'dart:math';
 
-abstract class Rooms {
+abstract class Dungeon {
   List rooms = [];
-  late int floors;
-
-}
-enum RoomContent {
-  armory,
-  diningRoom,
-  emptyChamber,
-  kitchen,
-  library,
-  throneRoom,
-  treasureChamber,
-  staircase,
-  bedroom,
+  int floors = 3;
 }
 
-class CurrentRoom extends Chest {
-  final String name;
-  final String id;
-  final String description;
-  final bool? isThereChest;
+class Rooms implements Dungeon {
 
-  CurrentRoom(
-      super.item, {
-    required this.name,
-    required this.id,
-    required this.description,
-    required this.isThereChest,
-
-});
-}
-
-
-
-
-class RoomNames implements Rooms {
   @override
   List rooms = [
-  "Armory",
-  "Dining Room",
-  "Empty Chamber",
-  "Kitchen",
-  "Library",
-  "Throne Room",
-  "Treasure Chamber",
-  "Staircase",
-  "Bedroom",
+    "Armory",
+    "Dining Room",
+    "Empty Chamber",
+    "Kitchen",
+    "Library",
+    "Throne Room",
+    "Treasure Chamber",
+    "Staircase",
+    "Bedroom",
   ];
 
-
   @override
-  int floors = 1;
+  int floors = 3;
 
 }
 
-class FloorOne extends RoomNames {
+class FloorOne extends Rooms {
   List completeList = [];
 
   void selectRandomRooms(roomsOnFloorOne) {
@@ -70,18 +39,19 @@ class FloorOne extends RoomNames {
       int randomInt = random.nextInt(rooms.length);
       String indexForName = rooms[randomInt];
 
-        if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)){
+      if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)){
         roomsOnFloorOne.remove(indexForName * 0);
         //fyrst að checka fyrir duplicate a rooms sem eg vill hafa 2 af kannski
         //siðan checka fyrir duplicates a hinum
       } else if(roomsOnFloorOne.length < 4){
         roomsOnFloorOne.add(indexForName);
-       }
+      }
     }
 
-    for(String room in roomsOnFloorOne){
-      if(room != "Staircase"){
-
+    for(int i = 0; i < roomsOnFloorOne.length; i++){
+      if(roomsOnFloorOne.contains("Staircase")){
+      } else {
+        roomsOnFloorOne.add("Staircase");
       }
     }
 
@@ -89,15 +59,13 @@ class FloorOne extends RoomNames {
     completeList = roomsOnFloorOne;
   }
 
-
-  void enterRoom(List room) {
+  void enterRoom() {
     selectRandomRooms(rooms);
     String roomDrawing = "-";
     for (int i = 0; i < completeList.length; i++) {
       print("+" + roomDrawing * completeList[i].length + "+");
       print("|" + completeList[i] + "|");
       print("+" + roomDrawing * completeList[i].length + "+");
-
     }
   }
 }

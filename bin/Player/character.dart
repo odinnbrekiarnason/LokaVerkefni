@@ -10,19 +10,19 @@ class Player extends Items {
   bool? debuffs = false;
   bool? isDead = false;
 
-  //bookMark
-  List getPlayerInfo(playerName) {
+
+  List getPlayerInfo() {
     List info = [
-      playerMaxHealth = 120,
-      currentPlayerHealth,
-      playerDamage = 15,
-      weaponInHand,
+      "Max health", playerMaxHealth = 120,
+      "Current health:", currentPlayerHealth,
+      "Damage:", playerDamage = 15,
+      "Your weapon:", weaponInHand,
     ];
 
     return info;
   }
 
-  void gameOver(){
+  bool gameOver(){
     if(currentPlayerHealth <= 0){
       print("Your health reaches 0 and you collapse!");
       //gera stórt game over sign vv
@@ -30,6 +30,9 @@ class Player extends Items {
       
       """);
       isDead = true;
+    } else {
+      isDead = false;
+    }
+      return isDead!;
     }
   }
-}

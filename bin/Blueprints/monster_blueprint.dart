@@ -16,7 +16,7 @@ String selectMonster() {
         print("You see a crawler in the dark!\nIts a Goblin!");
       case "Wolf":
         print("You see something sprinting full speed at you!\nIts a Wolf!");
-      default: "Err";
+      default: "Error";
     }
   }
   return selectedMonster;

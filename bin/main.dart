@@ -1,10 +1,12 @@
 import 'Functions.dart';
 
 void main(){
+ createPLayer();
 
- var returnRooms = FloorOne().completeList;
+
+/*var returnRooms = FloorOne().completeList;
  FloorOne().selectRandomRooms(returnRooms);
- FloorOne().enterRoom(returnRooms);
+ FloorOne().enterRoom(returnRooms);*/
 
  /*print("""
  +--------+--------+

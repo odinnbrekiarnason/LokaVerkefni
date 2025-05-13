@@ -12,7 +12,7 @@ void selection(){
   switch(selectionInput){
     case "1":
       print("You choose to fight!");
-      attack();
+      attackMonster();
     case "2":
       print("You have opened your backpack");
       Items().openBackPack();

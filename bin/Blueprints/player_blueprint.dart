@@ -1,7 +1,7 @@
 import '../Player/character.dart';
 import 'dart:io';
 
-void createPLayer(){
+Player createPLayer() {
   print("Hello you are about to create your character what would you like to name him/her");
   Player playerOne = Player();
   playerOne.playerName = stdin.readLineSync().toString();
@@ -22,4 +22,8 @@ void createPLayer(){
         continue;
     }
   }
+  print("This is your character!");
+  print(playerOne.getPlayerInfo());
+  return playerOne;
 }
+

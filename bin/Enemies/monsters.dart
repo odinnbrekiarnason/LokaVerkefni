@@ -58,20 +58,19 @@ class Minotaur implements Monster {
     return setAttack;
   }
 
-
+  @override
+  bool? isDead;
 
   @override
   bool checkIfDead() {
-    bool isDead = false;
     if(health <= 0) {
       print("The Minotaurs health reaches 0 and he slams to the ground!");
       isDead = true;
+    } else {
+      isDead = false;
     }
-    return isDead;
+    return isDead!;
   }
-
-  @override
-  bool? isDead;
 }
 
 class Goblin implements Monster {
@@ -113,14 +112,20 @@ class Goblin implements Monster {
   }
 
   @override
+  bool? isDead;
+
+  @override
   bool checkIfDead() {
     if(health <= 0) {
       print("The Goblins health reaches 0 and he falls on the ground!");
-      return true;
+      isDead = true;
     } else {
-      return false;
+        isDead = false;
     }
+    return isDead!;
   }
+
+
 }
 
 class Wolf implements Monster {
@@ -143,9 +148,8 @@ class Wolf implements Monster {
   @override
   void attackPlayer(Player player) {
       selectAttack();
-
       if (setAttack.contains("howl")) {
-        howl();
+        howl(player);
         return;
       } else {
         print("$setAttack\nHe does $damage damage!");
@@ -157,8 +161,7 @@ class Wolf implements Monster {
     setAttack = attack[selectAttackMove];
   }
 
-  bool howl() {
-    Player player = Player();
+  bool howl(Player player) {
     bool isTrue = false;
     while(isTrue = true) {
       player.playerDamage = player.playerDamage - 3;
@@ -166,19 +169,25 @@ class Wolf implements Monster {
     if (setAttack.contains("howl")) {
       print("You get effected by his howl\nYour damage is reduced by 3");
       isTrue = true;
+      player.debuffs = true;
     }
     return isTrue;
   }
+
+  @override
+  bool? isDead;
 
   @override
   bool checkIfDead() {
     if(health == 0) {
       print("The Wolfs health reaches 0 and he howls his last howl!");
       isDead = true;
-      return isDead!;
     } else {
-      return isDead!;
+      isDead = false;
     }
+    return isDead!;
   }
+
+
 }
 
