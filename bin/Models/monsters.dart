@@ -1,5 +1,5 @@
 import "dart:math";
-import "../Player/character.dart";
+import "character.dart";
 
 abstract class Monster {
   int damage = 0;
@@ -124,8 +124,6 @@ class Goblin implements Monster {
     }
     return isDead!;
   }
-
-
 }
 
 class Wolf implements Monster {
@@ -187,7 +185,5 @@ class Wolf implements Monster {
     }
     return isDead!;
   }
-
-
 }
 

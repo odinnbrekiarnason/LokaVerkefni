@@ -1,4 +1,4 @@
-import '../Player/character.dart';
+import '../Models/character.dart';
 import 'dart:io';
 
 Player createPLayer() {

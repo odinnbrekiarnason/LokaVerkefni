@@ -1,80 +1,25 @@
 import 'dart:io';
 import 'dart:math';
-import 'character.dart';
+import '../Models/character.dart';
+import '../Models/item.dart';
 
 class Items {
-  List weapons = [
-    "ShortSword",
-    "Longsword",
-    "Bow",
-    "Axe",
-    "Dagger",
-  ];
-  List secondaryItems = [
-    "Healing Potion",
-    "Stamina Potion",
-    "Arrows",
-    "Bandage",
-  ];
-  List backpack = [
-    "Health potion",
-    "Bandage"
+  List<Weapon> weapons = [
+    Weapon(name: "ShortSword", damage: 10, description: "A tiny sword not that great damage"),
+    Weapon(name: "Longsword", damage: 15, description: "A mighty sword meant for knights"),
+    Bow(name: "Bow", damage: 13, description: "A fine instrument of death dates back over 200 years!"),
+    Weapon(name: "Battle Axe", damage: 17, description: "A massive two sided axe, probably used by vikings"),
+    Weapon(name: "Dagger", damage: 8, description: "A tiny knife, no reach and terrible damage"),
   ];
 
-  void openBackPack() {
-    print("Your backpack contains:");
-    for(String item in backpack){
-      print("|${item}|");
-    }
-  }
+  List<Healing> healingItems = [
+    Healing(name: "Healing Potion", healing: 20, description: "Heals you for 20 health"),
+    Healing(name: "Bandage", healing: 10, description: "Heals you for 10 health"),
+  ];
+
+  List<Secondary> secondaryItems= [
+    Secondary(name: "Arrow", description: "Arrow"),
+    Secondary(name: "Milk", description: "Just a milk carton... it removes debuffs!"),
+
+  ];
 }
-
-class Chest extends Items {
-  Items item;
-  bool isTrapped = false;
-
-  Chest(this.item);
-
-
-  void openChest() {
-    Player player = Player();
-    Random random = new Random();
-    int r1 = random.nextInt(2);
-    int r2 = random.nextInt(10);
-    int trapped = random.nextInt(1000);
-    String weaponInChest = "";
-    String potionInChest = "";
-
-    if(trapped <= 50) {
-      isTrapped = true;
-    }
-    if(isTrapped == true) {
-      print("It was a trapped chest!!\nYou take 6 damage!");
-      player.currentPlayerHealth = player.currentPlayerHealth - 6;
-      return;
-    }
-
-    if(r1 == 1) {
-      int randomSelect = random.nextInt(weapons.length);
-      weaponInChest = weapons[randomSelect];
-    }
-    else if(r1 == 2) {
-      int randomSelect = random.nextInt(secondaryItems.length);
-      potionInChest = secondaryItems[randomSelect];
-    }
-    if(r2 >= 8) {
-      print("You opened a chest!\nWOW it contained $weaponInChest and $potionInChest!!");
-      addToBackpack(weaponInChest);
-      addToBackpack(potionInChest);
-    }
-    else {
-    print("You opened a chest!\nIt contained $weaponInChest");
-    addToBackpack(weaponInChest);
-    }
-  }
-  void addToBackpack(item) {
-    backpack.add(item);
-  }
-}
-
-
