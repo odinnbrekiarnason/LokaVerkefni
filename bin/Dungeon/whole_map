@@ -1,0 +1,14 @@
+void showMap(){
+  print("""
+ [Dining Room] ↔ [Kitchen]
+     ↕
+[>StartingPoint<] ↔ [Storage Room] 
+     ↕                       ↕
+  [Armory] ↔ [Hallway] ↔ [Library]
+     ↕
+[Storage Room] 
+     ↕
+[Boss Room] ↔ [staircase] 
+  """
+);
+}

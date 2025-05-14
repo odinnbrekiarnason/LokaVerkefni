@@ -7,7 +7,7 @@ export 'selection_screen.dart';
 export 'lokaverkefni_maybe.dart';
 export 'Blueprints/player_blueprint.dart';
 export 'Blueprints/monster_blueprint.dart';
-export 'Dungeon/theDungeon.dart';
+export 'Dungeon/the_dungeon.dart';
 export 'Models/chest.dart';
 export 'Models/item.dart';
 

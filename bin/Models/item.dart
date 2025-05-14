@@ -7,6 +7,12 @@ class Item {
   Item({required this.name, required this.description});
 }
 
+class Key extends Item {
+  bool isKey = true;
+  Key({required super.name, required super.description});
+  
+}
+
  class Weapon extends Item{
   final int damage;
   int attack(Player player){

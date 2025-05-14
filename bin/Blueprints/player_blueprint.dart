@@ -3,7 +3,7 @@ import 'dart:io';
 
 Player createPLayer() {
   print("Hello you are about to create your character what would you like to name him/her");
-  Player playerOne = Player();
+  Player playerOne = Player(playerName: "");
   playerOne.playerName = stdin.readLineSync().toString();
 
   bool correctName = true;

@@ -35,14 +35,14 @@ class Minotaur implements Monster {
   int health = 200;
 
   void selectAttack() {
-    Random random = new Random();
+    Random random = Random();
     int selectAttackMove = random.nextInt(attack.length);
     setAttack = attack[selectAttackMove];
   }
 
   @override
   String attackPlayer(Player player) {
-    Random random = new Random();
+    Random random = Random();
     int attackOrSwing = random.nextInt(100);
     selectAttack();
     if(attackOrSwing <= 20) {
@@ -91,7 +91,7 @@ class Goblin implements Monster {
 
   @override
   void attackPlayer(Player player) {
-    Random random = new Random();
+    Random random = Random();
     int attackOrSwing = random.nextInt(100);
     selectAttack();
     if(attackOrSwing <= 20) {
@@ -106,7 +106,7 @@ class Goblin implements Monster {
     }
   }
   void selectAttack() {
-    Random random = new Random();
+    Random random = Random();
     int selectAttackMove = random.nextInt(attack.length);
     setAttack = attack[selectAttackMove];
   }
@@ -154,7 +154,7 @@ class Wolf implements Monster {
       }
   }
   void selectAttack() {
-    Random random = new Random();
+    Random random = Random();
     int selectAttackMove = random.nextInt(attack.length);
     setAttack = attack[selectAttackMove];
   }

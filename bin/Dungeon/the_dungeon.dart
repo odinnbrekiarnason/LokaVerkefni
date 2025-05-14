@@ -16,7 +16,9 @@ enum RoomType {
   throneRoom,
   treasureChamber,
   staircase,
-  bedroom;
+  bedroom,
+  startingPoint,
+  storageRoom,
 }
 
 class RoomNames implements Dungeon {
@@ -32,6 +34,8 @@ class RoomNames implements Dungeon {
     RoomType.treasureChamber : "Treasure Chamber",
     RoomType.staircase : "Staircase",
     RoomType.bedroom : "Bedroom",
+    RoomType.startingPoint : "Starting Point",
+    RoomType.storageRoom : "Storage Room",
   };
 
   @override
@@ -43,7 +47,7 @@ class FloorOne extends RoomNames {
   List completeList = [];
 
   void selectRandomRooms(List roomsOnFloorOne) {
-    Random random = new Random();
+    Random random = Random();
     List<String> roomsOnFloorOne = [];
     //wrap function með check fyrir randomRooms annaðhvort.contains
     // eða checka hvort randomInt == randomInt aftur idk
@@ -73,17 +77,6 @@ class FloorOne extends RoomNames {
 
     print(roomsOnFloorOne);
     completeList = roomsOnFloorOne;
-  }
-
-  void enterRoom(Room room) {
-    String roomDrawing = "-";
-    for (int i = 0; i < completeList.length; i++) {
-      print(""""
-      +${roomDrawing * completeList[i].length}+
-      |${completeList[i]}|
-      +${roomDrawing * completeList[i].length}+
-      """);
-    }
   }
 }
 

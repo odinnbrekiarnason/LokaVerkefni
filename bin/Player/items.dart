@@ -1,6 +1,3 @@
-import 'dart:io';
-import 'dart:math';
-import '../Models/character.dart';
 import '../Models/item.dart';
 
 class Items {
@@ -20,6 +17,10 @@ class Items {
   List<Secondary> secondaryItems= [
     Secondary(name: "Arrow", description: "Arrow"),
     Secondary(name: "Milk", description: "Just a milk carton... it removes debuffs!"),
-
   ];
+  List<Key> keys = [
+    Key(name: "Key", description: "A key to open a door"),
+    Key(name: "BossRoomKey", description: "A key to open a door to the boss room"),
+  ];
+  
 }

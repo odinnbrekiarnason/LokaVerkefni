@@ -1,6 +1,4 @@
-import 'monsters.dart';
 import '../Functions.dart';
-import '../Models/item.dart';
 
 
 class Player extends Items {
@@ -12,9 +10,15 @@ class Player extends Items {
   bool? debuffs = false;
   bool? isDead = false;
   List<Item> backpack = [
-    Item(name: "Health Potion", description: ""),
-    Item(name: "Bandage", description: ""),
+    Key(name: "Key", description:"A shiny key"),
+    Item(name: "Bandage", description: "Heals 10 health"),
   ];
+
+  Player({required this.playerName});
+
+  void movePlayer(Player player){
+    
+  }
 
   void openBackPack() {
     print("Your backpack contains:");

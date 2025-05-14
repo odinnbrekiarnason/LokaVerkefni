@@ -4,7 +4,7 @@ import '../Functions.dart';
 String selectMonster() {
   String selectedMonster = "";
   List<String> monster = ["Minotaur","Goblin","Wolf"];
-  Random random = new Random();
+  Random random = Random();
   int select = random.nextInt(monster.length);
   selectedMonster = monster[select];
 
@@ -28,6 +28,14 @@ void createMonster(){
    final String selectedMonster = selectMonster();
    if(selectedMonster.contains("Minotaur")) {
      Minotaur minotaur = Minotaur();
-
    }
+    else if(selectedMonster.contains("Goblin")) {
+      Goblin goblin = Goblin();
+    }
+    else if(selectedMonster.contains("Wolf")) {
+      Wolf wolf = Wolf();
+    }
+    else {
+      print("Error");
+    }
 }

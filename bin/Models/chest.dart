@@ -11,7 +11,7 @@ class Chest extends Items {
 
 
   void openChest(Player player) {
-    Random random = new Random();
+    Random random = Random();
     int r1 = random.nextInt(2);
     int r2 = random.nextInt(10);
     int trapped = random.nextInt(1000);
@@ -25,7 +25,8 @@ class Chest extends Items {
     if(isTrapped == true) {
       print("It was a trapped chest!!\nYou take 6 damage!");
       player.currentPlayerHealth = player.currentPlayerHealth - 6;
-      return;
+      print("You have ${player.currentPlayerHealth} health left");
+      print("This is your backpack: ${player.backpack}");
     }
 
     if(r1 == 1) {
