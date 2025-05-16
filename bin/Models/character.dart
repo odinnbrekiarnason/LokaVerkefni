@@ -10,8 +10,10 @@ class Player extends Items {
   bool? debuffs = false;
   bool? isDead = false;
   List<Item> backpack = [
-    Key(name: "Key", description:"A shiny key"),
     Item(name: "Bandage", description: "Heals 10 health"),
+  ];
+  List<Key> keyItems = [
+    Key(name: "Key", description:"A shiny key"),
   ];
 
   Player({required this.playerName});

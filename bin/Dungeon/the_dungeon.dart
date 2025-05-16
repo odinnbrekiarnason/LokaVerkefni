@@ -44,21 +44,21 @@ class RoomNames implements Dungeon {
 }
 
 class FloorOne extends RoomNames {
-  List completeList = [];
+  List<RoomType> completeList = [];
 
-  void selectRandomRooms(List roomsOnFloorOne) {
+  List<RoomType> selectRandomRooms(List roomsOnFloorOne) {
     Random random = Random();
-    List<String> roomsOnFloorOne = [];
+    List<RoomType> roomsOnFloorOne = [];
     //wrap function með check fyrir randomRooms annaðhvort.contains
     // eða checka hvort randomInt == randomInt aftur idk
 
     for(int i = 0; i < rooms.length; i++){
       int randomInt = random.nextInt(rooms.length);
       List<RoomType> typeList = RoomType.values;
-      String indexForName = typeList[randomInt].name;
+      RoomType indexForName = typeList[randomInt];
 
       if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)){
-        roomsOnFloorOne.remove(indexForName * 0);
+        roomsOnFloorOne.remove(indexForName);
         //fyrst að checka fyrir duplicate a rooms sem eg vill hafa 2 af kannski
         //siðan checka fyrir duplicates a hinum
       } else if(roomsOnFloorOne.length < 4){
@@ -69,14 +69,15 @@ class FloorOne extends RoomNames {
     for(int i = 0; i < roomsOnFloorOne.length; i++) {
       if(roomsOnFloorOne.contains("Staircase")){
         roomsOnFloorOne.remove("Staircase");
-        roomsOnFloorOne.add("Staircase");
+        roomsOnFloorOne.add(RoomType.staircase);
       } else {
-        roomsOnFloorOne.add("Staircase");
+        roomsOnFloorOne.add(RoomType.staircase);
       }
     }
 
     print(roomsOnFloorOne);
     completeList = roomsOnFloorOne;
+    return completeList;
   }
 }
 
