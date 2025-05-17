@@ -17,10 +17,7 @@ import 'dart:math';
 }*/
 
 String printRoomMap(RoomType type, Player player) {
-  List<RoomType> typeList = RoomType.values;
-  int randomInt = Random().nextInt(typeList.length);
-  RoomType indexForName = typeList[randomInt];
-  switch(indexForName) {
+  switch(type) {                                                                  //was //List<RoomType> typeList = RoomType.values; //   int randomInt = Random().nextInt(typeList.length);   //   RoomType indexForName = typeList[randomInt];
     case RoomType.startingPoint :
       return """ 
         Hello, ${player.playerName} welcome to the dungeon!
@@ -44,6 +41,8 @@ if you need any help just type "help" and i will be there to help you!
         """;
 
     case RoomType.armory :
+
+
       return """
   +----------------door---------------+
   | Crate         player        Armor |
@@ -124,6 +123,20 @@ if you need any help just type "help" and i will be there to help you!
   |                               |
   |                               |
   +--------------door-------------+
+      """;
+    case RoomType.throneRoom : return """ 
+  +----------------^^^----------------+
+  | Banners                           |
+  |                                   |
+  |             Carpet                |
+  |                                   |
+  |                              Guard>
+  |                            Guard  >
+  |                              Guard>
+  |                                   |
+  |                           Banners |
+  | Carpet        Throne              |
+  +----------------vvv----------------+
       """;
     default : return "banana";
   }

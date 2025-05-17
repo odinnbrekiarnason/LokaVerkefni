@@ -7,6 +7,10 @@ class Item {
   Item({required this.name, required this.description});
 }
 
+class NoItemInChest extends Item{
+  NoItemInChest({required super.name, required super.description});
+}
+
 class Key extends Item {
   bool isKey = true;
   Key({required super.name, required super.description});
@@ -21,6 +25,14 @@ class Key extends Item {
   }
 
   Weapon({required super.name, required this.damage, required super.description});
+
+  List getWeaponInfo(Weapon weapon) {
+    List info = [];
+    for(int i = 0; i < 0; i++) {
+     info.addAll([weapon.name, weapon.damage, weapon.description]);
+    }
+    return info;
+  }
 
 }
 
@@ -59,4 +71,15 @@ class Bow implements Weapon {
   }
 
   Bow({required this.name, required this.damage, required this.description});
+
+  @override
+  List getWeaponInfo(Weapon weapon) {
+    List info = [];
+    for(int i = 0; i < 0; i++) {
+      info.addAll([weapon.name, weapon.damage, weapon.description]);
+    }
+    return info;
+  }
 }
+
+

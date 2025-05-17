@@ -1,15 +1,16 @@
 import '../Models/character.dart';
+import '../Functions.dart';
 import 'dart:io';
 
-Player createPLayer() {
+Player createPLayer(Player player) {
   print("Hello you are about to create your character what would you like to name him/her");
-  Player playerOne = Player(playerName: "");
-  playerOne.playerName = stdin.readLineSync().toString();
+  player.playerName = stdin.readLineSync().toString();
+  player.backpack.add(Items().weapons[4]);
 
   bool correctName = true;
   while(correctName == true) {
 
-    print("${playerOne.playerName} this is your name are you happy with it?\nType yes or no");
+    print("${player.playerName} this is your name are you happy with it?\nType yes or no");
 
     String yesOrNo = stdin.readLineSync().toString().toLowerCase();
     switch (yesOrNo) {
@@ -18,12 +19,12 @@ Player createPLayer() {
         break;
       case "no":
         print("Please type in the name you would want for your character");
-        playerOne.playerName = stdin.readLineSync().toString();
+        player.playerName = stdin.readLineSync().toString();
         continue;
     }
   }
   print("This is your character!");
-  print(playerOne.getPlayerInfo());
-  return playerOne;
+  print(player.getPlayerInfo(player));
+  return player;
 }
 

@@ -5,22 +5,19 @@ class Player extends Items {
   int currentPlayerHealth = 120;
   final int playerMaxHealth = 120;
   int playerDamage = 10;
-  String weaponInHand = "Dagger";
+  String position;
+  Weapon weaponInHand = Weapon(name: "Dagger", damage: 8, description: "A tiny knife, no reach and terrible damage");
   String playerName = "";
   bool? debuffs = false;
   bool? isDead = false;
   List<Item> backpack = [
-    Item(name: "Bandage", description: "Heals 10 health"),
+    Healing(name: "Bandage", description: "Heals 10 health", healing: 10),
   ];
   List<Key> keyItems = [
     Key(name: "Key", description:"A shiny key"),
   ];
 
-  Player({required this.playerName});
-
-  void movePlayer(Player player){
-    
-  }
+  Player({required this.playerName, required this.position});
 
   void openBackPack() {
     print("Your backpack contains:");
@@ -29,12 +26,16 @@ class Player extends Items {
     }
   }
 
-    List getPlayerInfo() {
+  String getPos(Player player) {
+    return "Current room $position";
+  }
+
+    List getPlayerInfo(Player player) {
       List info = [
-        "Max health", playerMaxHealth,
-        "Current health:", currentPlayerHealth,
-        "Damage:", playerDamage,
-        "Your weapon:", weaponInHand,
+        "Max health: ${player.playerMaxHealth}",
+        "Current health: ${player.currentPlayerHealth}",
+        "Damage: ${player.playerDamage}",
+        "Your weapon: ${player.weaponInHand}",
       ];
 
       return info;
@@ -53,4 +54,20 @@ class Player extends Items {
       }
       return isDead!;
     }
+
+  void movePlayer(Player player, RoomType room) {
+    List armory = [
+      ["+----------------door---------------+"],
+      ["| Crate           p           Armor |"],
+      ["|                             Rack  |"],
+      ["|              Monster              |"],
+      ["| Weapon                            >"],
+      ["| Rack                          door>"],
+      ["|                                   >"],
+      ["|                                   |"],
+      ["|                                   |"],
+      ["| Barrel                      Crate |"],
+      ["+----------------door---------------+"]
+    ];
+  }
   }

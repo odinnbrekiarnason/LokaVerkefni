@@ -22,5 +22,15 @@ class Items {
     Key(name: "Key", description: "A key to open a door"),
     Key(name: "BossRoomKey", description: "A key to open a door to the boss room"),
   ];
-  
+  List<NoItemInChest> noItem = [];
+
+  List<dynamic> getItemList() {
+    List<dynamic> item = [];
+    item.add(weapons);
+    item.add(healingItems);
+    item.add(secondaryItems);
+    item.add(keys);
+    return item;
+  }
 }
+

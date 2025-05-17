@@ -9,11 +9,11 @@ enum Direction {
 }
 
 class Door {
-  final void onOpen;
+  bool? onOpen;
   final Key key;
   final Direction direction;
 
-  Door({required this.key, required this.onOpen, required this.direction});
+  Door({required this.key, this.onOpen, required this.direction});
 
 }
 
@@ -28,9 +28,11 @@ class Room extends Chest implements Door {
   final bool isThereChest;
   final bool isThereMonster;
   final Door door;
+  final Chest chest;
 
 
   Room ({
+    required super.item,
     required this.type,
     required this.door,
     required this.player,
@@ -38,45 +40,59 @@ class Room extends Chest implements Door {
     required this.id,
     required this.description,
     required this.printMap,
-    required super.item,
     Random? random,
     bool? isThereChest,
     bool? isThereMonster,
-      }) : random = random ?? Random(), isThereChest = isThereChest ?? Random().nextDouble() < 0.2, isThereMonster = isThereMonster ?? Random().nextDouble() < 0.2;
+      }) : random = random ?? Random(), isThereChest = Random().nextDouble() < 0.2, chest = isThereChest! ? spawnChest() : spawnEmptyChest(), isThereMonster = isThereMonster ?? Random().nextDouble() < 0.2;
 
-  bool spawnChest() {
-    return random.nextDouble() < 0.2;
-  }
+
 
   @override
-  Function onOpen = (Player player) {
-    print("The door is open!");
-    print("You can now enter the next room!");
-  };
-
- @override
-  Direction get direction => whereDoor(door);
-  
-  bool canOpen(Player player) {
-    bool canOpenDoor = false;
-    if (player.keyItems.contains(key)) {
-      onOpen();
-      player.keyItems.remove(key);
-      canOpenDoor = true;
-      print("You opened the door with the key!");
-    } else {
-      print("The door is locked.");
-      print("You need a key to open the door.");
-      canOpenDoor = false;
-    }
-    return canOpenDoor;
-  }
+  bool? onOpen;
 
   @override
-  Key key = Key(name: "Key", description: "A shiny key");
-  
-   
-  
+  late Direction direction;
+
+  @override
+  late Key key;
+
+  RoomType returnRoomType(){
+    return type;
+  }
+
+
+
+
+
+
+    /*bool canOpenDoor = false;
+    switch(canOpenDoor = false) {
+      case player.keyItems.contains() :
+    player.keyItems.remove(player.keyItems[0]);
+    canOpenDoor = true;
+    print("You opened the door with the key!");
+     default :
+    print("The door is locked.");
+    print("You need a key to open the door.");
+    canOpenDoor = false;
+
+    return canOpenDoor ??
+    }*/
+  }
+Chest spawnChest() {
+  Random random = Random();
+  bool chestOrNot = random.nextDouble() < 0.2;
+  Chest chest = Chest(item: Items().getItemList());
+  if(chestOrNot == true){
+    chest = Chest(item: Items().getItemList());
+  }
+  return chest;
+}
+
+Chest spawnEmptyChest(){
+  return EmptyChest(item: Items().noItem);
+}
+
 
   Direction whereDoor(Door door) {
     List<Direction> where = Direction.values;
@@ -104,9 +120,9 @@ class Room extends Chest implements Door {
       return indexForName;
     }
   }
-  
+
  
-}
+
 
 
 

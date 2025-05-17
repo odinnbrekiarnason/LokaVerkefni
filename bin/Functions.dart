@@ -10,7 +10,8 @@ export 'Blueprints/monster_blueprint.dart';
 export 'Dungeon/the_dungeon.dart';
 export 'Models/chest.dart';
 export 'Models/item.dart';
-export '../bin/Blueprints/room_blueprints.dart';
-export '../bin/Dungeon/whole_map.dart';
+export 'Blueprints/room_blueprints.dart';
+export 'Dungeon/whole_map.dart';
+export 'void_functions/moving_player.dart';
 
 

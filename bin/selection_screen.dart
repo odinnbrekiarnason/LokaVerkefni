@@ -22,12 +22,12 @@ void selection(Player player, Room room){
       print("You have opened your backpack");
       player.openBackPack();
     case "3":
-      if(room.spawnChest() == true) {
+      /*if(room.spawnChest() == true) {
         print("You found a chest!");
         room.openChest(player);
       } else {
         print("There is no chest in this room");
-      }
+      }*/
     case "4":
       print("You try to open the door");
   
