@@ -3,7 +3,7 @@ import 'dart:math';
 import '../Functions.dart';
 
 
-List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
+List<Room> roomCreation(List<dynamic> selectedRooms, Player player) {
   List<Room> createdRooms = [];
 
   for(int i = 0; i < selectedRooms.length; i++) {
@@ -16,13 +16,16 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
             name: "Starting point",
             isThereMonster: false,
             type: RoomType.startingPoint,
-            door: Door(key: player.keyItems[0],onOpen: onOpen(player), direction: Direction.left),
+            door: Door(key: player.keyItems[0],onOpen: onOpen(player)),
             player: player,
             id: '1',
-            printMap: printRoomMap(RoomType.startingPoint, player), item: Items().getItemList()));
-      default : print(createdRooms);
+            printMap: printRoomMap(RoomType.startingPoint, player),
+            item: Items().getItemList()));
+      default : "Error";
+    break;
     }
   }
+  //
     return createdRooms;
 }
 

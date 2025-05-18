@@ -1,3 +1,5 @@
+import 'dart:vmservice_io';
+
 import '../Functions.dart';
 import 'dart:math';
 
@@ -41,6 +43,19 @@ class RoomNames implements Dungeon {
   @override
   int floors = 3;
 
+  String returnName(Player player) {
+    RoomType playerPos = player.getPos(player);
+    switch(playerPos) {
+      case RoomType.startingPoint :
+        return rooms.containsKey(RoomType.startingPoint) ? "Starting Point" : "Error";
+      default : return "String";
+    }
+    if(rooms.containsKey("Armory")){
+
+    }
+    return "banana!";
+  }
+
 }
 
 class FloorOne extends RoomNames {
@@ -67,15 +82,16 @@ class FloorOne extends RoomNames {
     }
 
     for(int i = 0; i < roomsOnFloorOne.length; i++) {
-      if(roomsOnFloorOne.contains("Staircase")){
-        roomsOnFloorOne.remove("Staircase");
+      if(roomsOnFloorOne.contains(RoomType.staircase)){
+        roomsOnFloorOne.remove(RoomType.staircase);
         roomsOnFloorOne.add(RoomType.staircase);
+        break;
       } else {
         roomsOnFloorOne.add(RoomType.staircase);
+        break;
       }
     }
 
-    print(roomsOnFloorOne);
     completeList = roomsOnFloorOne;
     return completeList;
   }

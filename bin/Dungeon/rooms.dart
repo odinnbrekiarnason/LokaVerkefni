@@ -11,10 +11,11 @@ enum Direction {
 class Door {
   bool? onOpen;
   final Key key;
-  final Direction direction;
+  Direction? direction1;
+  Direction? direction2;
+  Direction? direction3;
 
-  Door({required this.key, this.onOpen, required this.direction});
-
+  Door({required this.key, this.onOpen, this.direction1, this.direction2, this.direction3});
 }
 
 class Room extends Chest implements Door {
@@ -43,7 +44,11 @@ class Room extends Chest implements Door {
     Random? random,
     bool? isThereChest,
     bool? isThereMonster,
-      }) : random = random ?? Random(), isThereChest = Random().nextDouble() < 0.2, chest = isThereChest! ? spawnChest() : spawnEmptyChest(), isThereMonster = isThereMonster ?? Random().nextDouble() < 0.2;
+      }) :
+        random = random ?? Random(),
+        isThereChest = Random().nextDouble() < 0.2,
+        chest = Random().nextDouble() < 0.2 ? spawnChest() : spawnEmptyChest(),
+        isThereMonster = isThereMonster ?? Random().nextDouble() < 0.2;
 
 
 
@@ -51,19 +56,24 @@ class Room extends Chest implements Door {
   bool? onOpen;
 
   @override
-  late Direction direction;
-
-  @override
   late Key key;
 
-  RoomType returnRoomType(){
+  RoomType returnRoomType(Player player) {
     return type;
   }
 
+  String getId(Player player) {
+    return id;
+  }
 
+  @override
+  Direction? direction1;
 
+  @override
+  Direction? direction2;
 
-
+  @override
+  Direction? direction3;
 
     /*bool canOpenDoor = false;
     switch(canOpenDoor = false) {
@@ -79,6 +89,7 @@ class Room extends Chest implements Door {
     return canOpenDoor ??
     }*/
   }
+
 Chest spawnChest() {
   Random random = Random();
   bool chestOrNot = random.nextDouble() < 0.2;
@@ -92,7 +103,6 @@ Chest spawnChest() {
 Chest spawnEmptyChest(){
   return EmptyChest(item: Items().noItem);
 }
-
 
   Direction whereDoor(Door door) {
     List<Direction> where = Direction.values;

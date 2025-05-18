@@ -5,7 +5,7 @@ class Player extends Items {
   int currentPlayerHealth = 120;
   final int playerMaxHealth = 120;
   int playerDamage = 10;
-  String position;
+  RoomType position;
   Weapon weaponInHand = Weapon(name: "Dagger", damage: 8, description: "A tiny knife, no reach and terrible damage");
   String playerName = "";
   bool? debuffs = false;
@@ -26,8 +26,8 @@ class Player extends Items {
     }
   }
 
-  String getPos(Player player) {
-    return "Current room $position";
+   dynamic getPos(Player player) {
+    return position.toString();
   }
 
     List getPlayerInfo(Player player) {

@@ -5,7 +5,7 @@ void selection(Player player, Room room){
   print("You walk into the ${room.name}");
   print("You see a ${room.description}");
   print("Please type 1, 2 etc. to select option");
-  print("1. Fight\n2. Backpack\n3. Check room chests\n4. Open door\n5. Check room map\n6. Check player stats\n7. Check room monsters\n9. Flee");
+  print("1. Fight\n2. Backpack\n3. Move player\n4. Open door\n5. Check room map\n6. Check player stats\n7. Check room monsters\n9. Flee");
   print("Please select an option");
 
   String selectionInput = stdin.readLineSync().toString();

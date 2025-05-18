@@ -128,7 +128,7 @@ if you need any help just type "help" and i will be there to help you!
   +----------------^^^----------------+
   | Banners                           |
   |                                   |
-  |             Carpet                |
+  |              Carpet               |
   |                                   |
   |                              Guard>
   |                            Guard  >

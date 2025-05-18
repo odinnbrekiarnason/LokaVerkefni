@@ -3,6 +3,10 @@ import '../Models/character.dart';
 class Item {
   final String name;
   final String description;
+//  String getName => nameGetter();
+//  String nameGetter(){
+//    return this.name;
+//  }
 
   Item({required this.name, required this.description});
 }
