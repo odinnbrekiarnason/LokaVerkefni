@@ -17,9 +17,10 @@ import 'dart:math';
 }*/
 
 String printRoomMap(RoomType type, Player player) {
+  String tempString = "";
   switch(type) {                                                                  //was //List<RoomType> typeList = RoomType.values; //   int randomInt = Random().nextInt(typeList.length);   //   RoomType indexForName = typeList[randomInt];
     case RoomType.startingPoint :
-      return """ 
+      tempString = """ 
         Hello, ${player.playerName} welcome to the dungeon!
 This is your starting point and you will face many challenges here.
 you will need to find a way out of the dungeon and defeat the monsters.
@@ -39,11 +40,9 @@ if you need any help just type "help" and i will be there to help you!
   |                                   |
   +-----------------------------------+
         """;
-
+    return tempString;
     case RoomType.armory :
-
-
-      return """
+      tempString =  """
   +----------------door---------------+
   | Crate         player        Armor |
   |                             Rack  |
@@ -58,7 +57,10 @@ if you need any help just type "help" and i will be there to help you!
   | Barrel                      Crate |
   +----------------door---------------+
         """;
-    case RoomType.diningRoom : return """ 
+      return tempString;
+
+    case RoomType.diningRoom :
+      tempString = """ 
   +----------------door---------------+
   |  Table        player              |
   |                                   |
@@ -74,7 +76,10 @@ if you need any help just type "help" and i will be there to help you!
   | Crate                      Chairs |
   +----------------door---------------+
         """;
-    case RoomType.emptyChamber : return """ 
+      return tempString;
+
+    case RoomType.emptyChamber :
+      tempString = """ 
   +-----------------------------------+
   | Dust                       Crate  |
   | Pile                              |
@@ -88,7 +93,8 @@ if you need any help just type "help" and i will be there to help you!
   | Pile                        Junk  | 
   +-----------------------------------+
         """;
-    case RoomType.kitchen : return """ 
+    case RoomType.kitchen :
+      tempString = """ 
   +---------------------------------+
   | Oven |            | *     * |   |
   | Oven |            +---------+   |
@@ -101,7 +107,10 @@ if you need any help just type "help" and i will be there to help you!
   | Cabinet         |  Pans    Pots |
   +---------------------------------+
         """;
-    case RoomType.library : return """ 
+      return tempString;
+
+    case RoomType.library :
+      tempString = """ 
   +-------------------------------+
   | Shelves |              Book   |
   |---------+              Stack  |
@@ -124,7 +133,10 @@ if you need any help just type "help" and i will be there to help you!
   |                               |
   +--------------door-------------+
       """;
-    case RoomType.throneRoom : return """ 
+      return tempString;
+
+    case RoomType.throneRoom :
+      tempString = """ 
   +----------------^^^----------------+
   | Banners                           |
   |                                   |
@@ -138,6 +150,8 @@ if you need any help just type "help" and i will be there to help you!
   | Carpet        Throne              |
   +----------------vvv----------------+
       """;
+      return tempString;
     default : return "banana";
   }
+  return tempString;
 }

@@ -9,7 +9,7 @@ void selection(Player player, Room room){
   print("Please select an option");
 
   String selectionInput = stdin.readLineSync().toString();
-
+  RoomType pos = player.position;
   switch(selectionInput) {
     case "1":
     if(room.isThereMonster == true) {
@@ -22,12 +22,7 @@ void selection(Player player, Room room){
       print("You have opened your backpack");
       player.openBackPack();
     case "3":
-      /*if(room.spawnChest() == true) {
-        print("You found a chest!");
-        room.openChest(player);
-      } else {
-        print("There is no chest in this room");
-      }*/
+      player.movePlayer(player, pos);
     case "4":
       print("You try to open the door");
   

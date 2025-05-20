@@ -14,9 +14,11 @@ void main() {
   //print("You are at the starting point of the dungeon");
   var f1 = FloorOne();
   var returnRooms = f1.selectRandomRooms(f1.completeList);
+  print(returnRooms);
  //returnRooms = f1.selectRandomRooms(returnRooms);
  roomCreation(returnRooms, player);
- print(player.getPos(player));
+ print(printRoomMap(player.position, player));
+ //print(player.getPos(player));
 
 
 // FloorOne().enterRoom(returnRooms);

@@ -27,7 +27,7 @@ class Player extends Items {
   }
 
    dynamic getPos(Player player) {
-    return position.toString();
+    return position;
   }
 
     List getPlayerInfo(Player player) {

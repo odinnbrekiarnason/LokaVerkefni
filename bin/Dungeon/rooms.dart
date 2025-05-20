@@ -53,7 +53,7 @@ class Room extends Chest implements Door {
 
 
   @override
-  bool? onOpen;
+  bool? onOpen = false;
 
   @override
   late Key key;
@@ -100,7 +100,7 @@ Chest spawnChest() {
   return chest;
 }
 
-Chest spawnEmptyChest(){
+Chest spawnEmptyChest() {
   return EmptyChest(item: Items().noItem);
 }
 
