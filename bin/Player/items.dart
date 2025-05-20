@@ -24,8 +24,10 @@ class Items {
   ];
   List<NoItemInChest> noItem = [];
 
-  List<dynamic> getItemList() {
-    List<dynamic> item = [];
+  //Items({required this.weapons, required this.secondaryItems, required this.healingItems, required this.keys});
+
+  List<dynamic> getItemList(List<dynamic> item) {
+    item = [];
     item.add(weapons);
     item.add(healingItems);
     item.add(secondaryItems);

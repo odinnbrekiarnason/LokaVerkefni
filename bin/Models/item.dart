@@ -3,10 +3,11 @@ import '../Models/character.dart';
 class Item {
   final String name;
   final String description;
-//  String getName => nameGetter();
-//  String nameGetter(){
-//    return this.name;
-//  }
+  get getName => nameGetter();
+
+  String nameGetter(){
+    return name;
+  }
 
   Item({required this.name, required this.description});
 }
@@ -83,6 +84,14 @@ class Bow implements Weapon {
       info.addAll([weapon.name, weapon.damage, weapon.description]);
     }
     return info;
+  }
+
+  @override
+  get getName => nameGetter();
+
+  @override
+  String nameGetter() {
+   return name;
   }
 }
 

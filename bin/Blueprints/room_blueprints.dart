@@ -6,6 +6,7 @@ import '../Functions.dart';
 
 List<Room> roomCreation(List<dynamic> selectedRooms, Player player) {
   List<Room> createdRooms = [];
+  List<dynamic> tempList = [];
   String tempMap = printRoomMap(player.getPos(player), player);
 
   for(int i = 0; i < selectedRooms.length; i++) {
@@ -22,8 +23,9 @@ List<Room> roomCreation(List<dynamic> selectedRooms, Player player) {
             player: player,
             id: '1',
             printMap: tempMap,
-            item: Items().getItemList()));
-        player.position = RoomType.startingPoint;
+            item: Items().getItemList(tempList)));
+            player.position = RoomType.startingPoint;
+            print(tempList);
       default : "Error";
     break;
     }

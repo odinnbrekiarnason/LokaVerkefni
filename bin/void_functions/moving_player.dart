@@ -1,9 +1,9 @@
 import '../Functions.dart';
 import 'dart:io';
 
-List movePlayer(Player player, Room type) {
+List movePlayer(Player player, RoomType type) {
   List<Room> tempList = [];
-  RoomType roomType = type.returnRoomType(player);
+  RoomType roomType = player.getPos(player);
 
 
   switch(roomType) {
@@ -12,15 +12,15 @@ List movePlayer(Player player, Room type) {
       String moving = stdin.readLineSync().toString().toLowerCase();
 
       List startingRoom = [
-  "+---------------door----------------+",
-  "|                                   |",
-  "|                                   |",
-  "|                                   |",
-  "|                p              door>",
-  "|                               door>",
-  "|                                   |",
-  "|                                   |",
-  "|                                   |",
+  "+---------------door----------------+"
+  "|                                   |"
+  "|                                   |"
+  "|                                   |"
+  "|                p              door>"
+  "|                               door>"
+  "|                                   |"
+  "|                                   |"
+  "|                                   |"
   "+-----------------------------------+"
       ];
 
@@ -28,9 +28,13 @@ List movePlayer(Player player, Room type) {
         case "down" || "niður" :
           List tempMap = startingRoom;
           int index = findIndex(tempMap);
+          print(index);
           tempMap.removeAt(index);
           tempMap.insert(index, " ");
 
+          for(int i = 0; i < startingRoom.length; i++) {
+          print(tempMap[i]);
+          }
       }
       return startingRoom;
 
@@ -58,6 +62,8 @@ List movePlayer(Player player, Room type) {
           int index = findIndex(tempMap);
           tempMap.removeAt(index);
           tempMap.insert(index, " ");
+          print(tempMap);
+
       }
 
       return armory;
@@ -73,16 +79,7 @@ int findIndex(List list) {
     for (int i = 0; i < list.length; i++) {
       temp = list[i];
       if (temp.contains("p")) {
-      line = line + i;
-        for (int j = 0; j < temp.length; j++) {
-          if (temp[j] == "p") {
-            print("playerIndex at $j");
-            tempInt = tempInt + j;
-            return j;
-          } else {
-            return 0;
-          }
-        }
+        tempInt = temp.indexOf("p");
       }
     }
   }
