@@ -25,7 +25,7 @@ List movePlayer(Player player, RoomType type) {
       ];
 
       switch(moving) {
-        case "down" || "niður" :
+        case "down" || "dow" || "d" :
           List tempMap = startingRoom;
           int index = findIndex(tempMap);
           print(index);
@@ -57,12 +57,15 @@ List movePlayer(Player player, RoomType type) {
       ];
 
       switch(moving) {
-        case "down" || "niður" :
+        case "down" || "dow" || "d" :
           List tempMap = armory;
+          print("top");
           int index = findIndex(tempMap);
           tempMap.removeAt(index);
+          print("mid");
           tempMap.insert(index, " ");
           print(tempMap);
+          print("bottom");
 
       }
 
@@ -73,13 +76,13 @@ List movePlayer(Player player, RoomType type) {
 
 int findIndex(List list) {
   String temp = "";
-  int line = 0;
   int tempInt = 0;
   if(list.isNotEmpty) {
     for (int i = 0; i < list.length; i++) {
       temp = list[i];
       if (temp.contains("p")) {
         tempInt = temp.indexOf("p");
+        break;
       }
     }
   }
