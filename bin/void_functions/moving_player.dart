@@ -3,7 +3,6 @@ import 'dart:io';
 
 String movePlayer(Player player, RoomType type) {
   String tempList = "";
-  print(type);
   //RoomType roomType = player.getPos(player);
 
 
@@ -11,12 +10,13 @@ String movePlayer(Player player, RoomType type) {
     case RoomType.startingPoint :
       print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
       String moving = stdin.readLineSync().toString().toLowerCase();
-
+      String moveDownPlaceHolder = " ";
       String startingRoomMap = """
       +---------------door----------------+
       |                                   |
       |                                   |
       |                P                  |
+      |                               door>
       |                               door>
       |                               door>
       |                                   |

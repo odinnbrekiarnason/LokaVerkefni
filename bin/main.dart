@@ -15,11 +15,12 @@ void main() {
   var f1 = FloorOne();
   var returnRooms = f1.selectRandomRooms(f1.completeList);
   print(returnRooms);
+  Chest(item: returnItemList()).openChest(player);
  //returnRooms = f1.selectRandomRooms(returnRooms);
- roomCreation(returnRooms, player);
+ /*roomCreation(returnRooms, player);
  print(printRoomMap(player.position, player));
  print(player.getPos(player));
- movePlayer(player, player.getPos(player));
+ movePlayer(player, player.getPos(player));*/
 
 
 // FloorOne().enterRoom(returnRooms);

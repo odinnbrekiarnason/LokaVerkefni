@@ -1,6 +1,6 @@
 export 'Models/character.dart';
 export 'Enemies/fighting.dart';
-export 'Player/items.dart';
+export 'Player/item_list.dart';
 export 'Dungeon/rooms.dart';
 export 'Models/monsters.dart';
 export 'selection_screen.dart';

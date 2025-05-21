@@ -5,7 +5,7 @@ class Item {
   final String description;
   get getName => nameGetter();
 
-  String nameGetter(){
+  String nameGetter() {
     return name;
   }
 
@@ -19,14 +19,13 @@ class NoItemInChest extends Item{
 class Key extends Item {
   bool isKey = true;
   Key({required super.name, required super.description});
-  
 }
 
- class Weapon extends Item{
+ class Weapon extends Item {
   final int damage;
+
   int attack(Player player){
    return damage;
-
   }
 
   Weapon({required super.name, required this.damage, required super.description});

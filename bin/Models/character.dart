@@ -10,7 +10,7 @@ class Player extends Items {
   String playerName = "";
   bool? debuffs = false;
   bool? isDead = false;
-  List<Item> backpack = [
+  List<dynamic> backpack = [
     Healing(name: "Bandage", description: "Heals 10 health", healing: 10),
   ];
   List<Key> keyItems = [

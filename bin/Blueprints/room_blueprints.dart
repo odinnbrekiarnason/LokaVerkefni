@@ -11,13 +11,14 @@ List<Room> roomCreation(List<dynamic> selectedRooms, Player player) {
 
   for(int i = 0; i < selectedRooms.length; i++) {
     RoomType type = selectedRooms[i];
-    //RoomType tempType = RoomType.startingPoint;
+
     switch(type) {
       case RoomType.startingPoint :
         createdRooms.add( Room (
             description: "Starting point of the dungeon",
             name: "Starting point",
             isThereMonster: false,
+            isThereChest: false,
             type: RoomType.startingPoint,
             door: Door(key: player.keyItems[0],onOpen: onOpen(player)),
             player: player,

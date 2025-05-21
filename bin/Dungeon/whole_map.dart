@@ -18,7 +18,7 @@ import 'dart:math';
 
 String printRoomMap(RoomType type, Player player) {
   String tempString = "";
-  switch(type) {                                                                  //was //List<RoomType> typeList = RoomType.values; //   int randomInt = Random().nextInt(typeList.length);   //   RoomType indexForName = typeList[randomInt];
+  switch(type) {
     case RoomType.startingPoint :
       tempString = """ 
         Hello, ${player.playerName} welcome to the dungeon!
@@ -29,11 +29,12 @@ there will most likely be a monster in each room, so be careful!
 also there will be a chest in each room, so be sure to open it!
 if you need any help just type "help" and i will be there to help you!
 
-  +----------------vvv----------------+
+  +----------------↕↕↕----------------+
   |                                   |   
   |                                   |
   |                                   |
   |                 p                 >
+  |                                   >
   |                                   >
   |                                   |
   |                                   |
@@ -43,9 +44,9 @@ if you need any help just type "help" and i will be there to help you!
     return tempString;
     case RoomType.armory :
       tempString =  """
-  +----------------door---------------+
-  | Crate         player        Armor |
-  |                             Rack  |
+  +----------------↕↕↕----------------+
+  | Crate           P           Armor |
+  |                              Rack |
   |              Monster              |
   |                                   |
   | Weapon                            >
@@ -55,14 +56,14 @@ if you need any help just type "help" and i will be there to help you!
   |                                   |
   |  chest                      Crate |
   | Barrel                      Crate |
-  +----------------door---------------+
+  +----------------↕↕↕----------------+
         """;
       return tempString;
 
     case RoomType.diningRoom :
       tempString = """ 
-  +----------------door---------------+
-  |  Table        player              |
+  +----------------↕↕↕----------------+
+  |  Table          P                 |
   |                                   |
   |      Chair |--------| Chair       |
   |            |        |             |
@@ -74,7 +75,7 @@ if you need any help just type "help" and i will be there to help you!
   |                                   |
   |                                   |
   | Crate                      Chairs |
-  +----------------door---------------+
+  +----------------↕↕↕----------------+
         """;
       return tempString;
 
@@ -85,7 +86,7 @@ if you need any help just type "help" and i will be there to help you!
   | Pile                              |
   |                Barrel             |
   |                                   |
-  <                           Cobwebs |
+  <    P                      Cobwebs |
   <           Barrel                  |
   |                                   |
   |                     Monster       |
@@ -100,7 +101,7 @@ if you need any help just type "help" and i will be there to help you!
   | Oven |            +---------+   |
   |------+                          |
   |                                 >
-  |------+                      door>
+  |------+                  P   door>
   |Fridge|                          >
   |------+                          |
   |                 +---------------|
@@ -118,7 +119,7 @@ if you need any help just type "help" and i will be there to help you!
   |                               |
   |---------+                     |
   | Shelves |                     >
-  |---------+                 door>                               
+  |---------+             P   door>                               
   |                               >
   |                               |
   |---------+                     |
@@ -138,20 +139,46 @@ if you need any help just type "help" and i will be there to help you!
     case RoomType.throneRoom :
       tempString = """ 
   +----------------^^^----------------+
-  | Banners                           |
+  | Banners         P                 |
   |                                   |
-  |              Carpet               |
+  |                                   |
   |                                   |
   |                              Guard>
   |                            Guard  >
   |                              Guard>
-  |                                   |
-  |                           Banners |
-  | Carpet        Throne              |
-  +----------------vvv----------------+
+  |              |______|     Banners |
+  | Carpet      | Throne |            |
+  |             +________+            |
+  +-----------------------------------+
       """;
       return tempString;
     default : return "banana";
   }
   return tempString;
 }
+
+/*+----------------^^^----------------+
+| Stairs                    Railing   |
+|                                     |
+|             Torch                   |
+|                                     |
+| Stairs                              >
+|                              Stairs >
+|                                     >
+|                                     |
+|                            Railing  |
+| Torch                     Stairs    |
++----------------vvv------------------+*/
+
+/*+----------------^^^----------------+
+| Bed                       Wardrobe  |
+|                                     |
+|             Mirror                  |
+|                                     |
+| Rug                                 >
+|                               Bed   >
+|                                     >
+|                                     |
+|                            Wardrobe |
+| Rug                         Mirror  |
++----------------vvv------------------+*/
