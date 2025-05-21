@@ -1,88 +1,87 @@
 import '../Functions.dart';
 import 'dart:io';
 
-List movePlayer(Player player, RoomType type) {
-  List<Room> tempList = [];
-  RoomType roomType = player.getPos(player);
+String movePlayer(Player player, RoomType type) {
+  String tempList = "";
+  print(type);
+  //RoomType roomType = player.getPos(player);
 
 
-  switch(roomType) {
+  switch(type) {
     case RoomType.startingPoint :
       print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
       String moving = stdin.readLineSync().toString().toLowerCase();
 
-      List startingRoom = [
-  "+---------------door----------------+"
-  "|                                   |"
-  "|                                   |"
-  "|                                   |"
-  "|                p              door>"
-  "|                               door>"
-  "|                                   |"
-  "|                                   |"
-  "|                                   |"
-  "+-----------------------------------+"
-      ];
+      String startingRoomMap = """
+      +---------------door----------------+
+      |                                   |
+      |                                   |
+      |                P                  |
+      |                               door>
+      |                               door>
+      |                                   |
+      |                                   |
+      |                                   |
+      +-----------------------------------+
+      """;
 
       switch(moving) {
         case "down" || "dow" || "d" :
-          List tempMap = startingRoom;
+          String tempMap = startingRoomMap;
+          print(tempMap);
           int index = findIndex(tempMap);
-          print(index);
-          tempMap.removeAt(index);
-          tempMap.insert(index, " ");
-
-          for(int i = 0; i < startingRoom.length; i++) {
-          print(tempMap[i]);
-          }
+          tempMap = tempMap.replaceFirst("P", " ", index);
+          //print("mid");
+          print(tempMap);
+          //print("bottom");
+          return tempMap;
       }
-      return startingRoom;
+      return startingRoomMap;
 
     case  RoomType.armory:
       print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
       String moving = stdin.readLineSync().toString().toLowerCase();
 
-      List armory = [
-        "+----------------door---------------+",
-        "| Crate           p           Armor |",
-        "|                             Rack  |",
-        "|              Monster              |",
-        "| Weapon                            >",
-        "| Rack                          door>",
-        "|                                   >",
-        "|                                   |",
-        "|                                   |",
-        "| Barrel                      Crate |",
-        "+----------------door---------------+"
-      ];
+      String armory = """
+        +----------------door---------------+
+        | Crate           p           Armor |
+        |                             Rack  |
+        |              Monster              |
+        | Weapon                            >
+        | Rack                          door>
+        |                                   >
+        |                                   |
+        |                                   |
+        | Barrel                      Crate |
+        +----------------door---------------+
+      """;
 
-      switch(moving) {
+     /* switch(moving) {
         case "down" || "dow" || "d" :
-          List tempMap = armory;
+          String tempMap = armory;
           print("top");
           int index = findIndex(tempMap);
-          tempMap.removeAt(index);
+          tempMap[index] = tempMap.removeAt(index);
           print("mid");
           tempMap.insert(index, " ");
           print(tempMap);
           print("bottom");
 
-      }
+      }*/
 
       return armory;
     default : return tempList;
   }
 }
 
-int findIndex(List list) {
-  String temp = "";
+int findIndex(String list) {
+  //String temp = "";
   int tempInt = 0;
   if(list.isNotEmpty) {
     for (int i = 0; i < list.length; i++) {
-      temp = list[i];
-      if (temp.contains("p")) {
-        tempInt = temp.indexOf("p");
-        break;
+      String temp =  list[i];
+      if (temp == "p") {
+        tempInt = list.indexOf("p");
       }
     }
   }

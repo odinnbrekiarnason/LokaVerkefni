@@ -48,12 +48,10 @@ class RoomNames implements Dungeon {
     switch(playerPos) {
       case RoomType.startingPoint :
         return rooms.containsKey(RoomType.startingPoint) ? "Starting Point" : "Error";
+      case RoomType.armory :
+        return rooms.containsKey(RoomType.armory) ? "Armory" : "Error";
       default : return "String";
     }
-    if(rooms.containsKey("Armory")){
-
-    }
-    return "banana!";
   }
 
 }
@@ -61,7 +59,7 @@ class RoomNames implements Dungeon {
 class FloorOne extends RoomNames {
   List<RoomType> completeList = [];
 
-  List<RoomType> selectRandomRooms(List roomsOnFloorOne) {
+  List<dynamic> selectRandomRooms(List roomsOnFloorOne) {
     Random random = Random();
     List<RoomType> roomsOnFloorOne = [];
     //wrap function með check fyrir randomRooms annaðhvort.contains

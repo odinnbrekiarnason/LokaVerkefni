@@ -16,10 +16,10 @@ void main() {
   var returnRooms = f1.selectRandomRooms(f1.completeList);
   print(returnRooms);
  //returnRooms = f1.selectRandomRooms(returnRooms);
- print(roomCreation(returnRooms, player));
+ roomCreation(returnRooms, player);
  print(printRoomMap(player.position, player));
- //print(player.getPos(player));
-  movePlayer(player, player.getPos(player));
+ print(player.getPos(player));
+ movePlayer(player, player.getPos(player));
 
 
 // FloorOne().enterRoom(returnRooms);

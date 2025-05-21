@@ -7,6 +7,7 @@ Player createPLayer(Player player) {
   player.playerName = stdin.readLineSync().toString();
   Weapon weapon = Weapon(name: "Dagger", damage: 8, description: "");
   player.weaponInHand = weapon;
+  player.position = RoomType.startingPoint;
 
   bool correctName = true;
   while(correctName == true) {
