@@ -90,22 +90,9 @@ class Room extends Chest implements Door {
     }*/
   }
 
-Chest spawnChest() {
-  List<dynamic> tempList = [];
-  Random random = Random();
-  bool chestOrNot = random.nextDouble() < 0.2;
-  Chest chest = Chest(item: Items().getItemList(tempList));
-  if(chestOrNot == true) {
-    chest = Chest(item: Items().getItemList(tempList));
-  }
-  return chest;
-}
 
-Chest spawnEmptyChest() {
-  return EmptyChest(item: Items().noItem);
-}
 
-  Direction whereDoor(Door door) {
+  /*Direction whereDoor(Door door) {
     List<Direction> where = Direction.values;
     int randomInt = Random().nextInt(where.length);
     Direction indexForName = where[randomInt];
@@ -130,7 +117,7 @@ Chest spawnEmptyChest() {
       print("The door is left");
       return indexForName;
     }
-  }
+  }*/
 
  
 

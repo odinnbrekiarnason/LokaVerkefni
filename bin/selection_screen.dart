@@ -22,7 +22,7 @@ void selection(Player player, Room room){
       print("You have opened your backpack");
       player.openBackPack();
     case "3":
-      player.movePlayer(player, pos);
+      movePlayer(player, pos);
     case "4":
       print("You try to open the door");
   

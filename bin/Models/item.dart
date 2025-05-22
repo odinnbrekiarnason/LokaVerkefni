@@ -17,8 +17,9 @@ class NoItemInChest extends Item{
 }
 
 class Key extends Item {
+  String id;
   bool isKey = true;
-  Key({required super.name, required super.description});
+  Key({required super.name, required super.description, required this.id});
 }
 
  class Weapon extends Item {

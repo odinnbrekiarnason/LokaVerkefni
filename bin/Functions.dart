@@ -13,5 +13,6 @@ export 'Models/item.dart';
 export 'Blueprints/room_blueprints.dart';
 export 'Dungeon/whole_map.dart';
 export 'void_functions/moving_player.dart';
-
-
+export 'void_functions/open_door.dart';
+export 'void_functions/item_fucntions.dart';
+export 'Blueprints/chest_blueprint.dart';

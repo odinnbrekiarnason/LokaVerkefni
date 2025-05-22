@@ -19,36 +19,21 @@ class Items {
     Secondary(name: "Milk", description: "Just a milk carton... it removes debuffs!"),
   ];
   List<Key> keys = [
-    Key(name: "Key", description: "A key to open a door"),
-    Key(name: "BossRoomKey", description: "A key to open a door to the boss room"),
+    Key(name: "Key", description: "A key to open a door", id: "1"),
+    Key(name: "BossRoomKey", description: "A key to open a door to the boss room", id: "9"),
   ];
   List<NoItemInChest> noItem = [];
 
   //Items({required this.weapons, required this.secondaryItems, required this.healingItems, required this.keys});
-  List<dynamic> getItemList(List<dynamic> item) {
+  /*List<Items> getItemList(List<Items> item) {
     item = [];
     item.add(weapons);
     item.add(healingItems);
     item.add(secondaryItems);
     item.add(keys);
     return item;
-  }
+  }*/
 }
 
-List<dynamic> returnItemList() {
-  List<dynamic> allItems = [];
 
-  List<Weapon> weaponItems = Items().weapons;
-  allItems.add(weaponItems);
-
-  List<Healing> healingItems = Items().healingItems;
-  allItems.add(healingItems);
-
-  List<Secondary> secondaryItems = Items().secondaryItems;
-  allItems.add(secondaryItems);
-
-  List<Key> keyItems = Items().keys;
-  allItems.add(keyItems);
-  return allItems;
-}
 

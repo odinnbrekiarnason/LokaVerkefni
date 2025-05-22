@@ -13,11 +13,11 @@ String movePlayer(Player player, RoomType type) {
       String moveDownPlaceHolder = " ";
       String startingRoomMap = """
       +---------------door----------------+
+      |                U                  |
       |                                   |
-      |                                   |
-      |                P                  |
+      |             L  P  R               |
       |                               door>
-      |                               door>
+      |                D              door>
       |                               door>
       |                                   |
       |                                   |
@@ -29,11 +29,9 @@ String movePlayer(Player player, RoomType type) {
         case "down" || "dow" || "d" :
           String tempMap = startingRoomMap;
           print(tempMap);
-          int index = findIndex(tempMap);
+          int index = findPlayer(tempMap);
           tempMap = tempMap.replaceFirst("P", " ", index);
-          //print("mid");
           print(tempMap);
-          //print("bottom");
           return tempMap;
       }
       return startingRoomMap;
@@ -74,7 +72,7 @@ String movePlayer(Player player, RoomType type) {
   }
 }
 
-int findIndex(String list) {
+int findPlayer(String list) {
   //String temp = "";
   int tempInt = 0;
   if(list.isNotEmpty) {

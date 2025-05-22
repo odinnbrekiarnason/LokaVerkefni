@@ -6,15 +6,15 @@ class Player extends Items {
   final int playerMaxHealth = 120;
   int playerDamage = 10;
   RoomType position;
-  Weapon weaponInHand = Weapon(name: "Dagger", damage: 8, description: "A tiny knife, no reach and terrible damage");
+  List<Weapon> weaponInHand = [Weapon(name: "Dagger", damage: 8, description: "A tiny knife, no reach and terrible damage")];
   String playerName = "";
   bool? debuffs = false;
   bool? isDead = false;
-  List<dynamic> backpack = [
+  List<Item> backpack = [
     Healing(name: "Bandage", description: "Heals 10 health", healing: 10),
   ];
   List<Key> keyItems = [
-    Key(name: "Key", description:"A shiny key"),
+    Key(name: "Key", description:"A shiny key", id: "1"),
   ];
 
   Player({required this.playerName, required this.position});
@@ -30,15 +30,18 @@ class Player extends Items {
     return position;
   }
 
-    List getPlayerInfo(Player player) {
+    void getPlayerInfo(Player player) {
+
       List info = [
         "Max health: ${player.playerMaxHealth}",
         "Current health: ${player.currentPlayerHealth}",
         "Damage: ${player.playerDamage}",
-        "Your weapon: ${player.weaponInHand}",
+        "Your weapon: ",
       ];
-
-      return info;
+      for(String item in info) {
+        print(item);
+      }
+      returnItemName(player.weaponInHand);
     }
 
     bool gameOver() {
@@ -55,7 +58,7 @@ class Player extends Items {
       return isDead!;
     }
 
-  void movePlayer(Player player, RoomType room) {
+  /*void movePlayer(Player player, RoomType room) {
     List armory = [
       ["+----------------door---------------+"],
       ["| Crate           p           Armor |"],
@@ -69,5 +72,5 @@ class Player extends Items {
       ["| Barrel                      Crate |"],
       ["+----------------door---------------+"]
     ];
-  }
+  }*/
   }

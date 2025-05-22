@@ -5,7 +5,7 @@ import 'dart:io';
 Player createPLayer(Player player) {
   print("Hello you are about to create your character what would you like to name him/her");
   player.playerName = stdin.readLineSync().toString();
-  Weapon weapon = Weapon(name: "Dagger", damage: 8, description: "");
+  List<Weapon> weapon = [Weapon(name: "Dagger", damage: 8, description: "")];
   player.weaponInHand = weapon;
   player.position = RoomType.startingPoint;
 
@@ -25,7 +25,7 @@ Player createPLayer(Player player) {
     }
   }
   print("This is your character!");
-  print(player.getPlayerInfo(player));
+  player.getPlayerInfo(player);
   return player;
 }
 
