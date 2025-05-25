@@ -2,56 +2,42 @@ import '../Functions.dart';
 import 'dart:io';
 
 String movePlayer(Player player, RoomType type) {
+  print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
   String tempList = "";
-  //RoomType roomType = player.getPos(player);
-
+  String moving = stdin.readLineSync().toString().toLowerCase();
 
   switch(type) {
     case RoomType.startingPoint :
-      print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
-      String moving = stdin.readLineSync().toString().toLowerCase();
-      String moveDownPlaceHolder = " ";
       String startingRoomMap = """
-      +---------------door----------------+
-      |                U                  |
-      |                                   |
-      |             L  P  R               |
-      |                               door>
-      |                D              door>
-      |                               door>
-      |                                   |
-      |                                   |
-      |                                   |
-      +-----------------------------------+
-      """;
-
-      switch(moving) {
-        case "down" || "dow" || "d" :
-          String tempMap = startingRoomMap;
-          print(tempMap);
-          int index = findPlayer(tempMap);
-          tempMap = tempMap.replaceFirst("P", " ", index);
-          print(tempMap);
-          return tempMap;
-      }
-      return startingRoomMap;
++----------------↕↕↕----------------+
+|                                   |
+|                                   |
+|                 P                 |
+|                                   >
+|                                   >
+|                                   >
+|                                   |
+|                                   |
+|                                   |
++-----------------------------------+
+""";
+      return moveSpaces(startingRoomMap, moving, returnRowLength(startingRoomMap), returnColLength(startingRoomMap));
 
     case  RoomType.armory:
       print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
-      String moving = stdin.readLineSync().toString().toLowerCase();
 
       String armory = """
-        +----------------door---------------+
-        | Crate           p           Armor |
-        |                             Rack  |
-        |              Monster              |
-        | Weapon                            >
-        | Rack                          door>
-        |                                   >
-        |                                   |
-        |                                   |
-        | Barrel                      Crate |
-        +----------------door---------------+
++----------------door---------------+
+| Crate           p           Armor |
+|                             Rack  |
+|                 .                 |
+| Weapon                            >
+| Rack                          door>
+|                                   >
+|                                   |
+|                                   |
+| Barrel                      Crate |
++----------------door---------------+
       """;
 
      /* switch(moving) {
@@ -72,19 +58,83 @@ String movePlayer(Player player, RoomType type) {
   }
 }
 
-int findPlayer(String list) {
-  //String temp = "";
-  int tempInt = 0;
-  if(list.isNotEmpty) {
-    for (int i = 0; i < list.length; i++) {
-      String temp =  list[i];
-      if (temp == "p") {
-        tempInt = list.indexOf("p");
-      }
+String moveSpaces(String map, String direction, int rows, int columns) {
+
+  List<String> mapRows = map.split("\n");
+
+  int playerRow = -1;
+  int playerCol = -1;
+  for(int i = 0; i < mapRows.length; i++){
+    int col = mapRows[i].indexOf("P");
+    if(col != -1) {
+      playerRow = i;
+      playerCol = col;
+      break;
     }
   }
-  return tempInt;
+  if(playerRow == -1) {
+    print("Error: No player found!");
+    return map;
+  }
+
+  int newRow = playerRow;
+  int newCol = playerCol;
+  switch (direction) {
+    case "up" || "upp" || "u":
+      newRow -= 2;
+      break;
+    case 'down' || "dow" || "d":
+      newRow += 2;
+      break;
+    case 'left' || "lef" || "l":
+      newCol -= 2;
+      break;
+    case 'right' || "rig" || "r":
+      newCol += 2;
+      break;
+    default:
+      print("Please input a valid direction\nup, down, left, right");
+      return map;
+  }
+
+  if(newRow < 1 || newRow >= rows - 1 || newCol < 1 || newCol >= columns - 1) {
+    print("Cannot move: out of bounds!");
+    return map;
+  }
+
+  String dest = mapRows[newRow].length > newCol ? mapRows[newRow][newCol] : ' ';
+  if (dest != '.' && dest != ' ' && !['^', 'v', '<', '>'].contains(dest)) {
+    print("Cannot move: blocked by obstacle");
+    return map;
+  }
+
+  StringBuffer newRowString = StringBuffer();
+  for (int c = 0; c < mapRows[playerRow].length; c++) {
+    newRowString.write(c == playerCol ? ' ' : mapRows[playerRow][c]);
+  }
+  mapRows[playerRow] = newRowString.toString();
+
+  newRowString = StringBuffer();
+  for (int c = 0; c < mapRows[newRow].length; c++) {
+    newRowString.write(c == newCol ? 'P' : mapRows[newRow][c]);
+  }
+  mapRows[newRow] = newRowString.toString();
+
+  String result = mapRows.join('\n');
+  print(result);
+  return result;
 }
+
+int returnColLength(String map) {
+  var splitMap = map.split("\n");
+  return splitMap[0].length;
+}
+
+int returnRowLength(String map) {
+  var splitMap = map.split("\n");
+  return splitMap.length;
+}
+
 
 
 

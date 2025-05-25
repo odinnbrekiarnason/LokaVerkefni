@@ -8,8 +8,8 @@ String selectMonster() {
   int select = random.nextInt(monster.length);
   selectedMonster = monster[select];
 
-  if(selectedMonster != ""){
-    switch (selectedMonster){
+  if(selectedMonster != "") {
+    switch (selectedMonster) {
       case "Minotaur":
         print("You are approached by something massive from the shadows!\nIts a Minotaur!");
       case "Goblin":
@@ -24,18 +24,26 @@ String selectMonster() {
 
 //búa til class sem eg get gripið í til þess að geta set monsters inni rooms og hafa set monsters i set rooms ofl.
 
-void createMonster(){
+Monster createMonster() {
+  Monster monster = Minotaur();
    final String selectedMonster = selectMonster();
    if(selectedMonster.contains("Minotaur")) {
      Minotaur minotaur = Minotaur();
+     monster = minotaur;
+     return monster;
    }
     else if(selectedMonster.contains("Goblin")) {
       Goblin goblin = Goblin();
+      monster = goblin;
+      return monster;
     }
     else if(selectedMonster.contains("Wolf")) {
       Wolf wolf = Wolf();
+      monster = wolf;
+      return monster;
     }
     else {
       print("Error");
     }
+    return monster;
 }

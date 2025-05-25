@@ -17,7 +17,7 @@ class NoItemInChest extends Item{
 }
 
 class Key extends Item {
-  String id;
+  int id;
   bool isKey = true;
   Key({required super.name, required super.description, required this.id});
 }
@@ -61,11 +61,11 @@ class Bow implements Weapon {
   String name = "Bow";
 
   @override
-  String description = "A fine instrument of death dates back over 200 years!";
+  String description = "A fine instrument of death dates back over 500 years!";
 
   @override
   int attack(Player player) {
-    if(player.backpack.contains(Secondary(name: "Arrow", description: 'Arrow'))){
+    if(player.backpack.contains(Secondary(name: "Arrow", description: 'Arrow'))) {
       player.backpack.remove(Secondary(name: "Arrow", description: 'Arrow'));
       int bowDamage = damage;
       return bowDamage;

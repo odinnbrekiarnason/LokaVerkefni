@@ -1,5 +1,5 @@
 import '../Functions.dart';
-import 'dart:math';
+
 
 /*void showMap(){
   print("""
@@ -20,26 +20,25 @@ String printRoomMap(RoomType type, Player player) {
   String tempString = "";
   switch(type) {
     case RoomType.startingPoint :
-      tempString = """ 
-        Hello, ${player.playerName} welcome to the dungeon!
+      print("""Hello, ${player.playerName} welcome to the dungeon!
 This is your starting point and you will face many challenges here.
 you will need to find a way out of the dungeon and defeat the monsters.
 there are many rooms in the dungeon and you will need to find the key to open the door for each one!.
 there will most likely be a monster in each room, so be careful!
 also there will be a chest in each room, so be sure to open it!
-if you need any help just type "help" and i will be there to help you!
-
-  +----------------↕↕↕----------------+
-  |                                   |   
-  |                                   |
-  |                                   |
-  |                 p                 >
-  |                                   >
-  |                                   >
-  |                                   |
-  |                                   |
-  |                                   |
-  +-----------------------------------+
+if you need any help just type "help" and i will be there to help you!""");
+      tempString = """ 
++----------------↕↕↕----------------+
+|                                   |
+|                                   |
+|                 P                 |
+|                                   >
+|                                   >
+|                                   >
+|                                   |
+|                                   |
+|                                   |
++-----------------------------------+
         """;
     return tempString;
     case RoomType.armory :
@@ -96,17 +95,17 @@ if you need any help just type "help" and i will be there to help you!
         """;
     case RoomType.kitchen :
       tempString = """ 
-  +---------------------------------+
-  | Oven |            | *     * |   |
-  | Oven |            +---------+   |
-  |------+                          |
-  |                                 >
-  |------+                  P   door>
-  |Fridge|                          >
-  |------+                          |
-  |                 +---------------|
-  | Cabinet         |  Pans    Pots |
-  +---------------------------------+
+  +-----------------------------------+
+  | Oven |            | *     * |     |
+  | Oven |            +---------+     |
+  |------+                            |
+  |                                   >
+  |------+                  P     door>
+  |Fridge|                            >
+  |------+                            |
+  |                 +-----------------|
+  | Cabinet         |  Pans    Pots   |
+  +-----------------------------------+
         """;
       return tempString;
 
@@ -139,14 +138,14 @@ if you need any help just type "help" and i will be there to help you!
     case RoomType.throneRoom :
       tempString = """ 
   +----------------^^^----------------+
-  | Banners         P                 |
+  | Banners         P         Banners |
   |                                   |
   |                                   |
   |                                   |
   |                              Guard>
   |                            Guard  >
   |                              Guard>
-  |              |______|     Banners |
+  |              |______|             |
   | Carpet      | Throne |            |
   |             +________+            |
   +-----------------------------------+
@@ -157,17 +156,17 @@ if you need any help just type "help" and i will be there to help you!
   return tempString;
 }
 
-/*+----------------^^^----------------+
+/*+-----------------^^^-----------------+
 | Stairs                    Railing   |
 |                                     |
-|             Torch                   |
+|                                     |
 |                                     |
 | Stairs                              >
 |                              Stairs >
 |                                     >
 |                                     |
 |                            Railing  |
-| Torch                     Stairs    |
+| Torch                       Stairs  |
 +----------------vvv------------------+*/
 
 /*+----------------^^^----------------+

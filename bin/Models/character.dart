@@ -14,7 +14,7 @@ class Player extends Items {
     Healing(name: "Bandage", description: "Heals 10 health", healing: 10),
   ];
   List<Key> keyItems = [
-    Key(name: "Key", description:"A shiny key", id: "1"),
+    Key(name: "Key", description:"A shiny key", id: 1),
   ];
 
   Player({required this.playerName, required this.position});
@@ -31,7 +31,6 @@ class Player extends Items {
   }
 
     void getPlayerInfo(Player player) {
-
       List info = [
         "Max health: ${player.playerMaxHealth}",
         "Current health: ${player.currentPlayerHealth}",

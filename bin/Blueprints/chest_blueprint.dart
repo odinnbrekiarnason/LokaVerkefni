@@ -2,7 +2,6 @@ import "../Functions.dart";
 import "dart:math";
 
 Chest spawnChest() {
-  List<dynamic> tempList = [];
   Random random = Random();
   bool chestOrNot = random.nextDouble() < 0.2;
   Chest chest = Chest(item: returnItemList());

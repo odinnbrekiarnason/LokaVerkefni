@@ -1,5 +1,3 @@
-import 'dart:vmservice_io';
-
 import '../Functions.dart';
 import 'dart:math';
 
@@ -21,6 +19,8 @@ enum RoomType {
   bedroom,
   startingPoint,
   storageRoom,
+  //puzzleRoom
+
 }
 
 class RoomNames implements Dungeon {
@@ -59,7 +59,7 @@ class RoomNames implements Dungeon {
 class FloorOne extends RoomNames {
   List<RoomType> completeList = [];
 
-  List<dynamic> selectRandomRooms(List roomsOnFloorOne) {
+  List<RoomType> selectRandomRooms(List roomsOnFloorOne) {
     Random random = Random();
     List<RoomType> roomsOnFloorOne = [];
     //wrap function með check fyrir randomRooms annaðhvort.contains

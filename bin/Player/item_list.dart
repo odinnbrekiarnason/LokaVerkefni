@@ -19,8 +19,8 @@ class Items {
     Secondary(name: "Milk", description: "Just a milk carton... it removes debuffs!"),
   ];
   List<Key> keys = [
-    Key(name: "Key", description: "A key to open a door", id: "1"),
-    Key(name: "BossRoomKey", description: "A key to open a door to the boss room", id: "9"),
+    Key(name: "Key", description: "A key to open a door", id: 1),
+    Key(name: "BossRoomKey", description: "A key to open a door to the boss room", id: 9),
   ];
   List<NoItemInChest> noItem = [];
 

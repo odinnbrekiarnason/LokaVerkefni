@@ -1,5 +1,5 @@
 import "dart:math";
-import "character.dart";
+import "../Functions.dart";
 
 abstract class Monster {
   int damage = 0;
@@ -81,7 +81,7 @@ class Goblin implements Monster {
   ];
   @override
   String setAttack = "";
-  String weapon = "Dagger";
+  Weapon weapon = Weapon(name: "Dagger", damage: 8, description: "A tiny knife, no reach and terrible damage");
 
   @override
   int damage = 5;
@@ -186,4 +186,43 @@ class Wolf implements Monster {
     return isDead!;
   }
 }
+//Ef eg hef tíma gera fleyrri monsters!
+
+/*class RoyalSpectre implements Monster {
+  @override
+  List<String> attack = [
+    "The Spectre swipes his wand and a fireball comes hurling your way!",
+    "",
+    "",
+  ];
+
+
+  @override
+  int damage = 30;
+
+  @override
+  int health = 200;
+
+  @override
+  bool? isDead;
+
+  @override
+  String setAttack = "";
+
+  @override
+  void attackPlayer(Player player) {
+
+  }
+
+  @override
+  bool checkIfDead() {
+    if(health == 0) {
+      print("The Spectre's health drops to 0 and he evaporates into smoke!");
+      isDead = true;
+    } else {
+      isDead = false;
+    }
+    return isDead!;
+  }
+}*/
 

@@ -19,7 +19,7 @@ void selection(Player player, Room room){
       print("There is no monster to fight!");
     }
     case "2":
-      print("You have opened your backpack");
+      print("You open your backpack");
       player.openBackPack();
     case "3":
       movePlayer(player, pos);
