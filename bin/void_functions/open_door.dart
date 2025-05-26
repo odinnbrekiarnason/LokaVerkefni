@@ -6,14 +6,7 @@ bool onOpen(Player player) {
   int id = getRoomId(type);
   bool canUOpen = false;
 
-  String map = printRoomMap(type, player);
-  int pRowPos = getRowPos(player, map);
-  int pColPos = getColPos(player, map);
-
-
-
-
-  /*for(int i = 0; i < player.keyItems.length; i++) {
+  for(int i = 0; i < player.keyItems.length; i++) {
     if (player.keyItems[i].id == id) {
       print("Looks like you have the key for this door!\nWould you like to go to the next room?\nType yes or no");
       String answer = stdin.readLineSync().toString().toLowerCase().trim();
@@ -21,8 +14,7 @@ bool onOpen(Player player) {
       switch (answer) {
         case "yes" || "y" || "ye" || "ja" :
           player.keyItems.removeAt(i);
-          print(
-              "you open the door and walk into the next room\nThe key evaporates!");
+          print( "you open the door and walk into the next room\nThe key evaporates!");
           movePlayer(player, type);
 
         case "no" || "n" || "na" || "nei" :
@@ -33,6 +25,6 @@ bool onOpen(Player player) {
     } else {
       print("No key in your inventory");
     }
-  }*/
+  }
   return canUOpen;
 }

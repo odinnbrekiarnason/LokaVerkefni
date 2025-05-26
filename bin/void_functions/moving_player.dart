@@ -91,30 +91,42 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
     return map;
   }
 
-  String dest = mapRows[newRow].length > newCol ? mapRows[newRow][newCol] : " ";
+  String dest = mapRows[player.rowPos].length > player.colPos ? mapRows[player.rowPos][player.colPos] : " ";
   if (dest != "." && dest != " " && !["^", "v", "<", ">"].contains(dest)) {
     print("Cannot move: blocked by obstacle");
     return map;
   }
   else if(dest == "M") {
     print("You are about to move into a monster prepare yourself!!");
-    attackMonster(p);
+    attackMonster(player);
   }
-  else if(["^", "v", "<", ">"].contains(dest)) {
-    print("You are about to walk into another room are you sure you want to do that?");
+  else if(mapRows[player.rowPos - 1][player.colPos - 1] == "<" || mapRows[player.rowPos + 1][player.colPos + 1] == ">" || mapRows[player.rowPos][player.colPos - 1] == "^" || mapRows[player.rowPos][player.colPos + 1] == "v") {
+    print("You have found a door to another room");
+    print("Would you like to enter the room? (yes/no)");
+    String answer = stdin.readLineSync().toString().toLowerCase();
+    if (answer == "yes" || answer == "y") {
+      print("You have try to enter a new room");
+      onOpen(player);
+      player.rowPos += 2; // Reset position to avoid going out of bounds
+      return map;
+    } else {
+      print("You have chosen not to enter the room");
+      player.rowPos -= 2; 
+      return map;
+    }
   }
 
   StringBuffer newRowString = StringBuffer();
-  for (int c = 0; c < mapRows[playerRow].length; c++) {
-    newRowString.write(c == playerCol ? " " : mapRows[playerRow][c]);
+  for (int c = 0; c < mapRows[player.rowPos].length; c++) {
+    newRowString.write(c == player.colPos ? " " : mapRows[player.rowPos][c]);
   }
-  mapRows[playerRow] = newRowString.toString();
+  mapRows[player.rowPos] = newRowString.toString();
 
   newRowString = StringBuffer();
-  for (int c = 0; c < mapRows[newRow].length; c++) {
-    newRowString.write(c == newCol ? "P" : mapRows[newRow][c]);
+  for (int c = 0; c < mapRows[player.rowPos].length; c++) {
+    newRowString.write(c == player.colPos ? "P" : mapRows[player.rowPos][c]);
   }
-  mapRows[newRow] = newRowString.toString();
+  mapRows[player.rowPos] = newRowString.toString();
 
   String result = mapRows.join('\n');
   print(result);

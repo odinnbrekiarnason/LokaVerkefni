@@ -68,26 +68,22 @@ class FloorOne extends RoomNames {
       List<RoomType> typeList = RoomType.values;
       RoomType indexForName = typeList[randomInt];
 
-      if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)){
+      if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)) {
         roomsOnFloorOne.remove(indexForName);
         //fyrst að checka fyrir duplicate a rooms sem eg vill hafa 2 af kannski
         //siðan checka fyrir duplicates a hinum
       } else if(roomsOnFloorOne.length < 4){
         roomsOnFloorOne.add(indexForName);
       }
-    }
-
-    for(int i = 0; i < roomsOnFloorOne.length; i++) {
-      if(roomsOnFloorOne.contains(RoomType.staircase)){
+    }   
+      if(roomsOnFloorOne.contains(RoomType.staircase)) {
         roomsOnFloorOne.remove(RoomType.staircase);
         roomsOnFloorOne.add(RoomType.staircase);
-        break;
       } else {
+        roomsOnFloorOne.removeLast();
         roomsOnFloorOne.add(RoomType.staircase);
-        break;
       }
-    }
-
+    
     completeList = roomsOnFloorOne;
     return completeList;
   }
