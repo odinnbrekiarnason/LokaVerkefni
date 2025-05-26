@@ -74,7 +74,6 @@ class Chest extends Items {
   }
 }
 
-
-  class EmptyChest extends Chest {
+class EmptyChest extends Chest {
   EmptyChest({required super.item});
-  }
+}

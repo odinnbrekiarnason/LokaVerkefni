@@ -23,9 +23,9 @@ class Key extends Item {
 }
 
  class Weapon extends Item {
-  final int damage;
+  final double damage;
 
-  int attack(Player player){
+  double attack(Player player) {
    return damage;
   }
 
@@ -55,20 +55,17 @@ class Secondary extends Item{
 
 class Bow implements Weapon {
   @override
-  int damage = 13;
-
+  double damage = 13;
   @override
   String name = "Bow";
-
   @override
   String description = "A fine instrument of death dates back over 500 years!";
 
   @override
-  int attack(Player player) {
+  double attack(Player player) {
     if(player.backpack.contains(Secondary(name: "Arrow", description: 'Arrow'))) {
       player.backpack.remove(Secondary(name: "Arrow", description: 'Arrow'));
-      int bowDamage = damage;
-      return bowDamage;
+      return damage;
     } else {
       print("No arrows in Backpack");
       return 0;

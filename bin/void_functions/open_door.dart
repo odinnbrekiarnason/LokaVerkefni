@@ -2,17 +2,25 @@ import "../Functions.dart";
 import "dart:io";
 
 bool onOpen(Player player) {
-  RoomType type = player.getPos(player);
-  int id = getId(type);
+  RoomType type = getPos(player);
+  int id = getRoomId(type);
   bool canUOpen = false;
-  for(int i = 0; i < player.keyItems.length; i++) {
+
+  String map = printRoomMap(type, player);
+  int pRowPos = getRowPos(player, map);
+  int pColPos = getColPos(player, map);
+
+
+
+
+  /*for(int i = 0; i < player.keyItems.length; i++) {
     if (player.keyItems[i].id == id) {
       print("Looks like you have the key for this door!\nWould you like to go to the next room?\nType yes or no");
       String answer = stdin.readLineSync().toString().toLowerCase().trim();
       canUOpen = true;
       switch (answer) {
         case "yes" || "y" || "ye" || "ja" :
-          player.keyItems.removeAt(0);
+          player.keyItems.removeAt(i);
           print(
               "you open the door and walk into the next room\nThe key evaporates!");
           movePlayer(player, type);
@@ -25,6 +33,6 @@ bool onOpen(Player player) {
     } else {
       print("No key in your inventory");
     }
-  }
+  }*/
   return canUOpen;
 }

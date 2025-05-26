@@ -7,6 +7,7 @@ Player createPLayer(Player player) {
   List<Weapon> weapon = [Weapon(name: "Dagger", damage: 8, description: "")];
   player.weaponInHand = weapon;
   player.position = RoomType.startingPoint;
+  player.playerDamage = player.playerDamage + player.weaponInHand[0].damage;
 
   bool correctName = true;
   while(correctName == true) {
@@ -24,7 +25,7 @@ Player createPLayer(Player player) {
     }
   }
   print("This is your character!");
-  player.getPlayerInfo(player);
+  getPlayerInfo(player);
   return player;
 }
 

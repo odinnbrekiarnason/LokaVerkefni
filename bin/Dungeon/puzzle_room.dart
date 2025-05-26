@@ -9,7 +9,6 @@ class DiceRoom extends Room {
   int correctAnswer;
 
   DiceRoom({
-    required super.item,
     required super.type,
     required super.door,
     required super.player,

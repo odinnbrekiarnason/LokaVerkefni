@@ -21,7 +21,7 @@ String movePlayer(Player player, RoomType type) {
 |                                   |
 +-----------------------------------+
 """;
-      return moveSpaces(startingRoomMap, moving, returnRowLength(startingRoomMap), returnColLength(startingRoomMap));
+      return moveSpaces(startingRoomMap, moving, returnRowLength(startingRoomMap), returnColLength(startingRoomMap), player);
 
     case  RoomType.armory:
       print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
@@ -58,71 +58,68 @@ String movePlayer(Player player, RoomType type) {
   }
 }
 
-String moveSpaces(String map, String direction, int rows, int columns) {
+String moveSpaces(String map, String direction, int rows, int columns, Player player) {
+
+  print(player.colPos);
+  print(player.rowPos);
 
   List<String> mapRows = map.split("\n");
 
-  int playerRow = -1;
-  int playerCol = -1;
-  for(int i = 0; i < mapRows.length; i++){
-    int col = mapRows[i].indexOf("P");
-    if(col != -1) {
-      playerRow = i;
-      playerCol = col;
-      break;
-    }
-  }
-  if(playerRow == -1) {
-    print("Error: No player found!");
-    return map;
-  }
+/*  int playerRow = getRowPos(player, map);
+  int playerCol = getColPos(player, map);*/
 
-  int newRow = playerRow;
-  int newCol = playerCol;
   switch (direction) {
     case "up" || "upp" || "u":
-      newRow -= 2;
+      player.rowPos -= 2;
       break;
-    case 'down' || "dow" || "d":
-      newRow += 2;
+    case "down" || "dow" || "d":
+      player.rowPos += 2;
       break;
-    case 'left' || "lef" || "l":
-      newCol -= 2;
+    case "left" || "lef" || "l":
+      player.colPos -= 2;
       break;
-    case 'right' || "rig" || "r":
-      newCol += 2;
+    case "right" || "rig" || "r":
+      player.colPos += 2;
       break;
     default:
       print("Please input a valid direction\nup, down, left, right");
       return map;
   }
 
-  if(newRow < 1 || newRow >= rows - 1 || newCol < 1 || newCol >= columns - 1) {
+  if(player.rowPos < 1 || player.rowPos >= rows - 1 || player.colPos < 1 || player.colPos >= columns - 1) {
     print("Cannot move: out of bounds!");
     return map;
   }
 
-  String dest = mapRows[newRow].length > newCol ? mapRows[newRow][newCol] : ' ';
-  if (dest != '.' && dest != ' ' && !['^', 'v', '<', '>'].contains(dest)) {
+  String dest = mapRows[newRow].length > newCol ? mapRows[newRow][newCol] : " ";
+  if (dest != "." && dest != " " && !["^", "v", "<", ">"].contains(dest)) {
     print("Cannot move: blocked by obstacle");
     return map;
+  }
+  else if(dest == "M") {
+    print("You are about to move into a monster prepare yourself!!");
+    attackMonster(p);
+  }
+  else if(["^", "v", "<", ">"].contains(dest)) {
+    print("You are about to walk into another room are you sure you want to do that?");
   }
 
   StringBuffer newRowString = StringBuffer();
   for (int c = 0; c < mapRows[playerRow].length; c++) {
-    newRowString.write(c == playerCol ? ' ' : mapRows[playerRow][c]);
+    newRowString.write(c == playerCol ? " " : mapRows[playerRow][c]);
   }
   mapRows[playerRow] = newRowString.toString();
 
   newRowString = StringBuffer();
   for (int c = 0; c < mapRows[newRow].length; c++) {
-    newRowString.write(c == newCol ? 'P' : mapRows[newRow][c]);
+    newRowString.write(c == newCol ? "P" : mapRows[newRow][c]);
   }
   mapRows[newRow] = newRowString.toString();
 
   String result = mapRows.join('\n');
   print(result);
-  return result;
+  map = mapRows.join("\n");
+  return map;
 }
 
 int returnColLength(String map) {

@@ -19,7 +19,7 @@ class Door {
   Door({required this.key, required this.id, this.onOpen, this.direction1, this.direction2, this.direction3});
 }
 
-class Room extends Chest implements Door {
+class Room implements Door {
   String printMap;
   final RoomType type;
   final Player player;
@@ -35,7 +35,6 @@ class Room extends Chest implements Door {
 
 
   Room ({
-    required super.item,
     required this.type,
     required this.door,
     required this.player,

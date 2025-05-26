@@ -20,9 +20,10 @@ void main() {
  roomCreation(returnRooms, player);
  String roomMap = printRoomMap(player.position, player);
  print(roomMap);
-
- movePlayer(player, player.getPos(player));
-
+ bool move = true;
+ while(move == true) {
+   movePlayer(player, getPos(player));
+ }
 
 // FloorOne().enterRoom(returnRooms);
 

@@ -1,6 +1,6 @@
 import '../Functions.dart';
 
-int getId(RoomType type) {
+int getRoomId(RoomType type) {
   switch (type) {
     case RoomType.startingPoint:
       return 1;
@@ -16,13 +16,13 @@ int getId(RoomType type) {
       return 6;
     case RoomType.treasureChamber:
       return 7;
-    case RoomType.staircase:
-      return 8;
     case RoomType.bedroom:
-      return 9;
+      return 8;
     case RoomType.emptyChamber:
-      return 10;
+      return 19;
     case RoomType.kitchen:
+      return 10;
+    case RoomType.staircase:
       return 11;
   }
 }

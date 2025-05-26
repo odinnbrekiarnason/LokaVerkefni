@@ -6,7 +6,6 @@ abstract class Dungeon {
   int floors = 3;
 }
 
-//nota roomtype fyrir switch RoomType.armory = "armory"
 enum RoomType {
   armory,
   diningRoom,
@@ -20,7 +19,6 @@ enum RoomType {
   startingPoint,
   storageRoom,
   //puzzleRoom
-
 }
 
 class RoomNames implements Dungeon {
@@ -44,7 +42,7 @@ class RoomNames implements Dungeon {
   int floors = 3;
 
   String returnName(Player player) {
-    RoomType playerPos = player.getPos(player);
+    RoomType playerPos = getPos(player);
     switch(playerPos) {
       case RoomType.startingPoint :
         return rooms.containsKey(RoomType.startingPoint) ? "Starting Point" : "Error";

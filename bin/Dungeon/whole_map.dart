@@ -18,15 +18,16 @@ import '../Functions.dart';
 
 String printRoomMap(RoomType type, Player player) {
   String tempString = "";
+
   switch(type) {
     case RoomType.startingPoint :
-      print("""Hello, ${player.playerName} welcome to the dungeon!
+      /*print("""Hello, ${player.playerName} welcome to the dungeon!
 This is your starting point and you will face many challenges here.
 you will need to find a way out of the dungeon and defeat the monsters.
 there are many rooms in the dungeon and you will need to find the key to open the door for each one!.
 there will most likely be a monster in each room, so be careful!
 also there will be a chest in each room, so be sure to open it!
-if you need any help just type "help" and i will be there to help you!""");
+if you need any help just type "help" and i will be there to help you!""");*/
       tempString = """ 
 +----------------↕↕↕----------------+
 |                                   |
@@ -43,120 +44,118 @@ if you need any help just type "help" and i will be there to help you!""");
     return tempString;
     case RoomType.armory :
       tempString =  """
-  +----------------↕↕↕----------------+
-  | Crate           P           Armor |
-  |                              Rack |
-  |              Monster              |
-  |                                   |
-  | Weapon                            >
-  | Rack                          door> 
-  |                                   >
-  |                                   |
-  |                                   |
-  |  chest                      Crate |
-  | Barrel                      Crate |
-  +----------------↕↕↕----------------+
++----------------↕↕↕----------------+
+| Crate           P           Armor |
+|                              Rack |
+|              Monster              |
+|                                   |
+| Weapon                            >
+| Rack                          door> 
+|                                   >
+|                                   |
+|                                   |
+|                             Crate |
+| Barrel                      Crate |
++----------------↕↕↕----------------+
         """;
       return tempString;
 
     case RoomType.diningRoom :
       tempString = """ 
-  +----------------↕↕↕----------------+
-  |  Table          P                 |
-  |                                   |
-  |      Chair |--------| Chair       |
-  |            |        |             |
-  |      Chair |  Big   | Chair       |
-  <            |  Dish  |             |
-  < door Chair |        | Chair       |
-  |            |        |             |
-  |      Chair |________| Chair       |
-  |                                   |
-  |                                   |
-  | Crate                      Chairs |
-  +----------------↕↕↕----------------+
++----------------↕↕↕----------------+
+|  Table          P                 |
+|                                   |
+|      Chair |--------| Chair       |
+|            |        |             |
+|      Chair |  Big   | Chair       |
+<            |  Dish  |             |
+< door Chair |        | Chair       |
+|            |        |             |
+|      Chair |________| Chair       |
+|                                   |
+|                                   |
+| Crate                      Chairs |
++----------------↕↕↕----------------+
         """;
       return tempString;
 
     case RoomType.emptyChamber :
       tempString = """ 
-  +-----------------------------------+
-  | Dust                       Crate  |
-  | Pile                              |
-  |                Barrel             |
-  |                                   |
-  <    P                      Cobwebs |
-  <           Barrel                  |
-  |                                   |
-  |                     Monster       |
-  | Dust                              |
-  | Pile                        Junk  | 
-  +-----------------------------------+
++-----------------------------------+
+| Dust                       Crate  |
+| Pile                              |
+|                Barrel             |
+|                                   |
+<    P                      Cobwebs |
+<           Barrel                  |
+|                                   |
+|                     Monster       |
+| Dust                              |
+| Pile                        Junk  | 
++-----------------------------------+
         """;
     case RoomType.kitchen :
       tempString = """ 
-  +-----------------------------------+
-  | Oven |            | *     * |     |
-  | Oven |            +---------+     |
-  |------+                            |
-  |                                   >
-  |------+                  P     door>
-  |Fridge|                            >
-  |------+                            |
-  |                 +-----------------|
-  | Cabinet         |  Pans    Pots   |
-  +-----------------------------------+
+ +-----------------------------------+
+ | Oven |            | *     * |     |
+ | Oven |            +---------+     |
+ |------+                            |
+ |                                   >
+ |------+                  P     door>
+ |Fridge|                            >
+ |------+                            |
+ |                 +-----------------|
+ | Cabinet         |  Pans    Pots   |
+ +-----------------------------------+
         """;
       return tempString;
 
     case RoomType.library :
       tempString = """ 
-  +-------------------------------+
-  | Shelves |              Book   |
-  |---------+              Stack  |
-  |  Book                         |
-  |                               |
-  |---------+                     |
-  | Shelves |                     >
-  |---------+             P   door>                               
-  |                               >
-  |                               |
-  |---------+                     |
-  | Shelves |                     |
-  |---------+            +----+   |
-  | Chest                |Desk|   |
-  |                      |Lamp|   |
-  |---------+            |Desk|   |
-  | Shelves |            +----+   |
-  |---------+                     |
-  |                               |
-  |                               |
-  +--------------door-------------+
+ +-------------------------------+
+ | Shelves |              Book   |
+ |---------+              Stack  |
+ |  Book                         |
+ |                               |
+ |---------+                     |
+ | Shelves |                     >
+ |---------+             P   door>                               
+ |                               >
+ |                               |
+ |---------+                     |
+ | Shelves |                     |
+ |---------+            +----+   |
+ | Chest                |Desk|   |
+ |                      |Lamp|   |
+ |---------+            |Desk|   |
+ | Shelves |            +----+   |
+ |---------+                     |
+ |                               |
+ |                               |
+ +--------------door-------------+
       """;
       return tempString;
 
     case RoomType.throneRoom :
       tempString = """ 
-  +----------------^^^----------------+
-  | Banners         P         Banners |
-  |                                   |
-  |                                   |
-  |                                   |
-  |                              Guard>
-  |                            Guard  >
-  |                              Guard>
-  |              |______|             |
-  | Carpet      | Throne |            |
-  |             +________+            |
-  +-----------------------------------+
++----------------^^^----------------+
+| Banners         P         Banners |
+|                                   |
+|                                   |
+|                                   |
+|                              Guard>
+|                            Guard  >
+|                              Guard>
+|              |______|             |
+| Carpet      | Throne |            |
+|             +________+            |
++-----------------------------------+
       """;
       return tempString;
-    default : return "banana";
-  }
-  return tempString;
-}
 
-/*+-----------------^^^-----------------+
+    case RoomType.staircase :
+      tempString = """
++-----------------^^^-----------------+
 | Stairs                    Railing   |
 |                                     |
 |                                     |
@@ -167,17 +166,29 @@ if you need any help just type "help" and i will be there to help you!""");
 |                                     |
 |                            Railing  |
 | Torch                       Stairs  |
-+----------------vvv------------------+*/
++----------------vvv------------------+
+      """;
+      return tempString;
 
-/*+----------------^^^----------------+
+    case RoomType.bedroom :
+      tempString = """ 
++-----------------^^^-----------------+
 | Bed                       Wardrobe  |
 |                                     |
-|             Mirror                  |
 |                                     |
-| Rug                                 >
-|                               Bed   >
-|                                     >
+|                                     |
+| Rug                                 |
+|                               Bed   |
+|                                     |
 |                                     |
 |                            Wardrobe |
 | Rug                         Mirror  |
-+----------------vvv------------------+*/
++----------------vvv------------------+
+      """;
+    default : return "print room Error";
+  }
+  return tempString;
+}
+/*
+
+*/

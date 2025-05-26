@@ -3,7 +3,7 @@ import "../Functions.dart";
 
 abstract class Monster {
   int damage = 0;
-  int health = 0;
+  double health = 0;
   List<String> attack = [];
   String setAttack = "";
   bool? isDead;
@@ -32,7 +32,7 @@ class Minotaur implements Monster {
   int damage = 20;
 
   @override
-  int health = 200;
+  double health = 200;
 
   void selectAttack() {
     Random random = Random();
@@ -87,7 +87,7 @@ class Goblin implements Monster {
   int damage = 5;
 
   @override
-  int health = 50;
+  double health = 50;
 
   @override
   void attackPlayer(Player player) {
@@ -138,7 +138,7 @@ class Wolf implements Monster {
   int damage = 10;
 
   @override
-  int health = 100;
+  double health = 100;
 
   @override
   String setAttack = "";

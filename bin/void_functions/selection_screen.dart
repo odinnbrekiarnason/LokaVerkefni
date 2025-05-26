@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'Functions.dart';
+import '../Functions.dart';
 
 void selection(Player player, Room room){
   print("You walk into the ${room.name}");

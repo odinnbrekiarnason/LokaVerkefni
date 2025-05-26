@@ -2,12 +2,14 @@ import '../Functions.dart';
 
 
 class Player extends Items {
-  int currentPlayerHealth = 120;
   final int playerMaxHealth = 120;
-  int playerDamage = 10;
+  int currentPlayerHealth = 120;
+  double playerDamage = 15;
   RoomType position;
   List<Weapon> weaponInHand = [Weapon(name: "Dagger", damage: 8, description: "A tiny knife, no reach and terrible damage")];
   String playerName = "";
+  int rowPos = 0;
+  int colPos = 0;
   bool? debuffs = false;
   bool? isDead = false;
   List<Item> backpack = [
@@ -26,23 +28,6 @@ class Player extends Items {
     }
   }
 
-   dynamic getPos(Player player) {
-    return position;
-  }
-
-    void getPlayerInfo(Player player) {
-      List info = [
-        "Max health: ${player.playerMaxHealth}",
-        "Current health: ${player.currentPlayerHealth}",
-        "Damage: ${player.playerDamage}",
-        "Your weapon: ",
-      ];
-      for(String item in info) {
-        print(item);
-      }
-      returnItemName(player.weaponInHand);
-    }
-
     bool gameOver() {
       if (currentPlayerHealth <= 0) {
         print("Your health reaches 0 and you collapse!");
@@ -56,20 +41,4 @@ class Player extends Items {
       }
       return isDead!;
     }
-
-  /*void movePlayer(Player player, RoomType room) {
-    List armory = [
-      ["+----------------door---------------+"],
-      ["| Crate           p           Armor |"],
-      ["|                             Rack  |"],
-      ["|              Monster              |"],
-      ["| Weapon                            >"],
-      ["| Rack                          door>"],
-      ["|                                   >"],
-      ["|                                   |"],
-      ["|                                   |"],
-      ["| Barrel                      Crate |"],
-      ["+----------------door---------------+"]
-    ];
-  }*/
   }
