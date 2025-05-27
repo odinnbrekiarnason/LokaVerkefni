@@ -40,7 +40,7 @@ class Chest extends Items {
       player.openBackPack();
     }
 
-    if (r1 <= 1) {
+    if (r1 <= 0) {
       int randomSelect = random.nextInt(weaponInChest.length);
       int secondRandomSelect = random.nextInt(secondaryInChest.length);
 
@@ -48,7 +48,7 @@ class Chest extends Items {
       itemInChest.add(secondaryInChest[secondRandomSelect]);
       //print(itemInChest);
     }
-    if (r1 == 2) {
+    if (r1 == 1) {
       int randomSelect = random.nextInt(healingInChest.length);
       int secondRandomSelect = random.nextInt(secondaryInChest.length);
 

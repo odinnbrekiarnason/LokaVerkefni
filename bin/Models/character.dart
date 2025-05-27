@@ -19,7 +19,7 @@ class Player extends Items {
     Key(name: "Key", description:"A shiny key", id: 1),
   ];
 
-  Player({required this.playerName, required this.position});
+  Player(this.rowPos, this.colPos, {required this.playerName, required this.position, });
 
   void openBackPack() {
     print("Your backpack contains:");

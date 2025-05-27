@@ -3,7 +3,7 @@ import 'Functions.dart';
 
 
 void main() {
-  Player player = Player(playerName: "", position: RoomType.startingPoint);
+  Player player = Player(0, 0, playerName: "", position: RoomType.startingPoint, );
   player = createPLayer(player);
   print("You are now in the game ${player.playerName}!");
   /*print("You have ${player.playerMaxHealth} max health");
@@ -20,6 +20,7 @@ void main() {
  roomCreation(returnRooms, player);
  String roomMap = printRoomMap(player.position, player);
  print(roomMap);
+ print(getPos(player));
  bool move = true;
  while(move == true) {
    movePlayer(player, getPos(player));

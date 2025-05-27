@@ -8,7 +8,7 @@ String movePlayer(Player player, RoomType type) {
 
   switch(type) {
     case RoomType.startingPoint :
-      String startingRoomMap = """
+     String startingRoomMap = """
 +----------------↕↕↕----------------+
 |                                   |
 |                                   |
@@ -21,6 +21,7 @@ String movePlayer(Player player, RoomType type) {
 |                                   |
 +-----------------------------------+
 """;
+
       return moveSpaces(startingRoomMap, moving, returnRowLength(startingRoomMap), returnColLength(startingRoomMap), player);
 
     case  RoomType.armory:
@@ -65,8 +66,11 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
 
   List<String> mapRows = map.split("\n");
 
-/*  int playerRow = getRowPos(player, map);
-  int playerCol = getColPos(player, map);*/
+  player.colPos = getColPos(player, map);
+  player.rowPos = getRowPos(player, map);
+
+  int playerRow = getRowPos(player, map);
+  int playerCol = getColPos(player, map);
 
   switch (direction) {
     case "up" || "upp" || "u":
@@ -96,18 +100,19 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
     print("Cannot move: blocked by obstacle");
     return map;
   }
+
   else if(dest == "M") {
     print("You are about to move into a monster prepare yourself!!");
     attackMonster(player);
   }
-  else if(mapRows[player.rowPos - 1][player.colPos - 1] == "<" || mapRows[player.rowPos + 1][player.colPos + 1] == ">" || mapRows[player.rowPos][player.colPos - 1] == "^" || mapRows[player.rowPos][player.colPos + 1] == "v") {
+  else if(mapRows[player.rowPos - 1][player.colPos - 1] == "<" || mapRows[player.rowPos + 1][player.colPos + 1] == ">" || mapRows[player.rowPos][player.colPos - 1] == "↕") {
     print("You have found a door to another room");
     print("Would you like to enter the room? (yes/no)");
     String answer = stdin.readLineSync().toString().toLowerCase();
     if (answer == "yes" || answer == "y") {
       print("You have try to enter a new room");
       onOpen(player);
-      player.rowPos += 2; // Reset position to avoid going out of bounds
+      player.rowPos += 2;
       return map;
     } else {
       print("You have chosen not to enter the room");
@@ -116,11 +121,12 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
     }
   }
 
+
   StringBuffer newRowString = StringBuffer();
-  for (int c = 0; c < mapRows[player.rowPos].length; c++) {
-    newRowString.write(c == player.colPos ? " " : mapRows[player.rowPos][c]);
+  for (int c = 0; c < mapRows[playerRow].length; c++) {
+    newRowString.write(c == playerCol ? " " : mapRows[playerRow][c]);
   }
-  mapRows[player.rowPos] = newRowString.toString();
+  mapRows[playerRow] = newRowString.toString();
 
   newRowString = StringBuffer();
   for (int c = 0; c < mapRows[player.rowPos].length; c++) {
