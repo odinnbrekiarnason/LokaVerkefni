@@ -18,12 +18,29 @@ void main() {
   chest.openChest(player);
  returnRooms = f1.selectRandomRooms(returnRooms);
  roomCreation(returnRooms, player);
- String roomMap = printRoomMap(player.position, player);
+ String roomMap = currentRoomMap(player.position, player);
  print(roomMap);
  print(getPos(player));
+
+  String tempString = """ 
++----------------↕↕↕----------------+
+|                                   |
+|                                   |
+|                 P                 |
+|                                   >
+|                                   >
+|                                   >
+|                                   |
+|                                   |
+|                                   |
++-----------------------------------+
+        """;
+
+
+
  bool move = true;
  while(move == true) {
-   movePlayer(player, getPos(player));
+   tempString = movePlayer(player, getPos(player), tempString);
  }
 
 // FloorOne().enterRoom(returnRooms);

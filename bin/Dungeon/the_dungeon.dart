@@ -63,7 +63,7 @@ class FloorOne extends RoomNames {
     //wrap function með check fyrir randomRooms annaðhvort.contains
     // eða checka hvort randomInt == randomInt aftur idk
 
-    for(int i = 0; i < rooms.length; i++){
+    for(int i = 0; i < 100; i++) {
       int randomInt = random.nextInt(rooms.length);
       List<RoomType> typeList = RoomType.values;
       RoomType indexForName = typeList[randomInt];
@@ -72,9 +72,10 @@ class FloorOne extends RoomNames {
         roomsOnFloorOne.add(RoomType.staircase);
       }
       if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)) {
-        roomsOnFloorOne.removeLast();
+        roomsOnFloorOne.remove(indexForName);
 
-      } else if(roomsOnFloorOne.length < 4){
+      }
+      if(roomsOnFloorOne.length <= 3) {
         roomsOnFloorOne.add(indexForName);
       }
     }   

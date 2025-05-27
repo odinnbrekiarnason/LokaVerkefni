@@ -3,7 +3,7 @@ import '../Functions.dart';
 
 List<Room> roomCreation(List<dynamic> selectedRooms, Player player) {
   List<Room> createdRooms = [];
-  String tempMap = printRoomMap(getPos(player), player);
+  String tempMap = currentRoomMap(getPos(player), player);
   Key tempKey = Key(name: "Temp", description: "Temp", id: 0);
 
   for (int i = 0; i < selectedRooms.length; i++) {

@@ -1,28 +1,18 @@
 import '../Functions.dart';
 import 'dart:io';
 
-String movePlayer(Player player, RoomType type) {
+String movePlayer(Player player, RoomType type, String map) {
   print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
   String tempList = "";
   String moving = stdin.readLineSync().toString().toLowerCase();
 
+  int rows = returnRowLength(map);
+  int col = returnColLength(map);
+
   switch(type) {
     case RoomType.startingPoint :
-     String startingRoomMap = """
-+----------------↕↕↕----------------+
-|                                   |
-|                                   |
-|                 P                 |
-|                                   >
-|                                   >
-|                                   >
-|                                   |
-|                                   |
-|                                   |
-+-----------------------------------+
-""";
-
-      return moveSpaces(startingRoomMap, moving, returnRowLength(startingRoomMap), returnColLength(startingRoomMap), player);
+     map = moveSpaces(map, moving, returnRowLength(map), returnColLength(map), player);
+      return  map;
 
     case  RoomType.armory:
       print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
@@ -31,7 +21,7 @@ String movePlayer(Player player, RoomType type) {
 +----------------door---------------+
 | Crate           p           Armor |
 |                             Rack  |
-|                 .                 |
+|                 M                 |
 | Weapon                            >
 | Rack                          door>
 |                                   >
@@ -60,9 +50,6 @@ String movePlayer(Player player, RoomType type) {
 }
 
 String moveSpaces(String map, String direction, int rows, int columns, Player player) {
-
-  print(player.colPos);
-  print(player.rowPos);
 
   List<String> mapRows = map.split("\n");
 
@@ -105,7 +92,8 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
     print("You are about to move into a monster prepare yourself!!");
     attackMonster(player);
   }
-  else if(mapRows[player.rowPos - 1][player.colPos - 1] == "<" || mapRows[player.rowPos + 1][player.colPos + 1] == ">" || mapRows[player.rowPos][player.colPos - 1] == "↕") {
+
+  else if(mapRows[player.rowPos - 1][player.colPos - 1] == "<" || mapRows[player.rowPos + 1][player.colPos + 1] == ">" || mapRows[player.rowPos - 1][player.colPos - 1] == "↕") {
     print("You have found a door to another room");
     print("Would you like to enter the room? (yes/no)");
     String answer = stdin.readLineSync().toString().toLowerCase();
@@ -134,9 +122,8 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
   }
   mapRows[player.rowPos] = newRowString.toString();
 
-  String result = mapRows.join('\n');
-  print(result);
   map = mapRows.join("\n");
+  print(map);
   return map;
 }
 

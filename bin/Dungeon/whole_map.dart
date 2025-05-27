@@ -16,7 +16,7 @@ import '../Functions.dart';
 );
 }*/
 
-String printRoomMap(RoomType type, Player player) {
+String currentRoomMap(RoomType type, Player player) {
   String tempString = "";
 
   switch(type) {
@@ -189,6 +189,4 @@ if you need any help just type "help" and i will be there to help you!""");*/
   }
   return tempString;
 }
-/*
 
-*/

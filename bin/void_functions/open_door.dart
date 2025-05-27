@@ -15,7 +15,7 @@ bool onOpen(Player player) {
         case "yes" || "y" || "ye" || "ja" :
           player.keyItems.removeAt(i);
           print( "you open the door and walk into the next room\nThe key evaporates!");
-          movePlayer(player, type);
+          movePlayer(player, type, currentRoomMap(type, player));
 
         case "no" || "n" || "na" || "nei" :
           print(
