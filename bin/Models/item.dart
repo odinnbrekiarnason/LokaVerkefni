@@ -1,4 +1,4 @@
-import '../Models/character.dart';
+import '../Functions.dart';
 
 class Item {
   final String name;
@@ -19,7 +19,12 @@ class NoItemInChest extends Item{
 class Key extends Item {
   int id;
   bool isKey = true;
+  get getId => idGetter();
   Key({required super.name, required super.description, required this.id});
+
+  int idGetter() {
+    return id;
+  }
 }
 
  class Weapon extends Item {
@@ -38,19 +43,20 @@ class Key extends Item {
     }
     return info;
   }
-
 }
 
 class Healing extends Item {
   final int healing;
 
   Healing({required super.name, required this.healing, required super.description});
+
+
 }
 
-class Secondary extends Item{
+class Secondary extends Item {
   int maxStack = 5;
 
-  Secondary({required super.name, required super.description,});
+  Secondary({required super.name, required super.description});
 }
 
 class Bow implements Weapon {

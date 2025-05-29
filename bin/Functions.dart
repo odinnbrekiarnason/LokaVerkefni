@@ -7,16 +7,15 @@ export 'void_functions/selection_screen.dart';
 export 'lokaverkefni_maybe.dart';
 export 'Blueprints/player_blueprint.dart';
 export 'Blueprints/monster_blueprint.dart';
-export 'Dungeon/the_dungeon.dart';
 export 'Models/chest.dart';
 export 'Models/item.dart';
 export 'Blueprints/room_blueprints.dart';
 export 'Dungeon/whole_map.dart';
 export 'void_functions/moving_player.dart';
 export 'void_functions/open_door.dart';
-export 'void_functions/item_fucntions.dart';
+export 'void_functions/item_functions.dart';
 export 'Blueprints/chest_blueprint.dart';
 export 'Dungeon/puzzle_room.dart';
 export 'void_functions/get_room_id.dart';
 export 'Player/player_getters.dart';
-
+export 'void_functions/map_enum_storage.dart';

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import '../Functions.dart';
 
 
@@ -18,13 +20,21 @@ class Player extends Items {
   List<Key> keyItems = [
     Key(name: "Key", description:"A shiny key", id: 1),
   ];
+  List<RoomType> roomHistory;
 
-  Player(this.rowPos, this.colPos, {required this.playerName, required this.position, });
+  Player({required this.playerName, required this.position, this.roomHistory = const []});
 
   void openBackPack() {
     print("Your backpack contains:");
     for (Item item in backpack) {
       print("|${item.name}|");
+    }
+    print("Would you like to use or swap items?");
+    String input = stdin.readLineSync().toString().toLowerCase();
+    switch(input) {
+      case "yes" || "ye" || "y" || "j" || "ja" :
+
+
     }
   }
 

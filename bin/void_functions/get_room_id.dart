@@ -22,7 +22,18 @@ int getRoomId(RoomType type) {
       return 19;
     case RoomType.kitchen:
       return 10;
-    case RoomType.staircase:
+    case RoomType.bossRoom:
       return 11;
+    case RoomType.hallway:
+      return 0;
+  }
+}
+
+bool idCheck(int i, int c)  {
+  if(i == c){
+    return true;
+  }
+  else {
+    return false;
   }
 }

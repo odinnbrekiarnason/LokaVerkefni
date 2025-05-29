@@ -6,43 +6,15 @@ String movePlayer(Player player, RoomType type, String map) {
   String tempList = "";
   String moving = stdin.readLineSync().toString().toLowerCase();
 
-  int rows = returnRowLength(map);
-  int col = returnColLength(map);
-
   switch(type) {
     case RoomType.startingPoint :
      map = moveSpaces(map, moving, returnRowLength(map), returnColLength(map), player);
       return  map;
 
     case  RoomType.armory:
-      print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
 
-      String armory = """
-+----------------door---------------+
-| Crate           p           Armor |
-|                             Rack  |
-|                 M                 |
-| Weapon                            >
-| Rack                          door>
-|                                   >
-|                                   |
-|                                   |
-| Barrel                      Crate |
-+----------------door---------------+
-      """;
 
-     /* switch(moving) {
-        case "down" || "dow" || "d" :
-          String tempMap = armory;
-          print("top");
-          int index = findIndex(tempMap);
-          tempMap[index] = tempMap.removeAt(index);
-          print("mid");
-          tempMap.insert(index, " ");
-          print(tempMap);
-          print("bottom");
 
-      }*/
 
       return armory;
     default : return tempList;
@@ -50,6 +22,9 @@ String movePlayer(Player player, RoomType type, String map) {
 }
 
 String moveSpaces(String map, String direction, int rows, int columns, Player player) {
+
+  List<RoomType> connectedRooms = roomConnect['connections'][player.position] ?? [];
+  List<Direction> availableDirections = roomConnect['directions'][player.position] ?? [];
 
   List<String> mapRows = map.split("\n");
 
@@ -90,22 +65,34 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
 
   else if(dest == "M") {
     print("You are about to move into a monster prepare yourself!!");
-    attackMonster(player);
+    selection(player, player.position);
   }
 
-  else if(mapRows[player.rowPos - 1][player.colPos - 1] == "<" || mapRows[player.rowPos + 1][player.colPos + 1] == ">" || mapRows[player.rowPos - 1][player.colPos - 1] == "↕") {
-    print("You have found a door to another room");
-    print("Would you like to enter the room? (yes/no)");
-    String answer = stdin.readLineSync().toString().toLowerCase();
-    if (answer == "yes" || answer == "y") {
-      print("You have try to enter a new room");
-      onOpen(player);
-      player.rowPos += 2;
-      return map;
-    } else {
-      print("You have chosen not to enter the room");
-      player.rowPos -= 2; 
-      return map;
+  if(mapRows[player.rowPos - 1][player.colPos - 1] == "<" || mapRows[player.rowPos + 1][player.colPos + 1] == "<") {
+    print("Would you like to enter the next room?\nYes or no");
+    String input = stdin.readLineSync().toString().toLowerCase();
+    switch(input) {
+      case "yes" || "ye" || "y" || "j" || "ja" :
+        int indexedDirection = availableDirections.indexOf(Direction.left);
+        RoomType nextRoom = connectedRooms[indexedDirection];
+        if(getRoomId(nextRoom) == 0) {
+          print("No key needed go right ahead!");
+          player.position = nextRoom;
+          break;
+        }
+         print("Checking for correct key...");
+        for(int i = 0; i < player.keyItems.length; i++) {
+          if(idCheck(getRoomId(nextRoom), player.keyItems[i].id) == true) {
+            print("You can get to the next room!");
+            player.position = nextRoom;
+            break;
+          } else {
+            print("You don't have the correct key for this door!");
+            break;
+          }
+        }
+      default :
+        print("invalid input chose to stay");
     }
   }
 

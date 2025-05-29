@@ -20,7 +20,16 @@ class Items {
   ];
   List<Key> keys = [
     Key(name: "Key", description: "A key to open a door", id: 1),
-    Key(name: "BossRoomKey", description: "A key to open a door to the boss room", id: 9),
+    Key(name: "Key", description: "A key to open a door", id: 2),
+    Key(name: "Key", description: "A key to open a door", id: 3),
+    Key(name: "Key", description: "A key to open a door", id: 4),
+    Key(name: "Key", description: "A key to open a door", id: 5),
+    Key(name: "Key", description: "A key to open a door", id: 6),
+    Key(name: "Key", description: "A key to open a door", id: 7),
+    Key(name: "Key", description: "A key to open a door", id: 8),
+    Key(name: "Key", description: "A key to open a door", id: 9),
+    Key(name: "Key", description: "A key to open a door", id: 10),
+    Key(name: "BossRoomKey", description: "A key to open a door to the boss room", id: 11),
   ];
   List<NoItemInChest> noItem = [];
 

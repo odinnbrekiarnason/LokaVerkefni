@@ -25,3 +25,30 @@ List<Item> returnItemList() {
 void addToBackpack(List<Item> item, Player player) {
   player.backpack.addAll(item);
 }
+
+bool isHealing(Item item) {
+  if(item is Healing) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+bool isWeapon(Item item) {
+  if(item is Weapon) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+bool isSecondary(Item item) {
+  if(item is Secondary) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}

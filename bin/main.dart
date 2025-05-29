@@ -3,7 +3,7 @@ import 'Functions.dart';
 
 
 void main() {
-  Player player = Player(0, 0, playerName: "", position: RoomType.startingPoint, );
+  Player player = Player(playerName: "", position: RoomType.startingPoint, );
   player = createPLayer(player);
   print("You are now in the game ${player.playerName}!");
   /*print("You have ${player.playerMaxHealth} max health");
@@ -11,36 +11,16 @@ void main() {
   print("You have ${returnItemName(player.backpack)} in your backpack");
   print("You have a ${returnItemName(player.weaponInHand)} in your hand");
   print("You are at the starting point of the dungeon");*/
-  var f1 = FloorOne();
-  var returnRooms = f1.selectRandomRooms(f1.completeList);
-  print(returnRooms);
-  Chest chest = Chest(item: returnItemList());
-  chest.openChest(player);
- returnRooms = f1.selectRandomRooms(returnRooms);
- roomCreation(returnRooms, player);
+ /* Chest chest = Chest(item: returnItemList());
+  chest.openChest(player);*/
+ roomCreation(RoomType.values, player);
  String roomMap = currentRoomMap(player.position, player);
  print(roomMap);
  print(getPos(player));
 
-  String tempString = """ 
-+----------------↕↕↕----------------+
-|                                   |
-|                                   |
-|                 P                 |
-|                                   >
-|                                   >
-|                                   >
-|                                   |
-|                                   |
-|                                   |
-+-----------------------------------+
-        """;
-
-
-
  bool move = true;
  while(move == true) {
-   tempString = movePlayer(player, getPos(player), tempString);
+   startingPoint = movePlayer(player, getPos(player), startingPoint);
  }
 
 // FloorOne().enterRoom(returnRooms);

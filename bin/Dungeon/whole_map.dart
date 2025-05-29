@@ -1,35 +1,7 @@
 import '../Functions.dart';
 
-
-/*void showMap(){
-  print("""
- [Dining Room] ↔ [Kitchen]
-     ↕
-[>StartingPoint<] ↔ [Storage Room] 
-     ↕                       ↕
-  [Armory] ↔ [Hallway] ↔ [Library]
-     ↕
-[Storage Room] 
-     ↕
-[Boss Room] ↔ [staircase] 
-  """
-);
-}*/
-
-String currentRoomMap(RoomType type, Player player) {
-  String tempString = "";
-
-  switch(type) {
-    case RoomType.startingPoint :
-      /*print("""Hello, ${player.playerName} welcome to the dungeon!
-This is your starting point and you will face many challenges here.
-you will need to find a way out of the dungeon and defeat the monsters.
-there are many rooms in the dungeon and you will need to find the key to open the door for each one!.
-there will most likely be a monster in each room, so be careful!
-also there will be a chest in each room, so be sure to open it!
-if you need any help just type "help" and i will be there to help you!""");*/
-      tempString = """ 
-+----------------↕↕↕----------------+
+String startingPoint = """
++----------------^^^----------------+
 |                                   |
 |                                   |
 |                 P                 |
@@ -39,48 +11,43 @@ if you need any help just type "help" and i will be there to help you!""");*/
 |                                   |
 |                                   |
 |                                   |
-+-----------------------------------+
-        """;
-    return tempString;
-    case RoomType.armory :
-      tempString =  """
-+----------------↕↕↕----------------+
++----------------vvv----------------+
+""";
+
+ String armory = """
++----------------^^^----------------+
 | Crate           P           Armor |
 |                              Rack |
-|              Monster              |
+|                 M                 |
 |                                   |
-| Weapon                            >
-| Rack                          door> 
+| Weapon          C                 >
+| Rack                              > 
 |                                   >
 |                                   |
 |                                   |
 |                             Crate |
 | Barrel                      Crate |
-+----------------↕↕↕----------------+
-        """;
-      return tempString;
++----------------vvv----------------+
+""";
 
-    case RoomType.diningRoom :
-      tempString = """ 
-+----------------↕↕↕----------------+
-|  Table          P                 |
+ String diningRoom = """
++-----------------------------------+
+|  Table                          C |
 |                                   |
 |      Chair |--------| Chair       |
 |            |        |             |
-|      Chair |  Big   | Chair       |
-<            |  Dish  |             |
-< door Chair |        | Chair       |
+|      Chair |  Big   | Chair       >
+|            |  Dish  |             >
+| door Chair |        | Chair       >
 |            |        |             |
 |      Chair |________| Chair       |
 |                                   |
 |                                   |
-| Crate                      Chairs |
-+----------------↕↕↕----------------+
-        """;
-      return tempString;
+| Crate           P          Chairs |
++----------------vvv----------------+
+""";
 
-    case RoomType.emptyChamber :
-      tempString = """ 
+ String emptyChamber = """
 +-----------------------------------+
 | Dust                       Crate  |
 | Pile                              |
@@ -93,100 +60,173 @@ if you need any help just type "help" and i will be there to help you!""");*/
 | Dust                              |
 | Pile                        Junk  | 
 +-----------------------------------+
-        """;
-    case RoomType.kitchen :
-      tempString = """ 
- +-----------------------------------+
- | Oven |            | *     * |     |
- | Oven |            +---------+     |
- |------+                            |
- |                                   >
- |------+                  P     door>
- |Fridge|                            >
- |------+                            |
- |                 +-----------------|
- | Cabinet         |  Pans    Pots   |
- +-----------------------------------+
-        """;
-      return tempString;
+""";
 
-    case RoomType.library :
-      tempString = """ 
- +-------------------------------+
- | Shelves |              Book   |
- |---------+              Stack  |
- |  Book                         |
- |                               |
- |---------+                     |
- | Shelves |                     >
- |---------+             P   door>                               
- |                               >
- |                               |
- |---------+                     |
- | Shelves |                     |
- |---------+            +----+   |
- | Chest                |Desk|   |
- |                      |Lamp|   |
- |---------+            |Desk|   |
- | Shelves |            +----+   |
- |---------+                     |
- |                               |
- |                               |
- +--------------door-------------+
-      """;
-      return tempString;
+ String kitchen = """
++-----------------------------------+
+| Oven |            | *     * |     |
+| Oven |            +---------+     |
+|------+                            |
+<  P                                |
+|------+                            |
+|Fridge|                            |
+|------+                            |
+|                 +-----------------|
+| Cabinet         |  Pans    Pots   |
++-----------------------------------+
+""";
 
-    case RoomType.throneRoom :
-      tempString = """ 
+ String library = """
++--------------^^^--------------+
+| Shelves |              Book   |
+|---------+              Stack  |
+|  Book                         |
+|                               |
+|---------+                     |
+| Shelves |                     |
+|---------+       M     P       |
+|                               |
+|                               |
+|---------+                     |
+| Shelves |                     |
+|---------+            +----+   |
+| C                    |Desk|   |
+|                      |Lamp|   |
+|---------+            |Desk|   |
+| Shelves |            +----+   |
+|---------+                     |
+|                               |
+|                               |
++--------------vvv--------------+
+""";
+
+ String throneRoom = """
 +----------------^^^----------------+
 | Banners         P         Banners |
 |                                   |
 |                                   |
 |                                   |
-|                              Guard>
-|                            Guard  >
-|                              Guard>
+|                              M    >
+|                              M    >
+|                              M    >
 |              |______|             |
 | Carpet      | Throne |            |
 |             +________+            |
 +-----------------------------------+
-      """;
-      return tempString;
+""";
 
-    case RoomType.staircase :
-      tempString = """
-+-----------------^^^-----------------+
-| Stairs                    Railing   |
+ String bossRoom = """
++----------------^^^------------------+
+| Torch                       Weapon  |
+|                              Rack   |
 |                                     |
 |                                     |
+|                 B                   |
 |                                     |
-| Stairs                              >
-|                              Stairs >
-|                                     >
+|                                     |
 |                                     |
 |                            Railing  |
 | Torch                       Stairs  |
-+----------------vvv------------------+
-      """;
-      return tempString;
++-------------------------------------+
+""";
 
-    case RoomType.bedroom :
-      tempString = """ 
+ String bedroom = """
 +-----------------^^^-----------------+
 | Bed                       Wardrobe  |
 |                                     |
 |                                     |
-|                                     |
-| Rug                                 |
-|                               Bed   |
+<                                     |
+< Rug                                 |
+<                               Bed   |
 |                                     |
 |                                     |
 |                            Wardrobe |
 | Rug                         Mirror  |
-+----------------vvv------------------+
-      """;
-    default : return "print room Error";
++-----------------vvv-----------------+
+""";
+
+ String treasureRoom = """
++-----------------^^^-----------------+
+| C                           Statue  |
+|                                     |
+|                                     |
+| Gold Pile                           |
+|                  M            C     |
+|                                     |
+|                                     |
+|                           Treasure  |
+| Carpet                      Altar   |
++-----------------vvv-----------------+
+ """;
+
+ String storageRoom = """
++-------------------------------------+
+| Crates                      Barrels |
+|                  M                  |
+|                                     |
+< Shelves                             |
+<                               Crates|
+<                                     |
+|     C                               |
+|                            Barrels  |
+| Boxes                       Rack    |
++-----------------vvv-----------------+
+ """;
+
+ String hallway = """
++----------------------------^^^------------------------------+
+| Torch                                               Painting|
+<                                                             >
+<                             M                               >
+|                                                             |
++-----------------vvv-----------------------------------------+
+ """;
+
+
+
+
+String currentRoomMap(RoomType type, Player player) {
+  switch (type) {
+    case RoomType.startingPoint:
+      return startingPoint;
+    case RoomType.armory:
+      return armory;
+    case RoomType.diningRoom:
+      return diningRoom;
+    case RoomType.kitchen:
+      return kitchen;
+    case RoomType.storageRoom:
+      return storageRoom;
+    case RoomType.emptyChamber:
+      return emptyChamber;
+    case RoomType.library:
+      return library;
+    case RoomType.throneRoom:
+      return throneRoom;
+    case RoomType.bossRoom:
+      return bossRoom;
+    case RoomType.bedroom:
+      return bedroom;
+    case RoomType.treasureChamber:
+      return treasureRoom;
+    case RoomType.hallway:
+      return hallway;
   }
-  return tempString;
 }
 
+
+
+/*void showMap() {
+  print("""
+ [DiningRoom] ↔ [Kitchen] [TreasureChamber]
+     ↕
+[>StartingPoint<] ↔ [Storage Room]
+     ↕      [ThroneRoom]        ↕
+  [Armory] ↔ [Hallway] ↔ [Library]
+     ↕             ↕
+[EmptyChamber] ↔ [BedRoom]
+     ↕
+[Boss Room]
+  """
+);
+}*/

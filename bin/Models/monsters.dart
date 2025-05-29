@@ -2,6 +2,7 @@ import "dart:math";
 import "../Functions.dart";
 
 abstract class Monster {
+  String name = "";
   int damage = 0;
   double health = 0;
   List<String> attack = [];
@@ -16,6 +17,8 @@ abstract class Monster {
 }
 
 class Minotaur implements Monster {
+  @override
+  String name = "Minotaur";
 
   @override
   List<String> attack = [
@@ -47,13 +50,15 @@ class Minotaur implements Monster {
     selectAttack();
     if(attackOrSwing <= 20) {
       print("""
-      Minotaur attacks you with an $weapon!
+      Minotaur attacks you with a $weapon!
       \nYou take ${damage + 5} damage
+      \nYou have ${player.currentPlayerHealth} health left!
       \nIt has $health health left!
       """);
       player.currentPlayerHealth = player.currentPlayerHealth - (damage + 5);
     } else if (attackOrSwing >= 21) {
       print("$setAttack\nHe does $damage damage!");
+      player.currentPlayerHealth = player.currentPlayerHealth - damage;
     }
     return setAttack;
   }
@@ -74,6 +79,9 @@ class Minotaur implements Monster {
 }
 
 class Goblin implements Monster {
+  @override
+  String name = "Goblin";
+
   @override
   List<String> attack = [
     "Goblin claws at you",
@@ -128,6 +136,9 @@ class Goblin implements Monster {
 
 class Wolf implements Monster {
   @override
+  String name = "Wolf";
+
+  @override
   List<String> attack = [
     "Wolf runs at you and bites you!",
     "Wolf swipes at you",
@@ -151,6 +162,7 @@ class Wolf implements Monster {
         return;
       } else {
         print("$setAttack\nHe does $damage damage!");
+        player.currentPlayerHealth = player.currentPlayerHealth - damage;
       }
   }
   void selectAttack() {

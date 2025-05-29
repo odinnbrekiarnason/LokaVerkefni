@@ -46,7 +46,6 @@ class Chest extends Items {
 
       itemInChest.add(weaponInChest[randomSelect]);
       itemInChest.add(secondaryInChest[secondRandomSelect]);
-      //print(itemInChest);
     }
     if (r1 == 1) {
       int randomSelect = random.nextInt(healingInChest.length);
@@ -54,7 +53,6 @@ class Chest extends Items {
 
       itemInChest.add(healingInChest[randomSelect]);
       itemInChest.add(secondaryInChest[secondRandomSelect]);
-      //print(itemInChest);
     }
 
     if (r2 >= 8) {

@@ -22,7 +22,6 @@ String selectMonster() {
   return selectedMonster;
 }
 
-//búa til class sem eg get gripið í til þess að geta set monsters inni rooms og hafa set monsters i set rooms ofl.
 
 Monster createMonster() {
   Monster monster = Minotaur();
