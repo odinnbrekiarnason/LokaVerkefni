@@ -5,6 +5,7 @@ void playGame() {
   Player player = Player(playerName: "", position: RoomType.startingPoint);
   createPLayer(player);
   bool aliveOrNot = player.gameOver();
+  beforeFirstInput(player.position);
   while(aliveOrNot == false) {
     String input = stdin.readLineSync().toString().toLowerCase();
     if(input.contains("help")) {
