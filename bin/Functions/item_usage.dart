@@ -1,5 +1,4 @@
-import "dart:io";
-import "../Functions.dart";
+import '../Functions/function_exporter.dart';
 
 void useItemInBackPack(Player player) {
   print("Please select an item\nType 1, 2 etc. to select item");

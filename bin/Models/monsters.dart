@@ -1,5 +1,4 @@
-import "dart:math";
-import "../Functions.dart";
+import '../Functions/function_exporter.dart';
 
 abstract class Monster {
   int get coin => getCoin();

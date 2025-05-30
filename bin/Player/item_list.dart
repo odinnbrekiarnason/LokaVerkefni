@@ -1,4 +1,4 @@
-import '../Models/item.dart';
+import '../Functions/function_exporter.dart';
 
 class Items {
   List<Weapon> weapons = [
@@ -31,6 +31,7 @@ class Items {
     Key(name: "Key", description: "A key to open a door", id: 10),
     Key(name: "BossRoomKey", description: "A key to open a door to the boss room", id: 11),
   ];
+
   List<NoItemInChest> noItem = [];
 
   //Items({required this.weapons, required this.secondaryItems, required this.healingItems, required this.keys});

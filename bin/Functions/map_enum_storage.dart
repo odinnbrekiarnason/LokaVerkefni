@@ -1,4 +1,4 @@
-import '../Functions.dart';
+import '../Functions/function_exporter.dart';
 
 const Map<String, dynamic> roomConnect = {
   "connections": roomConnections,

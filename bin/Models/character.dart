@@ -1,7 +1,4 @@
-import 'dart:io';
-
-import '../Functions.dart';
-
+import '../Functions/function_exporter.dart';
 
 class Player extends Items {
   final int playerMaxHealth = 120;

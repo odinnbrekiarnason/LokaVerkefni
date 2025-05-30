@@ -1,5 +1,4 @@
-import '../Functions.dart';
-import 'dart:io';
+import '../Functions/function_exporter.dart';
 
 Player createPLayer(Player player) {
   print("Hello you are about to create your character what would you like to name him/her");

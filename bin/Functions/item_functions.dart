@@ -1,5 +1,4 @@
-import '../Functions.dart';
-import "dart:math";
+import '../Functions/function_exporter.dart';
 
 String returnItemName(List<Item> item) {
   String placeHolder = "Error big";

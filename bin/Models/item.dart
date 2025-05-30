@@ -1,4 +1,4 @@
-import '../Functions.dart';
+import '../Functions/function_exporter.dart';
 
 class Item {
   final String name;

@@ -1,5 +1,4 @@
-import '../Functions.dart';
-import "dart:io";
+import '../Functions/function_exporter.dart';
 
 RoomType getPos(Player player) {
   return player.position;

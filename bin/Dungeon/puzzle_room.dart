@@ -1,7 +1,7 @@
 /*
 import 'dart:io';
 
-import '../Functions.dart';
+import '../function_exporter.dart';
 import 'dart:math';
 
 class DiceRoom extends Room {
@@ -26,11 +26,11 @@ class DiceRoom extends Room {
 }
 
 void guessTheNumber(DiceRoom dice, Player player) {
-  print("Hello and welcome to the puzzle room!"
+  print("Hello ${player.name} and welcome to the puzzle room!"
       "\nThe goal is to guess the correct number"
       "\nIf you get it in 3 tries you get rewarded 2 chests!"
       "\nIf you get it in 5 tries you get 1 chest, anymore guesses than that and you only get 1 healing item."
-      "\nThe highest number it can go is 20"
+      "\nThe highest possible is 15"
   );
   Random random1 = Random();
   dice.correctAnswer = random1.nextInt(20);
@@ -47,7 +47,7 @@ void guessTheNumber(DiceRoom dice, Player player) {
     } catch(e) {
       print("Please enter a valid number!");
     }
-    if(parsedGuess > 20) {
+    if(parsedGuess > 15) {
       print("Please enter a valid number!");
     }
     else if(parsedGuess == dice.correctAnswer) {

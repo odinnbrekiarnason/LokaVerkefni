@@ -1,6 +1,4 @@
-import 'dart:math';
-import '../Functions.dart';
-import 'dart:io';
+import '../Functions/function_exporter.dart';
 
 String movePlayer(Player player, RoomType type, String map) {
     print("Which direction would you like to move?\nPs. you move 2 spaces at a time");
@@ -53,8 +51,10 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
   if(direction.contains("help")) {
     print("You have called for me");
     print("If you are stuck or cant get somewhere in a room\nType in 'up-down-left-right.1-5' that will move you up by your choice of spaces up to 5\nExample: 'up.1'\n");
-    print("PS. you need to type in the direction exactly, not d.3 it needs to be down.3");
-    print("If there is an error then to bad so sad cant really help :|");
+    print("PS. you don't need to type in the direction exactly");
+    print("If there is an error then to bad so sad cant really help :|...\n");
+    sleep(Duration(milliseconds: 890));
+    print("\nunless im there");
   }
 
   List<RoomType> connectedRooms = roomConnect['connections'][player.position] ?? [];
@@ -84,20 +84,20 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
     } catch(e) {
       print("Error: incorrect number");
     }
-    if(spaces > 5) {
+    if(spaces > 6) {
       print("Cannot move more than 5 spaces!");
     } else {
       switch(help[0]) {
-        case "up" :
+        case "up" || "u":
           player.rowPos -= spaces;
           break;
-        case "down" :
+        case "down" || "dow" || "do" || "d":
           player.rowPos += spaces;
           break;
-        case "left" :
+        case "left" || "lef" || "le" || "l":
           player.colPos -= spaces;
           break;
-        case "right" :
+        case "right" || "righ" || "rig" || "ri" || "r":
           player.colPos += spaces;
           break;
       }

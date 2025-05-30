@@ -1,5 +1,4 @@
-import 'dart:io';
-import '../Functions.dart';
+import '../Functions/function_exporter.dart';
 
 void selection(Player player, RoomType room, String input) {
   print("1. Backpack\n2. Move player\n3. Check player info\nPlease type 1, 2 or 3 to select option");

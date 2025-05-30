@@ -1,6 +1,6 @@
 /*
 import '../Dungeon/whole_map.dart'; // For currentRoomMap, RoomType
-import '../Functions.dart'; // For Player, Direction, Key
+import '../function_exporter.dart'; // For Player, Direction, Key
 import 'dart:io'; // For stdin/stdout
 
 bool moveToRoomByDirection(Player player, String map, Direction direction, List<Key> playerInventory) {
@@ -45,7 +45,7 @@ bool moveToRoomByDirection(Player player, String map, Direction direction, List<
 }
 
 // In bin/main.dart
-import 'Functions.dart'; // Includes Player, movePlayer, moveToRoomByDirection, currentRoomMap
+import 'function_exporter.dart'; // Includes Player, movePlayer, moveToRoomByDirection, currentRoomMap
 import 'dart:io';
 
 void aiMain() {

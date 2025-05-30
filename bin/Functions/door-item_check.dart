@@ -1,4 +1,4 @@
-import "../Functions.dart";
+import '../Functions/function_exporter.dart';
 
 bool checkForIndex(String check, Player player, String map) {
   List<String> split = map.split("\n");

@@ -1,5 +1,5 @@
-import 'dart:math';
-import '../Functions.dart';
+import '../Functions/function_exporter.dart';
+
 
 String selectMonster() {
   String selectedMonster = "";

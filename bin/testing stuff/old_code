@@ -1,0 +1,97 @@
+
+Player player = Player(playerName: "", position: RoomType.startingPoint);
+  player = createPLayer(player);
+  /*print("You are now in the game ${player.playerName}!");
+  *//*print("You have ${player.playerMaxHealth} max health");
+  print("You have ${player.currentPlayerHealth} health and ${player.playerDamage} damage");
+  print("You have ${returnItemName(player.backpack)} in your backpack");
+  print("You have a ${returnItemName(player.weaponInHand)} in your hand");
+  print("You are at the starting point of the dungeon");*//*
+  Chest chest = Chest(item: returnItemList());
+  chest.openChest(player);*/
+ roomCreation(RoomType.values, player);
+ //String roomMap = currentRoomMap(player.position, player);
+
+ beforeFirstInput(player.position);
+ bool move = true;
+ while(move == true) {
+   String input = stdin.readLineSync().toString().toLowerCase();
+   selection(player, player.position, input);
+ }
+
+ //FloorOne().enterRoom(returnRooms);
+
+ print("""
+ +--------+--------+
+ |   R1   >   R2   |
+ |        |        |
+ +---xx---+---vv---+
+ |   R3   x   R4   |
+ |        |        |
+ +--------+--------+
+ """);
+ import '../Functions.dart';
+import 'dart:math';
+
+abstract class Dungeon {
+  Map<RoomType, String> rooms = {};
+  int floors = 3;
+}
+
+
+class RoomNames implements Dungeon {
+@@ -44,54 +42,54 @@
+  int floors = 3;
+
+  String returnName(Player player) {
+    RoomType playerPos = player.getPos(player);
+    RoomType playerPos = getPos(player);
+    switch(playerPos) {
+      case RoomType.startingPoint :
+        return rooms.containsKey(RoomType.startingPoint) ? "Starting Point" : "Error";
+      case RoomType.armory :
+        return rooms.containsKey(RoomType.armory) ? "Armory" : "Error";
+      default : return "String";
+    }
+  }
+
+}
+
+class FloorOne extends RoomNames {
+  List<RoomType> completeList = [];
+
+  List<RoomType> selectRandomRooms(List roomsOnFloorOne) {
+    Random random = Random();
+    List<RoomType> roomsOnFloorOne = [];
+    //wrap function með check fyrir randomRooms annaðhvort.contains
+    // eða checka hvort randomInt == randomInt aftur idk
+
+    for(int i = 0; i < rooms.length; i++){
+      int randomInt = random.nextInt(rooms.length);
+      List<RoomType> typeList = RoomType.values;
+      RoomType indexForName = typeList[randomInt];
+
+      if(roomsOnFloorOne.contains(indexForName) && roomsOnFloorOne.contains(indexForName)){
+        roomsOnFloorOne.remove(indexForName);
+        //fyrst að checka fyrir duplicate a rooms sem eg vill hafa 2 af kannski
+        //siðan checka fyrir duplicates a hinum
+      } else if(roomsOnFloorOne.length < 4){
+        roomsOnFloorOne.add(indexForName);
+      }
+    }
+
+    for(int i = 0; i < roomsOnFloorOne.length; i++) {
+      if(roomsOnFloorOne.contains(RoomType.staircase)){
+        roomsOnFloorOne.remove(RoomType.staircase);
+        roomsOnFloorOne.add(RoomType.staircase);
+        break;
+      } else {
+        roomsOnFloorOne.add(RoomType.staircase);
+        break;
+      }
+    }
+
+    completeList = roomsOnFloorOne;
+    return completeList;
+  }
+}

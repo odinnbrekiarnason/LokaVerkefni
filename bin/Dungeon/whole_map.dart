@@ -1,29 +1,40 @@
-import '../Functions.dart';
+import '../Functions/function_exporter.dart';
 
 String introduction = """
-  Welcome to my little game!
+-------------------------------------------------------Tutorial--------------------------------------------------------
+  Welcome to my game!
   The rules are really simple,
-  You have to type in keyWords like : up, down, left or right to move for instance.
-  In each room there will be a key and on some there will be Monsters and Chests (Chest = C, Key = K, Monster = M),
+  You move by typing in keyWords : 
+  up,  up.1-6,
+  down,  down.1-6,
+  left,  left.1-6,
+  right,  right.1-6
+  In each room there will be a key and on some there will be Monsters and Chests 
+  Chest = C,
+  Key = K, 
+  Monster = M,
   You will need to get most of the keys to reach the boss room,
   However you don't need to get all the chest but it will make you stronger.
-  Also anytime you enter a new room you will be in the middle of the room,
+  Also anytime you enter a new room you will be in the middle of the room or at one of the doors depending on the room,
   One more thing if you get debuffed you cannot remove it unless you drink your milk!
+  
   PS.If you get stuck or cannot reach desired destination type "help" and i will be there to help you! 
   Anyways that's all. 
-  Good luck and have fun!
+                                                 Good luck and have fun!
+-------------------------------------------------------GameStart-------------------------------------------------------
+
 """;
 
 String startingPoint = """
 +----------------^^^----------------+
 |                                   |
 |                                   |
-|          M             K          |
+|                        K          |
 |                                   >
 |                 P                 >
 |                                   >
-|                                   |
-|                 C                 |
+|     M                             |
+|   C                               |
 |                                   |
 |                                   |
 +----------------VVV----------------+

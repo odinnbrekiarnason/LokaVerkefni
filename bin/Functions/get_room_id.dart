@@ -1,4 +1,4 @@
-import '../Functions.dart';
+import '../Functions/function_exporter.dart';
 
 int getRoomId(RoomType type) {
   switch (type) {
