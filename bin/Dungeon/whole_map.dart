@@ -1,3 +1,19 @@
+String winGame = """
+              _____  _____  __  _  _____  _____  _____  _____  _   _  __     _____  _____  _____  _____  __  _  _____ 
+             |   __||     ||  \\| ||   __|| __  ||  _  ||_   _|| | | ||  |   |  _  ||_   _||_   _||     ||  \\| ||   __|
+             |  |__ |  |  || |\\|  |  |  ||    -||     |  | |  | |_| ||  |__ |     |  | |   _| |_||  |  || |\\| ||__   |
+             |_____||_____||_| \\_||_____||__|__||__|__|  |_|  |_____||_____||__|__|  |_|  |_____||_____||_| \\_||_____|                                                                                                                           
+                                         __ __  _____  _____    _ _ _  _____  __  _                                        
+                                        |  |  ||     ||  |  |  | | | ||     ||  \\| |                                       
+                                        |_   _||  |  ||  |  |  | | | ||  |  || |\\| |                                      
+                                          |_|  |_____||_____|  |_____||_____||_| \\_|                                       
+                                                                                     __  __                               
+                                  _____  __ __  _____    _____  _____  _____  _____ |  ||  |                              
+                                 |_   _|| |_| ||   __|  |   __||  _  ||     ||   __||  ||  |                              
+                                   | |  |  _  ||   __|  |  |  ||     || | | ||   __||__||__|                              
+                                   |_|  |_| |_||_____|  |_____||__|__||_|_|_||_____||__||__|                              
+""";
+
 
 String gameFace = """                                                                                                                                                                                          
                                    _ _ _  _____  __     _____  _____  _____  _____                                   
@@ -12,35 +28,42 @@ String gameFace = """
                             |   __||_   _||     ||  _  ||  |   |   __|  | __  ||  _  ||   __|                        
                             |__   | _| |_ | | | ||   __||  |__ |   __|  |    -||   __||  |  |                        
                             |_____||_____||_|_|_||__|   |_____||_____|  |__|__||__|   |_____|                               
-           _____  _____  _____  _____  _____  _____  _____  __       _____  ____   _____  _____  _____  _____  __  _ 
-          |_   _||   __|| __  ||     ||_   _||   | ||  _  ||  |     |   __||    \\ |_   _||_   _||_   _||     ||  \\| |
-            | |  |   __||    -|| | | | _| |_ | | | ||     ||  |__   |   __||  |  | _| |_   | |   _| |_ |  |  || |\\| |
-            |_|  |_____||__|__||_|_|_||_____||_|___||__|__||_____|  |_____||____/ |_____|  |_|  |_____||_____||_| \\_|
+           _____  _____  _____  _____  _____  __  _  _____  __       _____  ____   _____  _____  _____  _____  __  _ 
+          |_   _||   __|| __  ||     ||_   _||  \\| ||  _  ||  |     |   __||    \\ |_   _||_   _||_   _||     ||  \\| |
+            | |  |   __||    -|| | | | _| |_ | |\\| ||     ||  |__   |   __||  |  | _| |_   | |   _| |_ |  |  || |\\| |
+            |_|  |_____||__|__||_|_|_||_____||_| \\_||__|__||_____|  |_____||____/ |_____|  |_|  |_____||_____||_| \\_|
 """;
 
 String introduction = """
--------------------------------------------------------Tutorial--------------------------------------------------------
-  Welcome to my game!
-  The rules are really simple,
-  You move by typing in keyWords : 
-  up,  up.1-6,
-  down,  down.1-6,
-  left,  left.1-6,
-  right,  right.1-6
-  In each room there will be a key and on some there will be Monsters and Chests 
-  Chest = C,
-  Key = K, 
-  Monster = M,
-  You will need to get most of the keys to reach the boss room,
-  However you don't need to get all the chest but it will make you stronger.
-  Also anytime you enter a new room you will be in the middle of the room or at one of the doors depending on the room,
-  One more thing if you get debuffed you cannot remove it unless you drink your milk!
+---------------------------------------------------------Rules---------------------------------------------------------
+                                                       Hi there!
+                                         The rules of this game are really simple,
+                                             You move by typing in keyWords : 
+                                                     up,  up.1-6,
+                                                    down,  down.1-6,
+                                                    left,  left.1-6,
+                                                   right,  right.1-6
+                       In each room there will be a key and on some there will be a Monster and a Chest 
+                                                       Chest = C,
+                                                        Key = K, 
+                                                      Monster = M,
+                     You will need to walk onto/near these letters and once you do something will happen! 
+                               You will need to get most of the keys to reach the boss room,
+        Also anytime you enter a new room you will be in the middle of the room or at one of the doors depending on the room,
+                          You can stop and check your items or stats anytime by typing in "stop"
+                    One more thing if you get debuffed you cannot remove it unless you drink your milk!
   
-  PS.If you get stuck or cannot reach desired destination type "help" and i will be there to help you! 
-  Anyways that's all. 
-                                                 Good luck and have fun!
+              PS.If you get stuck or cannot reach desired destination type "help" and i will be there to help you! 
+                                                    Anyways that's all.                               
+                                     _________  ____  ___    __   __  _________ __  
+                                    / ___/ __ \\/ __ \\/ _ \\  / /  / / / / ___/ //_/  
+                                   / (_ / /_/ / /_/ / // / / /__/ /_/ / /__/ ,<     
+                                   \\___/\\____/\\____/____/ /____/\\____/\\___/_/|_|    
+                                    __ _____ _   ______  ______  ___  __  ____    
+                                   / // / _ | | / / __/ / __/ / / / |/ / / / /    
+                                  / _  / /| | |/ / _/  / _// /_/ /    / /_/_/     
+                                 /_//_/_/ |_|___/___/ /_/  \\____/_/|_/ (_|_)                                                                                                                                                                                                                                                                                                                                                                         
 -------------------------------------------------------GameStart-------------------------------------------------------
-
 """;
 
 String startingPoint = """
@@ -76,7 +99,7 @@ String startingPoint = """
 
  String diningRoom = """
 +-----------------------------------+
-|  Table         P                C |
+|  Table                          C |
 |                                   |
 |      chair |--------| chair       |
 |            |        |             |
@@ -87,7 +110,7 @@ String startingPoint = """
 |      chair |________| chair       |
 |                                   |
 |   K                               |
-| crate                      chairs |
+| crate           P          chairs |
 +----------------VVV----------------+
 """;
 
@@ -97,7 +120,7 @@ String startingPoint = """
 | pile                              |
 |                Barrel             |
 |                                   |
-<                P          cobwebs |
+<  P                        cobwebs |
 <           Barrel                  |
 |                                   |
 |                     M             |
@@ -111,9 +134,9 @@ String startingPoint = """
 | Oven |         K  | *     * |     |
 | Oven |            +---------+     |
 |------+                            |
-<                                   |
-|------+           P                |
-|Fridge|                            |
+<                                   >
+|------+           P                >
+|Fridge|                            >
 |------+                            |
 |    C            +-----------------|
 | cabinet         |  pans    pots   |
@@ -146,16 +169,16 @@ String startingPoint = """
 
  String throneRoom = """
 +-----------------------------------+
-| Banners         P         Banners |
-|                                   |
-|                                   |
+| Banners    +_________+    Banners |
+|            |___   ___|            |
+|    C        |_______|             |
 |                                   |
 |                 M                 |
 |                                   |
 |                                   |
-|             |_______|             |
-| carpet     | BigSeat |            |
-|            +_________+      C     |
+|                                   |
+| carpet                            |
+|                 P                 |
 +----------------VVV----------------+
 """;
 
@@ -190,13 +213,13 @@ String startingPoint = """
 """;
 
  String treasureRoom = """
-+-----------------^^^-----------------+
-| C                P          Statue  |
++-------------------------------------+
+| C                M          Statue  |
 |                                     |
 |                                     |
-| Gold Pile                           |
-|                  M            C     |
-|                                     |
+<   Gold pile                         |
+<                  P                  |
+<                                     |
 |                                     |
 |   K                       Treasure  |
 | carpet                      Altar   |
@@ -209,7 +232,7 @@ String startingPoint = """
 |                  M             K    |
 |                                     |
 < Shelves                             |
-<   P                           crates|
+<                  P            crates|
 <                                     |
 |     C                               |
 |                            Barrels  |
@@ -219,9 +242,9 @@ String startingPoint = """
 
  String hallway = """
 +----------------------------^^^------------------------------+
-| Torch                                               Painting|
-<                                                       K     >
-<     P                       M                               >
+| Torch                                               painting|
+<              M                                        K     >
+<                             P                               >
 <                                                             >
 |                                                             |
 +---------------------------------------------VVV-------------+

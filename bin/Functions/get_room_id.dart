@@ -3,27 +3,27 @@ import '../Functions/function_exporter.dart';
 int getRoomId(RoomType type) {
   switch (type) {
     case RoomType.startingPoint:
-      return 1;
+      return 0;
     case RoomType.armory:
-      return 2;
+      return 1;
     case RoomType.storageRoom:
-      return 3;
+      return 2;
     case RoomType.library:
-      return 4;
+      return 3;
     case RoomType.diningRoom:
-      return 5;
+      return 4;
     case RoomType.throneRoom:
-      return 6;
+      return 5;
     case RoomType.treasureChamber:
-      return 7;
+      return 6;
     case RoomType.bedroom:
-      return 8;
+      return 7;
     case RoomType.emptyChamber:
-      return 19;
+      return 8;
     case RoomType.kitchen:
-      return 10;
+      return 9;
     case RoomType.bossRoom:
-      return 11;
+      return 10;
     case RoomType.hallway:
       return 0;
   }

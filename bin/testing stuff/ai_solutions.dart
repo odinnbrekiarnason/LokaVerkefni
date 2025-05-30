@@ -132,3 +132,6 @@ Direction? checkForDirection(String checkSymbol, List<List<String>> mapRows, Pla
   return null;
 }
 */
+Future<void> WorldHitBox(dynamic world) async {
+
+}

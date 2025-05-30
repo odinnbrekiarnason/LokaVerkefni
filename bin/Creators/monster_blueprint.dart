@@ -46,3 +46,8 @@ Monster createMonster() {
     }
     return monster;
 }
+
+Monster createBoss() {
+  Monster boss = RoyalSpectre();
+  return boss;
+}

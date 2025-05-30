@@ -208,7 +208,7 @@ class Wolf implements Monster {
 
   @override
   bool checkIfDead(Player player) {
-    if(health == 0) {
+    if(health <= 0) {
       print("The Wolfs health reaches 0 and he howls his last howl!");
       print("You get $coin gold!");
       player.coin = player.coin + coin;
@@ -236,7 +236,7 @@ class RoyalSpectre implements Monster {
     "The Spectre swipes his wand and a fireball comes hurling your way!",
     "The Spectre starts chanting quietly... its a huge tsunami!",
     "The Spectre blows a whistle.. Huh that's wierd..\nNothing happe- \n'You get sliced with wind'",
-    "The Spectre starts chanting loudly\nA huge boulder is ripped out of the ground and is thrown your way"
+    "The Spectre starts chanting.. or rather screaming loudly\nA huge boulder is ripped out of the ground and is thrown your way"
   ];
 
   @override
@@ -264,8 +264,9 @@ class RoyalSpectre implements Monster {
 
   @override
   bool checkIfDead(Player player) {
-    if(health == 0) {
+    if(health <= 0) {
       print("The Spectre's health drops to 0 and he evaporates into smoke!");
+      print("CONGRATULATIONS");
       isDead = true;
     } else {
       isDead = false;

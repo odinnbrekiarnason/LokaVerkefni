@@ -17,41 +17,70 @@ void attackMonster(Player player, Monster selectedMonster) {
         if(selectedMonster.name == "Minotaur") {
           print("You attack the ${selectedMonster.name}");
           selectedMonster.health = selectedMonster.health - player.playerDamage;
+          sleep(Duration(milliseconds: 520));
           print("You did ${player.playerDamage} damage!");
           print("${selectedMonster.name} health: ${selectedMonster.health}");
+          break;
         }
         else if(selectedMonster.name == "Goblin") {
           print("You attack the ${selectedMonster.name}");
           selectedMonster.health = selectedMonster.health - player.playerDamage;
+          sleep(Duration(milliseconds: 520));
           print("You did ${player.playerDamage} damage!");
           print("${selectedMonster.name} health: ${selectedMonster.health}");
+          break;
         }
         else if(selectedMonster.name == "Wolf") {
           print("You attack the ${selectedMonster.name}");
           selectedMonster.health = selectedMonster.health - player.playerDamage;
+          sleep(Duration(milliseconds: 520));
           print("You did ${player.playerDamage} damage!");
           print("${selectedMonster.name} health: ${selectedMonster.health}");
+          break;
+        }
+        else if(selectedMonster.name == "Royal Spectre") {
+          print("You attack the Spectre with your ${player.weaponInHand}");
+          selectedMonster.health = selectedMonster.health - player.playerDamage;
+          sleep(Duration(milliseconds: 520));
+          print("You hit it for ${player.playerDamage} damage!");
+          print("${selectedMonster.name} health: ${selectedMonster.health}");
+          break;
         }
 
       case "2":
         if(selectedMonster.name == "Minotaur") {
           print("You charge the ${selectedMonster.name} with rage in your eyes!");
           selectedMonster.health = selectedMonster.health - player.playerDamage + 5;
+          sleep(Duration(milliseconds: 520));
           print("You did ${player.playerDamage + 5} damage!");
           print("${selectedMonster.name} health: ${selectedMonster.health}");
+          break;
         }
         else if(selectedMonster.name == "Goblin") {
           print("You charge the ${selectedMonster.name} with rage in your eyes!");
           selectedMonster.health = selectedMonster.health - player.playerDamage + 5;
+          sleep(Duration(milliseconds: 520));
           print("You did ${player.playerDamage + 5} damage!");
           print("${selectedMonster.name} health: ${selectedMonster.health}");
+          break;
         }
         else if(selectedMonster.name == "Wolf") {
           print("You charge the ${selectedMonster.name} with rage in your eyes!");
           selectedMonster.health = selectedMonster.health - player.playerDamage + 5;
+          sleep(Duration(milliseconds: 520));
           print("You did ${player.playerDamage + 5} damage!");
           print("${selectedMonster.name} health: ${selectedMonster.health}");
+          break;
         }
+        else if(selectedMonster.name == "Royal Spectre") {
+          print("You charge the Spectre with your ${player.weaponInHand} and your burning will to win!");
+          selectedMonster.health = selectedMonster.health - player.playerDamage;
+          sleep(Duration(milliseconds: 520));
+          print("KWABHAMM, You hit the Spectre for ${player.playerDamage} damage!");
+          print("${selectedMonster.name} health: ${selectedMonster.health}");
+          break;
+        }
+
       case "3":
         while(check == false) {
           openBackPack(player);
@@ -67,6 +96,7 @@ void attackMonster(Player player, Monster selectedMonster) {
           getPlayerInfo(player);
           check = true;
         }
+        continue;
     }
     if(flee == false) {
       selectedMonster.attackPlayer(player);

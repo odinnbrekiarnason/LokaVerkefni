@@ -34,6 +34,7 @@ int getRowPos(Player p, String map) {
 
 void getPlayerInfo(Player player) {
   List info = [
+    "Your Name: ${player.playerName}",
     "Max health: ${player.playerMaxHealth}",
     "Current health: ${player.currentPlayerHealth}",
     "Damage: ${player.playerDamage}",
@@ -41,6 +42,7 @@ void getPlayerInfo(Player player) {
   ];
   for(String item in info) {
     print(item);
+    sleep(Duration(milliseconds: 150));
   }
   returnItemName(player.weaponInHand);
   print(" ");

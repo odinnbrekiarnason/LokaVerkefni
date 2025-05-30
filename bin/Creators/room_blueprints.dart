@@ -30,7 +30,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
           name: "Armory",
           type: RoomType.armory,
           player: player,
-          id: 2,
+          id: 1,
           printMap: tempMap,
           key: Items().keys[1],
           ));
@@ -43,7 +43,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
           name: "Storage Room",
           type: RoomType.storageRoom,
           player: player,
-          id: 3,
+          id: 2,
           printMap: tempMap,
           key: Items().keys[2],
            ));
@@ -56,7 +56,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
           name: "Library",
           type: RoomType.library,
           player: player,
-          id: 4,
+          id: 3,
           printMap: tempMap,
           key: Items().keys[3]
             ));
@@ -69,7 +69,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
           name: "Dining Room",
           type: RoomType.diningRoom,
           player: player,
-          id: 5,
+          id: 4,
           printMap: tempMap,
           key: Items().keys[4]
             ));
@@ -82,7 +82,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
           name: "Throne Room",
           type: RoomType.throneRoom,
           player: player,
-          id: 6,
+          id: 5,
           printMap: tempMap,
           key: Items().keys[5]
             ));
@@ -95,7 +95,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
           name: "Treasure Chamber",
           type: RoomType.treasureChamber,
           player: player,
-          id: 7,
+          id: 6,
           printMap: tempMap,
           key: Items().keys[6]
             ));
@@ -108,7 +108,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
           name: "Bedroom",
           type: RoomType.bedroom,
           player: player,
-          id: 8,
+          id: 7,
           printMap: tempMap,
           key: Items().keys[7]
         ));
@@ -121,7 +121,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
             name: "Empty chamber",
             type: RoomType.emptyChamber,
             player: player,
-            id: 9,
+            id: 8,
             printMap: tempMap,
             key: Items().keys[8]
         ));
@@ -134,7 +134,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
             name: "Kitchen",
             type: RoomType.kitchen,
             player: player,
-            id: 10,
+            id: 9,
             printMap: tempMap,
             key: Items().keys[9]
         ));
@@ -143,11 +143,11 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
       case RoomType.bossRoom :
         createdRooms.add(Room(
           chest,
-          description: "The bossroom be careful!",
-          name: "Staircase",
+          description: "The Bosses Lair be careful!",
+          name: "Spectres Lair",
           type: RoomType.bossRoom,
           player: player,
-          id: 11,
+          id: 10,
           printMap: tempMap,
           key: Items().keys[10],
         ));
