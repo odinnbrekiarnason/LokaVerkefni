@@ -93,3 +93,42 @@ void aiMain() {
   }
 }
 */
+/*
+
+Direction? checkForDirection(String checkSymbol, List<List<String>> mapRows, Player player, List<Direction> availableDirections, List<RoomType> connectedRooms) {
+  if (mapRows[player.rowPos - 1][player.colPos - 1] == checkSymbol || mapRows[player.rowPos + 1][player.colPos + 1] == checkSymbol) {
+    print("Would you like to enter the next room?\nYes or no");
+    String input = stdin.readLineSync().toString().toLowerCase();
+    switch (input) {
+      case "yes":
+      case "ye":
+      case "y":
+      case "j":
+      case "ja":
+        int indexedDirection = availableDirections.indexOf(Direction.left);
+        RoomType nextRoom = connectedRooms[indexedDirection];
+        if (getRoomId(nextRoom) == 0) {
+          print("No key needed go right ahead!");
+          player.position = nextRoom;
+          return Direction.left;
+        }
+        print("Checking for correct key...");
+        for (int i = 0; i < player.keyItems.length; i++) {
+          if (idCheck(getRoomId(nextRoom), player.keyItems[i].id) == true) {
+            print("You can get to the next room!");
+            player.position = nextRoom;
+            return Direction.left;
+          } else {
+            print("You don't have the correct key for this door!");
+            return null;
+          }
+        }
+        break;
+      default:
+        print("Invalid input chose to stay");
+        return null;
+    }
+  }
+  return null;
+}
+*/

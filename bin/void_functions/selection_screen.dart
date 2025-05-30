@@ -1,27 +1,59 @@
 import 'dart:io';
 import '../Functions.dart';
 
-void selection(Player player, RoomType room) {
-  print("You walk into the ${room.name}");
-  print("You see a ${getRoomDescription(room)}");
-  print("Please type 1, 2 etc. to select option");
-  print("1. Fight\n2. Backpack\n3. Move player\n4. Check room map\n5. Check player stats\n6. Check room monsters\n7. Flee");
-  print("Please select an option");
+void selection(Player player, RoomType room, String input) {
+  print("1. Backpack\n2. Move player\n3. Check player info\nPlease type 1, 2 or 3 to select option");
 
-  String selectionInput = stdin.readLineSync().toString();
-  RoomType pos = player.position;
-  switch(selectionInput) {
+  switch(input) {
     case "1":
-      attackMonster(player, createMonster());
-
-    case "2":
       print("You open your backpack");
-      player.openBackPack();
+      openBackPack(player);
+    case "2":
+      bool moving = true;
+      while(moving == true) {
+        RoomType type = player.position;
+        switch(player.position) {
+          case RoomType.startingPoint:
+            startingPoint = movePlayer(player, player.position, startingPoint);
+          case RoomType.armory:
+            armory = movePlayer(player, type, armory);
+          case RoomType.diningRoom:
+            diningRoom = movePlayer(player, type, diningRoom);
+          case RoomType.emptyChamber:
+            emptyChamber = movePlayer(player, type, emptyChamber);
+          case RoomType.kitchen:
+            kitchen = movePlayer(player, type, kitchen);
+          case RoomType.library:
+            library = movePlayer(player, type, library);
+          case RoomType.throneRoom:
+            throneRoom = movePlayer(player, type, throneRoom);
+          case RoomType.bossRoom:
+            bossRoom = movePlayer(player, type, bossRoom);
+          case RoomType.bedroom:
+            bedroom = movePlayer(player, type, bedroom);
+          case RoomType.treasureChamber:
+            treasureRoom = movePlayer(player, type, treasureRoom);
+          case RoomType.storageRoom:
+            storageRoom = movePlayer(player, type, storageRoom);
+          case RoomType.hallway:
+            hallway = movePlayer(player, type, hallway);
+        }
+      }
     case "3":
-      movePlayer(player, pos, currentRoomMap(pos, player));
-    case "4":
-      print("You try to open the door");
-  
+      getPlayerInfo(player);
+    default :
+      print("Invalid input");
   }
+}
+
+String beforeFirstInput(RoomType room) {
+  String s = """
+You walk into the ${room.name}
+You see ${getRoomDescription(room)}
+1. Backpack\n2. Move player\n3. Check player stats
+Please type 1, 2 etc. to select option
+""";
+  print(s);
+  return "";
 }
 

@@ -1,4 +1,5 @@
 import '../Functions.dart';
+import "dart:math";
 
 String returnItemName(List<Item> item) {
   String placeHolder = "Error big";
@@ -51,4 +52,65 @@ bool isSecondary(Item item) {
   else {
     return false;
   }
+}
+
+void heal(Player player, Healing item) {
+  if(item.name == "Bandage") {
+    print("You use a bandage and heal for ${item.healing}");
+    player.currentPlayerHealth = player.currentPlayerHealth + item.healing;
+    if(player.currentPlayerHealth > player.playerMaxHealth){
+      player.currentPlayerHealth = player.playerMaxHealth;
+      print("You healed up to full health!");
+    } else {
+      print("Your current health: ${player.currentPlayerHealth}");
+    }
+  }
+  else if(item.name == "Healing Potion") {
+    print("You drink the potion and heal for ${item.healing}");
+    player.currentPlayerHealth = player.currentPlayerHealth + item.healing;
+    if(player.currentPlayerHealth > player.playerMaxHealth){
+      player.currentPlayerHealth = player.playerMaxHealth;
+      print("You healed up to full health!");
+    } else {
+      print("Your current health: ${player.currentPlayerHealth}");
+    }
+  }
+}
+
+void switchMainWeapon(Player player, Weapon weapon) {
+  print("Your current damage: ${player.playerDamage}");
+  List<Weapon> heldWeapon = player.weaponInHand;
+  player.playerDamage = player.playerDamage - heldWeapon[0].damage;
+  player.weaponInHand.removeAt(0);
+  player.weaponInHand.add(weapon);
+  player.playerDamage = player.playerDamage + weapon.damage;
+  print("Your damage after switching: ${player.playerDamage}");
+  addToBackpack(heldWeapon, player);
+}
+
+void switchToBow(Player player, Bow bow) {
+  print("Your current damage: ${player.playerDamage}");
+  List<Weapon> heldWeapon = player.weaponInHand;
+  player.playerDamage = player.playerDamage - heldWeapon[0].damage;
+  player.weaponInHand.removeAt(0);
+  player.weaponInHand.add(bow);
+  player.playerDamage = player.playerDamage + bow.damage;
+  print("Your damage after switching: ${player.playerDamage}");
+  addToBackpack(heldWeapon, player);
+}
+
+void drinkMilk(Player player) {
+  print("You chug your hearty milk!");
+  if(player.debuffs == true) {
+    print("${player.debuffNames[0]} is removed");
+    player.debuffs = false;
+  } else {
+    print("Nothing changed");
+  }
+}
+
+int getCoin() {
+  Random random = Random();
+  int coin = random.nextInt(20);
+  return coin;
 }

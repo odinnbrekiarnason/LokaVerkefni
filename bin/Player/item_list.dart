@@ -6,7 +6,7 @@ class Items {
     Weapon(name: "Longsword", damage: 15, description: "A mighty sword meant for knights"),
     Bow(name: "Bow", damage: 13, description: "A fine instrument of death dates back over 200 years!"),
     Weapon(name: "Battle Axe", damage: 17, description: "A massive two sided axe, probably used by vikings"),
-    Weapon(name: "Dagger", damage: 8, description: "A tiny knife, no reach and terrible damage"),
+    Weapon(name: "Dagger", damage: 6, description: "A tiny knife, no reach and terrible damage"),
   ];
 
   List<Healing> healingItems = [

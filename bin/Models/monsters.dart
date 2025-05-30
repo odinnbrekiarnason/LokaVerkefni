@@ -2,6 +2,7 @@ import "dart:math";
 import "../Functions.dart";
 
 abstract class Monster {
+  int get coin => getCoin();
   String name = "";
   int damage = 0;
   double health = 0;
@@ -11,12 +12,14 @@ abstract class Monster {
 
   void attackPlayer(Player player) {
   }
-  bool checkIfDead() {
+  bool checkIfDead(Player player) {
     return isDead!;
   }
 }
 
 class Minotaur implements Monster {
+  @override
+  int get coin => getCoin();
   @override
   String name = "Minotaur";
 
@@ -35,7 +38,7 @@ class Minotaur implements Monster {
   int damage = 20;
 
   @override
-  double health = 200;
+  double health = 120;
 
   void selectAttack() {
     Random random = Random();
@@ -59,6 +62,8 @@ class Minotaur implements Monster {
     } else if (attackOrSwing >= 21) {
       print("$setAttack\nHe does $damage damage!");
       player.currentPlayerHealth = player.currentPlayerHealth - damage;
+      print("Your health: ${player.currentPlayerHealth}");
+      print("Its health: $health");
     }
     return setAttack;
   }
@@ -67,9 +72,11 @@ class Minotaur implements Monster {
   bool? isDead;
 
   @override
-  bool checkIfDead() {
+  bool checkIfDead(Player player) {
     if(health <= 0) {
       print("The Minotaurs health reaches 0 and he slams to the ground!");
+      print("You get $coin gold!");
+      player.coin = player.coin + coin;
       isDead = true;
     } else {
       isDead = false;
@@ -80,6 +87,9 @@ class Minotaur implements Monster {
 
 class Goblin implements Monster {
   @override
+  int get coin => getCoin();
+
+  @override
   String name = "Goblin";
 
   @override
@@ -89,13 +99,13 @@ class Goblin implements Monster {
   ];
   @override
   String setAttack = "";
-  Weapon weapon = Weapon(name: "Dagger", damage: 8, description: "A tiny knife, no reach and terrible damage");
+  String weapon = "Dagger";
 
   @override
   int damage = 5;
 
   @override
-  double health = 50;
+  double health = 60;
 
   @override
   void attackPlayer(Player player) {
@@ -111,6 +121,8 @@ class Goblin implements Monster {
       player.currentPlayerHealth = player.currentPlayerHealth - (damage + 2);
     } else if (attackOrSwing >= 21) {
       print("$setAttack\nHe does $damage damage!");
+      print("Your health: ${player.currentPlayerHealth}");
+      print("Its health: $health");
     }
   }
   void selectAttack() {
@@ -123,9 +135,11 @@ class Goblin implements Monster {
   bool? isDead;
 
   @override
-  bool checkIfDead() {
+  bool checkIfDead(Player player) {
     if(health <= 0) {
       print("The Goblins health reaches 0 and he falls on the ground!");
+      print("You get $coin gold!");
+      player.coin = player.coin + coin;
       isDead = true;
     } else {
         isDead = false;
@@ -135,6 +149,9 @@ class Goblin implements Monster {
 }
 
 class Wolf implements Monster {
+  @override
+  int get coin => getCoin();
+
   @override
   String name = "Wolf";
 
@@ -146,10 +163,10 @@ class Wolf implements Monster {
   ];
 
   @override
-  int damage = 10;
+  int damage = 15;
 
   @override
-  double health = 100;
+  double health = 50;
 
   @override
   String setAttack = "";
@@ -163,6 +180,8 @@ class Wolf implements Monster {
       } else {
         print("$setAttack\nHe does $damage damage!");
         player.currentPlayerHealth = player.currentPlayerHealth - damage;
+        print("Your health: ${player.currentPlayerHealth}");
+        print("Its health: $health");
       }
   }
   void selectAttack() {
@@ -177,9 +196,10 @@ class Wolf implements Monster {
       player.playerDamage = player.playerDamage - 3;
     }
     if (setAttack.contains("howl")) {
-      print("You get effected by his howl\nYour damage is reduced by 3");
+      print("You get a headache because his howl was so loud\nYou get a damage debuff, your damage is reduced by 3");
       isTrue = true;
       player.debuffs = true;
+      player.debuffNames.add("Damage reduction");
     }
     return isTrue;
   }
@@ -188,9 +208,11 @@ class Wolf implements Monster {
   bool? isDead;
 
   @override
-  bool checkIfDead() {
+  bool checkIfDead(Player player) {
     if(health == 0) {
       print("The Wolfs health reaches 0 and he howls his last howl!");
+      print("You get $coin gold!");
+      player.coin = player.coin + coin;
       isDead = true;
     } else {
       isDead = false;
@@ -200,20 +222,26 @@ class Wolf implements Monster {
 }
 //Ef eg hef tíma gera fleyrri monsters!
 
-/*class RoyalSpectre implements Monster {
+class RoyalSpectre implements Monster {
   @override
-  List<String> attack = [
-    "The Spectre swipes his wand and a fireball comes hurling your way!",
-    "",
-    "",
-  ];
-
+  int get coin => getCoin();
 
   @override
   int damage = 30;
 
   @override
-  int health = 200;
+  String name = "Royal Spectre";
+
+  @override
+  List<String> attack = [
+    "The Spectre swipes his wand and a fireball comes hurling your way!",
+    "The Spectre starts chanting quietly... its a huge tsunami!",
+    "The Spectre blows a whistle.. Huh that's wierd..\nNothing happe- \n'You get sliced with wind'",
+    "The Spectre starts chanting loudly\nA huge boulder is ripped out of the ground and is thrown your way"
+  ];
+
+  @override
+  double health = 250;
 
   @override
   bool? isDead;
@@ -223,11 +251,20 @@ class Wolf implements Monster {
 
   @override
   void attackPlayer(Player player) {
+    selectAttack();
+    print(setAttack);
+    print("Your health: ${player.currentPlayerHealth}");
+    print("Spectres health: $health}");
+  }
 
+  void selectAttack() {
+    Random random = Random();
+    int selectAttackMove = random.nextInt(attack.length);
+    setAttack = attack[selectAttackMove];
   }
 
   @override
-  bool checkIfDead() {
+  bool checkIfDead(Player player) {
     if(health == 0) {
       print("The Spectre's health drops to 0 and he evaporates into smoke!");
       isDead = true;
@@ -236,5 +273,5 @@ class Wolf implements Monster {
     }
     return isDead!;
   }
-}*/
+}
 

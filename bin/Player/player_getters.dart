@@ -1,4 +1,5 @@
 import '../Functions.dart';
+import "dart:io";
 
 RoomType getPos(Player player) {
   return player.position;
@@ -43,6 +44,25 @@ void getPlayerInfo(Player player) {
     print(item);
   }
   returnItemName(player.weaponInHand);
+  print(" ");
+}
+
+void openBackPack(Player player) {
+  print("Your backpack contains:");
+  for (Item item in player.backpack) {
+    print("|${item.name}|");
+  }
+  print("Would you like to use or swap items?");
+  print("Type Yes/No");
+  String input = stdin.readLineSync().toString().toLowerCase();
+  switch(input) {
+    case "yes" || "ye" || "y" || "j" || "ja" :
+      useItemInBackPack(player);
+      break;
+    default :
+      print("Chose not to use item");
+      break;
+  }
 }
 
 /*

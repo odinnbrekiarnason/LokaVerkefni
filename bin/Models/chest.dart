@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import '../Functions.dart';
 import 'dart:math';
 
@@ -33,11 +35,11 @@ class Chest extends Items {
       isTrapped = true;
     }
     if (isTrapped == true) {
+      sleep(Duration(milliseconds: 120));
       print("You open the chest");
       print("It was a trapped chest!!\nYou take 6 damage!");
       player.currentPlayerHealth = player.currentPlayerHealth - 6;
       print("You have ${player.currentPlayerHealth} health left");
-      player.openBackPack();
     }
 
     if (r1 <= 0) {
@@ -47,7 +49,7 @@ class Chest extends Items {
       itemInChest.add(weaponInChest[randomSelect]);
       itemInChest.add(secondaryInChest[secondRandomSelect]);
     }
-    if (r1 == 1) {
+    if (r1 >= 1) {
       int randomSelect = random.nextInt(healingInChest.length);
       int secondRandomSelect = random.nextInt(secondaryInChest.length);
 
@@ -56,16 +58,21 @@ class Chest extends Items {
     }
 
     if (r2 >= 8) {
+      sleep(Duration(milliseconds: 500));
       print("You opened a chest!\nWOW it contained :");
       returnItemName(itemInChest);
       addToBackpack(itemInChest, player);
-      player.openBackPack();
+      openBackPack(player);
     }
     else {
+      sleep(Duration(milliseconds: 500));
       print("You opened a chest!\nIt contained :");
       returnItemName(itemInChest);
+      sleep(Duration(milliseconds: 300));
       addToBackpack(itemInChest, player);
-      player.openBackPack();
+      sleep(Duration(milliseconds: 300));
+      print("Items added to backPack");
+      openBackPack(player);
     }
       item = itemInChest;
     return item;

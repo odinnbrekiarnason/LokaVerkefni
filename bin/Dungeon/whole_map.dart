@@ -1,78 +1,93 @@
 import '../Functions.dart';
 
+String introduction = """
+  Welcome to my little game!
+  The rules are really simple,
+  You have to type in keyWords like : up, down, left or right to move for instance.
+  In each room there will be a key and on some there will be Monsters and Chests (Chest = C, Key = K, Monster = M),
+  You will need to get most of the keys to reach the boss room,
+  However you don't need to get all the chest but it will make you stronger.
+  Also anytime you enter a new room you will be in the middle of the room,
+  One more thing if you get debuffed you cannot remove it unless you drink your milk!
+  PS.If you get stuck or cannot reach desired destination type "help" and i will be there to help you! 
+  Anyways that's all. 
+  Good luck and have fun!
+""";
+
 String startingPoint = """
 +----------------^^^----------------+
 |                                   |
 |                                   |
-|                 P                 |
+|          M             K          |
 |                                   >
-|                                   >
+|                 P                 >
 |                                   >
 |                                   |
+|                 C                 |
 |                                   |
 |                                   |
-+----------------vvv----------------+
++----------------VVV----------------+
 """;
 
  String armory = """
 +----------------^^^----------------+
-| Crate           P           Armor |
+| crate           M           Armor |
 |                              Rack |
-|                 M                 |
+|     C                             |
 |                                   |
-| Weapon          C                 >
-| Rack                              > 
+| Weapon                            >
+| Rack            P                 > 
 |                                   >
 |                                   |
-|                                   |
-|                             Crate |
-| Barrel                      Crate |
-+----------------vvv----------------+
+|                               K   |
+|                             crate |
+| Barrel                      crate |
++----------------VVV----------------+
 """;
 
  String diningRoom = """
 +-----------------------------------+
-|  Table                          C |
+|  Table         P                C |
 |                                   |
-|      Chair |--------| Chair       |
+|      chair |--------| chair       |
 |            |        |             |
-|      Chair |  Big   | Chair       >
+|      chair |  Big   | chair       >
 |            |  Dish  |             >
-| door Chair |        | Chair       >
+|      chair |        | chair       >
 |            |        |             |
-|      Chair |________| Chair       |
+|      chair |________| chair       |
 |                                   |
-|                                   |
-| Crate           P          Chairs |
-+----------------vvv----------------+
+|   K                               |
+| crate                      chairs |
++----------------VVV----------------+
 """;
 
  String emptyChamber = """
 +-----------------------------------+
-| Dust                       Crate  |
-| Pile                              |
+| Dust K                     crate  |
+| pile                              |
 |                Barrel             |
 |                                   |
-<    P                      Cobwebs |
+<                P          cobwebs |
 <           Barrel                  |
 |                                   |
-|                     Monster       |
+|                     M             |
 | Dust                              |
-| Pile                        Junk  | 
+| pile                        Junk  | 
 +-----------------------------------+
 """;
 
  String kitchen = """
 +-----------------------------------+
-| Oven |            | *     * |     |
+| Oven |         K  | *     * |     |
 | Oven |            +---------+     |
 |------+                            |
-<  P                                |
-|------+                            |
+<                                   |
+|------+           P                |
 |Fridge|                            |
 |------+                            |
-|                 +-----------------|
-| Cabinet         |  Pans    Pots   |
+|    C            +-----------------|
+| cabinet         |  pans    pots   |
 +-----------------------------------+
 """;
 
@@ -84,9 +99,9 @@ String startingPoint = """
 |                               |
 |---------+                     |
 | Shelves |                     |
-|---------+       M     P       |
+|---------+       M             |
 |                               |
-|                               |
+|               P               |
 |---------+                     |
 | Shelves |                     |
 |---------+            +----+   |
@@ -97,28 +112,28 @@ String startingPoint = """
 |---------+                     |
 |                               |
 |                               |
-+--------------vvv--------------+
++--------------VVV--------------+
 """;
 
  String throneRoom = """
-+----------------^^^----------------+
++-----------------------------------+
 | Banners         P         Banners |
 |                                   |
 |                                   |
 |                                   |
-|                              M    >
-|                              M    >
-|                              M    >
-|              |______|             |
-| Carpet      | Throne |            |
-|             +________+            |
-+-----------------------------------+
+|                 M                 |
+|                                   |
+|                                   |
+|             |_______|             |
+| carpet     | BigSeat |            |
+|            +_________+      C     |
++----------------VVV----------------+
 """;
 
  String bossRoom = """
 +----------------^^^------------------+
 | Torch                       Weapon  |
-|                              Rack   |
+|                 P            Rack   |
 |                                     |
 |                                     |
 |                 B                   |
@@ -133,59 +148,60 @@ String startingPoint = """
  String bedroom = """
 +-----------------^^^-----------------+
 | Bed                       Wardrobe  |
-|                                     |
+|                  P                  |
 |                                     |
 <                                     |
-< Rug                                 |
+< Rug                            K    |
 <                               Bed   |
 |                                     |
 |                                     |
 |                            Wardrobe |
-| Rug                         Mirror  |
-+-----------------vvv-----------------+
+| Rug   C                     mirror  |
++-----------------VVV-----------------+
 """;
 
  String treasureRoom = """
 +-----------------^^^-----------------+
-| C                           Statue  |
+| C                P          Statue  |
 |                                     |
 |                                     |
 | Gold Pile                           |
 |                  M            C     |
 |                                     |
 |                                     |
-|                           Treasure  |
-| Carpet                      Altar   |
-+-----------------vvv-----------------+
+|   K                       Treasure  |
+| carpet                      Altar   |
++-----------------VVV-----------------+
  """;
 
  String storageRoom = """
 +-------------------------------------+
-| Crates                      Barrels |
-|                  M                  |
+| crates                      Barrels |
+|                  M             K    |
 |                                     |
 < Shelves                             |
-<                               Crates|
+<   P                           crates|
 <                                     |
 |     C                               |
 |                            Barrels  |
 | Boxes                       Rack    |
-+-----------------vvv-----------------+
++-----------------VVV-----------------+
  """;
 
  String hallway = """
 +----------------------------^^^------------------------------+
 | Torch                                               Painting|
+<                                                       K     >
+<     P                       M                               >
 <                                                             >
-<                             M                               >
 |                                                             |
-+-----------------vvv-----------------------------------------+
++---------------------------------------------VVV-------------+
  """;
 
 
 
 
-String currentRoomMap(RoomType type, Player player) {
+/*String currentRoomMap(RoomType type, Player player) {
   switch (type) {
     case RoomType.startingPoint:
       return startingPoint;
@@ -212,7 +228,7 @@ String currentRoomMap(RoomType type, Player player) {
     case RoomType.hallway:
       return hallway;
   }
-}
+}*/
 
 
 

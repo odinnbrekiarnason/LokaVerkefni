@@ -3,8 +3,7 @@ import '../Functions.dart';
 
 List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
   List<Room> createdRooms = [];
-  String tempMap = currentRoomMap(getPos(player), player);
-  Key tempKey = Key(name: "Temp", description: "Temp", id: 0);
+  String tempMap = ""; //currentRoomMap(getPos(player), player);
   Chest chest = Chest(item: returnItemList());
 
   for (int i = 0; i < selectedRooms.length; i++) {
@@ -18,7 +17,7 @@ List<Room> roomCreation(List<RoomType> selectedRooms, Player player) {
           name: "Starting Point",
           type: RoomType.startingPoint,
           player: player,
-          id: 1,
+          id: 0,
           printMap: tempMap,
           key: Items().keys[0],
     ));
