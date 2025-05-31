@@ -102,11 +102,11 @@ String startingPoint = """
 |  Table                          C |
 |                                   |
 |      chair |--------| chair       |
-|            |        |             |
-|      chair |  Big   | chair       >
-|            |  Dish  |             >
-|      chair |        | chair       >
-|            |        |             |
+|            |........|             |
+|      chair |..Big...| chair       >
+|            |..Dish..|             >
+|      chair |........| chair       >
+|            |........|             |
 |      chair |________| chair       |
 |                                   |
 |   K                               |
@@ -131,36 +131,36 @@ String startingPoint = """
 
  String kitchen = """
 +-----------------------------------+
-| Oven |         K  | *     * |     |
-| Oven |            +---------+     |
+|.Oven.|         K  |.*.....*.|     |
+|.Oven.|            +---------+     |
 |------+                            |
 <                                   >
 |------+           P                >
 |Fridge|                            >
 |------+                            |
 |    C            +-----------------|
-| cabinet         |  pans    pots   |
+| cabinet         |..pans....pots...|
 +-----------------------------------+
 """;
 
  String library = """
 +--------------^^^--------------+
-| Shelves |              Book   |
+|.Shelves.|              Book   |
 |---------+              Stack  |
 |  Book                         |
 |                               |
 |---------+                     |
-| Shelves |                     |
+|.Shelves.|                     |
 |---------+       M             |
 |                               |
 |               P               |
 |---------+                     |
-| Shelves |                     |
+|.Shelves.|                     |
 |---------+            +----+   |
 | C                    |Desk|   |
 |                      |Lamp|   |
 |---------+            |Desk|   |
-| Shelves |            +----+   |
+|.Shelves.|            +----+   |
 |---------+                     |
 |                               |
 |                               |
@@ -170,7 +170,7 @@ String startingPoint = """
  String throneRoom = """
 +-----------------------------------+
 | Banners    +_________+    Banners |
-|            |___   ___|            |
+|            |___...___|            |
 |    C        |_______|             |
 |                                   |
 |                 M                 |

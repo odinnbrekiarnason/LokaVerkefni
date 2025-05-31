@@ -94,7 +94,7 @@ class Goblin implements Monster {
   @override
   List<String> attack = [
     "Goblin claws at you",
-    "Goblin bites you",
+    "Goblin punches you",
   ];
   @override
   String setAttack = "";

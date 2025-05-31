@@ -136,7 +136,7 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
   }
 
   String dest = mapRows[player.rowPos].length > player.colPos ? mapRows[player.rowPos][player.colPos] : " ";
-  if (dest != " " && !["^", "v", "<", ">", "M", "C", "K", "B"].contains(dest) || ["|", "-"].contains(dest)) {
+  if (dest != " " && !["^", "v", "<", ">", "M", "C", "K", "B"].contains(dest) || ["|", "-",".","_"].contains(dest)) {
     print("Cannot move: blocked by obstacle");
     return map;
   }
@@ -351,9 +351,9 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
     for (int c = 0; c < mapRows[getRowPosItem("M", map)].length; c++) {
       if(mapRows[getRowPosItem("M", map)].contains("P")) {
 //                         -----------------------||-----------------------
-        newRowString.write(c == getColPosItem("M", map) ? " " : mapRows[getRowPosItem("M", map)][c]);
-      } else {
         newRowString.write(c == getColPosItem("M", map) ? "P" : mapRows[getRowPosItem("M", map)][c]);
+      } else {
+        newRowString.write(c == getColPosItem("M", map) ? " " : mapRows[getRowPosItem("M", map)][c]);
       }
     }
     mapRows[getRowPosItem("M", map)] = newRowString.toString();
@@ -364,9 +364,9 @@ String moveSpaces(String map, String direction, int rows, int columns, Player pl
     for (int c = 0; c < mapRows[getRowPosItem("K", map)].length; c++) {
       if (mapRows[getRowPosItem("K", map)].contains("P")) {
 //                         -----------------------||-----------------------
-        newRowString.write(c == getColPosItem("K", map) ? " " : mapRows[getRowPosItem("K", map)][c]);
-      } else {
         newRowString.write(c == getColPosItem("K", map) ? "P" : mapRows[getRowPosItem("K", map)][c]);
+      } else {
+        newRowString.write(c == getColPosItem("K", map) ? " " : mapRows[getRowPosItem("K", map)][c]);
       }
     }
       mapRows[getRowPosItem("K", map)] = newRowString.toString();

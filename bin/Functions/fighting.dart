@@ -95,7 +95,10 @@ void attackMonster(Player player, Monster selectedMonster) {
         while(check == false) {
           getPlayerInfo(player);
           check = true;
+          continue;
         }
+      default :
+        print("Error: Invalid input");
         continue;
     }
     if(flee == false) {

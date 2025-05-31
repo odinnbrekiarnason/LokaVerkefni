@@ -19,11 +19,11 @@ Player createPLayer(Player player) {
         player.playerName.toLowerCase().contains("faggot")) {
       player.playerName = "Dum Dum";
       print("You cannot name your characted that!!");
-      print("Just for that you now do 5 less damage than you would normally");
+      print("Just for that you now do 2 less damage than you would normally");
       print(
         "PS. If you keep writing banned words you will continue to lose damage",
       );
-      player.playerDamage = player.playerDamage - 5;
+      player.playerDamage = player.playerDamage - 2;
       continue;
     } else if(player.playerName.isNotEmpty) {
       print(

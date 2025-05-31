@@ -32,7 +32,7 @@ void playGame() {
       print("PS. you need to type in the direction exactly, not d.3 it needs to be down.3");
       print("If there is an error then to bad so sad cant really help :|");
     }
-      print("1. Backpack\n2. Move player\n3. Check player info\nPlease type 1, 2 or 3 to select option");
       selection(player, player.position, input);
+      print("1. Backpack\n2. Move player\n3. Check player info\nPlease type 1, 2 or 3 to select option");
   }
 }
